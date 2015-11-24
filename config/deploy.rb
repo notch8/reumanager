@@ -18,8 +18,6 @@ role :web, domain
 role :db,  domain, :primary => true
 
 ## modified for passenger standalone
-set :rails_env,      "production"
-set :thin_port, 4039
 set :thin_cmd,  "bundle exec thin"
 set :whenever_command, "bundle exec whenever"
 
