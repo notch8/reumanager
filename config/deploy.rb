@@ -4,7 +4,7 @@ set :stages, %w(production staging)
 # set :default_stage, "staging"
 require 'capistrano/ext/multistage'
 
-set :repository,  "git@github.com:ucsd-ra/reumanager.git"
+set :repository,  "git@github.com:notch8/reumanager.git"
 #set :domain, "192.168.10.103"
 set :domain, "indra"
 #set :deploy_to, "/var/www/#{application}" # I like this location
