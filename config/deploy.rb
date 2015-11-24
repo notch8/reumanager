@@ -8,11 +8,6 @@ set :repository,  "git@github.com:ucsd-ra/reumanager.git"
 #set :domain, "192.168.10.103"
 set :domain, "indra"
 #set :deploy_to, "/var/www/#{application}" # I like this location
-set :deploy_to, "/var/www/#{application}" # I like this location
-set :user, "ubuntu"
-set :keep_releases, 3
-set :rvm_ruby_string, "ree@#{application}"
-set :rvm_type, :system
 set :scm, :git
 set :branch, :mstp_surf
 
