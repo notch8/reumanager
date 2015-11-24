@@ -1,8 +1,9 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+set :stages, %w(production staging)
+# set :default_stage, "staging"
+require 'capistrano/ext/multistage'
 
-#set :application, "reu_surf" #matches names used in smf_template.erb
-set :application, "mstp_surf_demo" #matches names used in smf_template.erb
 set :repository,  "git@github.com:ucsd-ra/reumanager.git"
 #set :domain, "192.168.10.103"
 set :domain, "indra"
@@ -13,6 +14,7 @@ set :keep_releases, 3
 set :rvm_ruby_string, "ree@#{application}"
 set :rvm_type, :system
 set :scm, :git
+set :branch, :mstp_surf
 
 default_run_options[:pty] = true
 

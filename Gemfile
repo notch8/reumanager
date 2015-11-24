@@ -3,7 +3,7 @@ source 'http://gems.github.com'
 
 gem 'capistrano', :require => false
 gem 'rvm-capistrano', :require => false
-
+gem 'capistrano-ext', :require => false
 gem 'rails', '2.3.15'
 gem 'carmen', '0.2.8'
 #gem 'exception_notification', '2.3.3.0'

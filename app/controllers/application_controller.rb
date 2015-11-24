@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 	rescue_from(ActionController::InvalidAuthenticityToken) { render :file => 'public/422.html', :status => 422}
 
   def authenticate_for_staging
-    if Rails.env == 'production'
+    if Rails.env == 'staging'
       authenticate_or_request_with_http_basic do |username, password|
         username == "internship" && password == "ftw"
       end
