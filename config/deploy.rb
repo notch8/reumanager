@@ -3,9 +3,9 @@ require "rvm/capistrano"
 
 #set :application, "reu_surf" #matches names used in smf_template.erb
 set :application, "mstp_surf_demo" #matches names used in smf_template.erb
-set :repository,  "git@github.com:notch8/reumanager.git"
+set :repository,  "git@github.com:ucsd-ra/reumanager.git"
 #set :domain, "192.168.10.103"
-set :domain, "indra.ucsd.edu"
+set :domain, "indra"
 #set :deploy_to, "/var/www/#{application}" # I like this location
 set :deploy_to, "/var/www/#{application}" # I like this location
 set :user, "ubuntu"
