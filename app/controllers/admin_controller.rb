@@ -14,7 +14,7 @@ require 'ftools'
     @withdrawn = User.all :order => 'lastname ASC', :conditions => [ "status = ? and role_id = ?", 'Withdrawn', 2]
     @accepted = User.all :order => 'lastname ASC', :conditions => [ "status = ? and role_id = ?", 'Accept',  2 ]
   end
-  
+
   def list
     @all_students = User.find(:all, :order => 'lastname ASC', :conditions => ['role_id = ?', 2])
 
@@ -34,10 +34,10 @@ require 'ftools'
 		if params != nil
 			and_conditions = []
 			and_key_values = {}
-			
+
 			and_conditions << "users.role_id = :role_id AND"
 			and_key_values[:role_id] = 2
-			
+
 			if params[:status] != nil
 			  and_conditions << "users.status = :status AND"
 			  and_key_values[:status] = (params[:status])
@@ -53,13 +53,13 @@ require 'ftools'
 		else
 			@students = User.paginate :page => params[:page], :order => order, :conditions => ['role_id = ?', 2]
 		end
-		
+
     respond_to do |format|
-      format.html # index.html. 	
+      format.html # index.html.
       format.xml  { render :xml => @students }
     end
   end
-  
+
   def show
 	  @all_students = User.find(:all, :order => 'lastname ASC', :conditions => ['role_id = ?', 2])
     @user = User.find(params[:id])
@@ -70,7 +70,7 @@ require 'ftools'
 			page.redirect_to((params[:application_status]) || url_for(:controller => 'admin'))
 		end
   end
-  
+
   def select_student
 		render :update do |page|
 			page.redirect_to :action => "show", :id => params[:student]
@@ -89,12 +89,12 @@ require 'ftools'
       end
     end
   end
-    
+
   def total
     @all_students = User.find(:all, :order => 'lastname ASC', :conditions => ['role_id = ?', 2])
     @students = User.paginate :conditions => ['role_id = ?', 2], :page => params[:page], :order => 'lastname ASC'
 		@export = User.all :order => 'lastname ASC', :conditions => [ "role_id = ?", 2 ]
-		
+
     render :action => "list"
   end
 
@@ -102,7 +102,7 @@ require 'ftools'
     @all_students = User.find(:all, :order => 'lastname ASC', :conditions => ['role_id = ?', 2])
     @students = User.paginate :page => params[:page], :order => 'lastname ASC', :conditions => [ "submitted_at is null and role_id = ?", 2 ]
 		@export = User.all :order => 'lastname ASC', :conditions => [ "submitted_at is null and role_id = ?", 2 ]
-		
+
     render :action => "list"
   end
 
@@ -121,7 +121,7 @@ require 'ftools'
 
     render :action => "list"
   end
-  
+
 	def print
 		if @s = User.find(params[:id])
 			@s.make_pdf
@@ -144,7 +144,7 @@ require 'ftools'
 			r.make_pdf(pdf)
 			pdf.start_new_page
 		end
-		if pdf.save_as("#{RAILS_ROOT}/public/pdf/complete.pdf")
+		if pdf.save_as("#{RAILS_ROOT}/public/system/pdf/complete.pdf")
 			flash[:notice] = "Report created."
 			@report = "/pdf/complete.pdf"
 			render :action => "list"
@@ -153,33 +153,33 @@ require 'ftools'
 			redirect_to :action => "index"
 		end
 	end
-  
+
   def delete
     if request.delete? and User.find(params[:id]).destroy
-      flash[:notice] = "User has been permanently deleted." 
+      flash[:notice] = "User has been permanently deleted."
       redirect_to :action => "index"
     else
       flash[:notice] = "There was an error"
       redirect_to :action => "index"
     end
   end
-  
+
   def export
     # initialize new speadsheet
     @spreadsheet_dir = File.makedirs "#{RAILS_ROOT}/public/spreadsheets" unless File.exist?("#{RAILS_ROOT}/public/spreadsheets")
     @spreadsheet_file = "#{RAILS_ROOT}/public/spreadsheets/#{(params[:status] || params[:prev_action])}_applicants_#{Date.today}_#{Time.now.strftime("%H-%M_%p")}.xls"
     workbook = Spreadsheet::Workbook.new # Spreadsheet.open(spreadsheet_dir+spreadsheet_file)
     worksheet = workbook.create_worksheet :name => "Applicant Data"
-    
+
     # create styles
     page_title_format = Spreadsheet::Format.new( :color => "black", :bold => true, :size => 30 )
     header_format = Spreadsheet::Format.new( :color => "black", :bold => true, :size => 12 )
     data_format = Spreadsheet::Format.new( :color => "black", :bold => true, :size => 10 )
     workbook.default_format = data_format
-    
+
     # setup headers
     worksheet.row(0).default_format = page_title_format
-    worksheet[0,0] = "#{Time.now.year} NSFREU Applicant Data" 
+    worksheet[0,0] = "#{Time.now.year} NSFREU Applicant Data"
     worksheet.row(1).default_format = header_format
     worksheet.row(1).concat %w{ID Name Email Gender Race Ethnicity Disability Current\ University Academic\ Year Major/Minor GPA}
     worksheet.row(1).default_format = header_format
@@ -211,25 +211,25 @@ require 'ftools'
 		    @applicants = User.all :order => 'lastname ASC', :conditions => ['role_id = ?', 2], :include => [ :academic_record, :recommenders, :recommendation ]
 			end
 		end
-    
+
     # iterate over each applicant
     # @applicants.each_with_index do |a,i|
     @row = 1
     @applicants.each do |a|
       @row += 1
-      worksheet.row(@row).concat [a.id, 
-				"#{a.firstname} #{a.lastname}", 
-				a.email, 
-				a.gender, 
-				a.race, 
-				a.ethnicity, 
-				a.disability, 
-				(a.academic_record.college if a.academic_record), 
-				(a.academic_record.college_level if a.academic_record), 
-				(a.academic_record.major if a.academic_record), 
+      worksheet.row(@row).concat [a.id,
+				"#{a.firstname} #{a.lastname}",
+				a.email,
+				a.gender,
+				a.race,
+				a.ethnicity,
+				a.disability,
+				(a.academic_record.college if a.academic_record),
+				(a.academic_record.college_level if a.academic_record),
+				(a.academic_record.major if a.academic_record),
 				(a.academic_record.gpa if a.academic_record)]
     end
-        
+
     # write file
     workbook.write @spreadsheet_file
     @filename = @spreadsheet_file.split("/").last
@@ -241,7 +241,7 @@ require 'ftools'
       page[:excel_export].show
     end
   end
-  
+
   def close_export
     # clean up tmp files
     expunge_excel_files
@@ -252,9 +252,9 @@ require 'ftools'
       page[:wait_box].show
     end
   end
-  
+
   def reset_db
-    if request.post? 
+    if request.post?
       if params[:delete] == 'delete'
         system "cd #{RAILS_ROOT} && bundle exec rake db:migrate:reset RAILS_ENV='production' && bundle exec rake db:seed RAILS_ENV='production';touch tmp/restart.txt;"
         flash[:succes] = "Database wiped.  You may need to restart your web server for the changes to take effect."
@@ -265,10 +265,10 @@ require 'ftools'
       end
     end
   end
-  
+
   protected
   def expunge_excel_files
     Dir["#{RAILS_ROOT}/public/spreadsheets/*"].each {|f| File.delete f} if File.exist?("#{RAILS_ROOT}/public/spreadsheets")
   end
-  
+
 end

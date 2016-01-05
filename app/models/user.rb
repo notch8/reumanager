@@ -4,25 +4,25 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
-  
+
   belongs_to                :role
   has_one                   :academic_record, :dependent => :destroy
   has_many                  :recommendations, :dependent => :destroy
   has_many                  :recommenders, :dependent => :destroy
   has_one                   :extra, :dependent => :destroy
-  
+
   validates_format_of       :firstname,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
   validates_length_of       :firstname,     :maximum => 100
   validates_format_of       :lastname,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
   validates_length_of       :lastname,     :maximum => 100
   validates_length_of       :password, :within => 8..40, :if => :password_required?
-  
+
   validates_presence_of     :email, :firstname, :lastname, :father_edu, :mother_edu
   validates_length_of       :email,    :within => 6..100 #r@a.wk
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
   validates_presence_of     :dob, :street, :city, :state, :zip, :phone, :email, :citizenship
-  
+
   validates_inclusion_of    :citizenship, :in => ['United States', 'U.S. Permanent Resident'], :message => "must be in the United States or as US Permanent Resident status in order to continue with the application."
 
   # HACK HACK HACK -- how to do attr_accessible from here?
@@ -32,14 +32,14 @@ class User < ActiveRecord::Base
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
-  # uff.  this is really an authorization, not authentication routine.  
+  # uff.  this is really an authorization, not authentication routine.
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   cattr_reader :per_page
   @@per_page = 20
-  
+
   before_create :make_token
-  
+
   def primary_recommender?
     !self.recommenders.primary.empty?
   end
@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
     @name << (self.middlename + " ") if self.middlename && self.middlename != ''
     @name << (self.lastname) if self.lastname
   end
-  
+
   # Activates the user in the database.
   def activate!
     @activated = true
@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
     self.make_token
     save(false)
   end
-  
+
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated
@@ -93,10 +93,10 @@ class User < ActiveRecord::Base
     # the lack of an activation code means they have not activated yet
     !self.activated_at.nil?
   end
-  
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #
-  # uff.  this is really an authorization, not authentication routine.  
+  # uff.  this is really an authorization, not authentication routine.
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
@@ -167,7 +167,7 @@ class User < ActiveRecord::Base
 				pdf.text "In what capacity have you known the applicant: #{self.recommendation.know_capacity}\n", :font_size => 11, :justification => :left, :left => 33, :right => 33
 				pdf.text "Please rate the applicant's overall promise in comparison with other individuals whom you have known at similar stages in their careers: #{self.recommendation.rating}\n", :font_size => 11, :justification => :left, :left => 33, :right => 33
 				pdf.text "What is the applicant's GPA: #{self.recommendation.gpa} out of #{self.recommendation.gpa_range}\n", :font_size => 11, :justification => :left, :left => 33, :right => 33
-				pdf.text "Is your institution primarily an undergraduate institution: #{self.recommendation.undergrad_inst}\n\n", :font_size => 11, :justification => :left, :left => 33, :right => 33 
+				pdf.text "Is your institution primarily an undergraduate institution: #{self.recommendation.undergrad_inst}\n\n", :font_size => 11, :justification => :left, :left => 33, :right => 33
 
 				pdf.text "Faculty Recommendation\n", :font_size => 13, :justification => :left, :left => 33, :right => 33
 				pdf.text "#{self.recommendation.faculty_comment}", :font_size => 11, :justification => :left, :left => 33, :right => 33
@@ -177,8 +177,8 @@ class User < ActiveRecord::Base
 		else
 				pdf.text "No recommender yet..."
 		end
-		
-		pdf.save_as("#{RAILS_ROOT}/public/pdf/#{self.id.to_s}_#{self.lastname}.pdf")
+
+		pdf.save_as("#{RAILS_ROOT}/public/system/pdf/#{self.id.to_s}_#{self.lastname}.pdf")
 	end
 
    def send_reg_confirmation
@@ -188,7 +188,7 @@ class User < ActiveRecord::Base
    end
 
    def send_app_confirmation
-     self.update_attribute("submitted_at", Time.now)     
+     self.update_attribute("submitted_at", Time.now)
      email = UserMailer.create_app_confirmation(self.id, self.token, self.firstname, self.lastname, self.email)
      email.set_content_type('multipart', 'mixed')
      UserMailer.deliver(email)
@@ -214,7 +214,7 @@ class User < ActiveRecord::Base
      email.set_content_type('multipart', 'mixed')
      UserMailer.deliver(email)
    end
-   
+
    def send_second_rec_reminder
      self.update_attribute("rec_request_at", Time.now)
      email = UserMailer.create_rec_reminder(self.secondary_recommender, self.id, self.token, self.firstname, self.lastname, self.email)
@@ -227,26 +227,26 @@ class User < ActiveRecord::Base
      email.set_content_type('multipart', 'mixed')
      UserMailer.deliver(email)
    end
-   
+
    def send_complete_app_student
      self.update_attribute("completed_at", Time.now)
      email = UserMailer.create_complete_app_student(self.firstname, self.lastname, self.email)
      email.set_content_type('multipart', 'mixed')
      UserMailer.deliver(email)
    end
-   
+
    def send_application_reminder
      email = UserMailer.create_application_reminder(self.firstname, self.lastname, self.email)
      email.set_content_type('multipart', 'mixed')
      UserMailer.deliver(email)
    end
-   
+
    def set_to_admin!
      self.activate!
      self.role = Role.find 1
      self.save_with_validation(false)
    end
-   
+
    def make_token
      self.token = Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by{rand}.join)
      self.token_created_at = Time.now
@@ -263,7 +263,7 @@ class User < ActiveRecord::Base
   			u.send_reg_confirmation
   		end
     end
-    
+
     def send_rejection_letter
       if self.emailed_rejection_letter_at == nil
         email = UserMailer.create_rejection_letter(self)
