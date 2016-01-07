@@ -18,10 +18,10 @@ set :rvm_type, :system
 set :server_name, domain
 set :scm, :git
 set :default_env, {
-  "RAILS_RELATIVE_URL_ROOT" => "/rqi"
+  "RAILS_RELATIVE_URL_ROOT" => "/iit-diabetes"
 }
 
-set :asset_env, "#{asset_env} RAILS_RELATIVE_URL_ROOT=/rqi"
+set :asset_env, "#{asset_env} RAILS_RELATIVE_URL_ROOT=/iit-diabetes"
 
 default_run_options[:pty] = true
 
