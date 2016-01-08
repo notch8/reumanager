@@ -8,7 +8,7 @@ require "rvm/capistrano"
 set :application, "rqi" #matches names used in smf_template.erb
 set :repository,  "https://github.com/ucsd-ra/reumanager.git"
 set :branch, :rqi
-set :domain, 'indra.ucsd.edu'
+set :domain, 'indra'
 set :deploy_to, "/var/www/#{application}" # I like this location
 set :deploy_via, :remote_cache
 set :user, "ubuntu"
