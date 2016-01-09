@@ -5,9 +5,9 @@ require "rvm/capistrano"
 #set :whenever_command, "bundle exec whenever"
 #require "whenever/capistrano"
 
-set :application, "rqi" #matches names used in smf_template.erb
+set :application, "iit_diabetes" #matches names used in smf_template.erb
 set :repository,  "https://github.com/ucsd-ra/reumanager.git"
-set :branch, :rqi
+set :branch, :iit_diabetes
 set :domain, 'indra'
 set :deploy_to, "/var/www/#{application}" # I like this location
 set :deploy_via, :remote_cache
