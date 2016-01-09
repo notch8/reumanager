@@ -19,3 +19,9 @@
 
 <h4>Computer Skills</h4>
 <%= raw(Markdown.render applicant.cpu_skills) if applicant.cpu_skills %>
+
+<h4>What are you future academic/career goals?</h4>
+<%= raw(Markdown.render applicant.essay_1) if applicant.essay_1 %>
+
+<h4>Describe an activity (hobby, sport, club, service, etc.) you enjoy outside of classes</h4>
+<%= raw(Markdown.render applicant.essay_2) if applicant.essay_2 %>

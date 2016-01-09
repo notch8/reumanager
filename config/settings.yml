@@ -31,12 +31,12 @@ notification_date:
   name: notification_date
   description: This date is used to let the applicants know when to expect a response.
     This is used in the confirmation emails.
-  value: 2016-3-15 
+  value: 2016-3-15
 program_start_date:
   name: program_start_date
   description: This date is used in the header and confirmation emails to set when
     the NSFREU program begins.
-  value: 2016-6-30 
+  value: 2016-6-30
 program_end_date:
   name: program_end_date
   description: Similar to the above value, this marks the end date for your NSFREU
@@ -50,6 +50,9 @@ check_back_date:
     year's application.
   value: 2016-9-1
 mail_from:
+  name: from_email
+  description: |
+    where we send emails to students from
   default: info@reumanager.com
 funding_acknowlegement:
   name: funding_acknowlegement

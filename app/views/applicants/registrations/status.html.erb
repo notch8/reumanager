@@ -58,6 +58,8 @@
 
           <li><b>Computer Skills</b> <%=raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %></li>
           <li><b>Laboratory Skills</b> <%=raw(Markdown.render(current_applicant.lab_skills)) if current_applicant.lab_skills %></li>
+          <li><b>What are you future academic/career goals?</b> <%=raw(Markdown.render(current_applicant.essay_1)) if current_applicant.essay_1 %></li>
+          <li><b>Describe an activity (hobby, sport, club, service, etc.) you enjoy outside of classes</b> <%=raw(Markdown.render(current_applicant.essay_2)) if current_applicant.essay_2 %></li>
         </ul>
       </div>
     </div>
