@@ -6,7 +6,7 @@ require "rvm/capistrano"
 #require "whenever/capistrano"
 
 set :application, "iit_diabetes" #matches names used in smf_template.erb
-set :repository,  "https://github.com/ucsd-ra/reumanager.git"
+set :repository,  "https://github.com/notch8/reumanager.git"
 set :branch, :iit_diabetes
 set :domain, 'indra'
 set :deploy_to, "/var/www/#{application}" # I like this location
