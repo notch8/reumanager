@@ -68,6 +68,8 @@
 
   <% if current_applicant.state == 'completed_recommender_info' && !expired? %>
     <%= content_tag :div, content_tag(:p, link_to("Submit Application", submit_application_path, :class => "btn btn-success")), :class => 'inner' %>
+  <% elsif !expired? %>
+      <p>You must complete your application and fill in your recommender information before you are able to submit.</p>
   <% else %>
     <h3>The application deadline has past</h3>
   <% end %>
