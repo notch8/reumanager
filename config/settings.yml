@@ -7,17 +7,17 @@ university:
 department:
   default: Scripps Institution of Oceanography
 application_start:
-  default: Mon, 10 Feb 2014 00:00:00 -0700
+  default: Fri, 17 Jan 2016 00:00:00 -0700
 application_deadline:
-  default: Sun, 21 Mar 2015 00:00:00 -0700
+  default: Tues, 15 Mar 2016 00:00:00 -0700
 notification_date:
-  default: Sun, 21 Mar 2015 00:00:00 -0700
+  default: Fri, 1 Apr 2016 00:00:00 -0700
 program_start_date:
-  default: Thr, 19 Jun 2014
+  default: Thr, 19 Jun 2016 00:00:00 -0700
 program_end_date:
-  default: Sat, 23 Aug 2014
+  default: Sat, 26 Aug 2016 00:00:00 -0700
 check_back_date:
-  default: Fri, 1 Feb 2015
+  default: Fri, 1 Apr 2017 00:00:00 -0700
 mail_from:
   default: siodept@sio.ucsd.edu
 password_min_length:
