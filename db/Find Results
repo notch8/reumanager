@@ -1,0 +1,33 @@
+Searching 1558 files for "past projects"
+
+/Users/bonnie/Desktop/code/reumanager/app/views/layouts/_buttons.html.erb:
+   34  
+   35      	<% if params[:controller] == "projects" && params[:action] == "index" -%>
+   36:     		<li class="selected"><%= link_to "Past Projects", "https://scripps.ucsd.edu/news/surf-program-2015-student-profiles" %></li>
+   37      	<% else -%>
+   38:     		<li><%= link_to "Past Projects", "https://scripps.ucsd.edu/news/surf-program-2015-student-profiles" %></li>
+   39      	<% end -%>
+   40  
+
+/Users/bonnie/Desktop/code/reumanager/public/404.html:
+   56  			
+   57  				
+   58: 					<li><a href="https://www.be.ucsd.edu/nsfreu/projects">Past Projects</a></li>
+   59  		
+   60  					<li><a href="https://www.be.ucsd.edu/nsfreu/">REU Welcome</a></li>
+
+/Users/bonnie/Desktop/code/reumanager/public/422.html:
+   54  			
+   55  				
+   56: 					<li><a href="https://www.be.ucsd.edu/nsfreu/projects">Past Projects</a></li>
+   57  		
+   58  					<li><a href="https://www.be.ucsd.edu/nsfreu/">REU Welcome</a></li>
+
+/Users/bonnie/Desktop/code/reumanager/public/500.html:
+   56  			
+   57  				
+   58: 					<li><a href="https://www.be.ucsd.edu/nsfreu/projects">Past Projects</a></li>
+   59  		
+   60  					<li><a href="https://www.be.ucsd.edu/nsfreu/">REU Welcome</a></li>
+
+5 matches across 4 files
