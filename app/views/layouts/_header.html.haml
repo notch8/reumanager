@@ -1,8 +1,15 @@
 %header.demo
-  %h4 This is a <b>DEMO</b> of the REU Manager. You can login to the admin interface using the email<b> 'admin@reumanager.com'</b> and password <b>'DemoApp'</b>.
-  %h4 Similarly, you can create a new student account by applying or view an example student account by using the email <b>'jmadison@reumanager.com'</b> and password <b>'DemoApp'</b>.
+  %h4.demo This is a <b>DEMO</b> of the REU Manager. You can login to the admin interface using the email<b> 'admin@reumanager.com'</b> and password <b>'DemoApp'</b>.
+  %h4.demo Similarly, you can create a new student account by applying or view an example student account by using the email <b>'jmadison@reumanager.com'</b> and password <b>'DemoApp'</b>.
 
 = render "layouts/navbar"
+
+#flash
+  = content_tag 'div', (flash[:alert]), :class => 'alert', :id => 'alert', :onclick => "$(this).slideUp();" if flash[:alert]
+  = content_tag 'div', (flash[:error]), :class => 'alert alert-error', :id => 'error', :onclick => "$(this).slideUp();" if flash[:error]
+  = content_tag 'div', (flash[:notice]), :class => 'alert alert-notice', :id => 'notice', :onclick => "$(this).slideUp();" if flash[:notice]
+  = content_tag 'div', (flash[:success]), :class => 'alert alert-success', :id => 'success', :onclick => "$(this).slideUp();" if flash[:success]
+
 
 %header.container
   .header-inner.main-header
