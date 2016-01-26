@@ -1,9 +1,13 @@
-#header_link_1, #header_link_2 {
+a.header-link-1, a.header-link-2 {
   text-align:left;
   font-weight:normal;
   margin:2px -7px 10px -7px;
   padding:5px 5px 5px 15px;
-  font-size:1.6em;
+  font-size:1.0em;
   background-color: inherit;
-  color:#fff;
+  color:#000;
+}
+
+a.header-link-1:visited {
+  color:#000;
 }
