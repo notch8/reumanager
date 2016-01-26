@@ -1,3 +1,7 @@
+set :application, "new_demo" #matches names used in smf_template.erb
+set :rvm_ruby_string, "2.1.1@#{application}"
+set :rvm_type, :system
+
 require "bundler/capistrano"
 require "rvm/capistrano"
 # require 'capistrano/ext/database'
@@ -5,7 +9,6 @@ require "rvm/capistrano"
 #set :whenever_command, "bundle exec whenever"
 #require "whenever/capistrano"
 
-set :application, "new_demo" #matches names used in smf_template.erb
 set :repository,  "https://github.com/notch8/reumanager.git"
 set :branch, :new_demo
 set :domain, 'indra'
@@ -13,8 +16,6 @@ set :deploy_to, "/var/www/#{application}" # I like this location
 set :deploy_via, :remote_cache
 set :user, "ubuntu"
 set :keep_releases, 6
-set :rvm_ruby_string, "2.1.1@#{application}"
-set :rvm_type, :system
 set :server_name, domain
 set :scm, :git
 set :default_env, {
