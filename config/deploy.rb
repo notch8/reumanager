@@ -10,7 +10,7 @@ require "rvm/capistrano"
 #require "whenever/capistrano"
 
 set :repository,  "https://github.com/notch8/reumanager.git"
-set :branch, :new_demo
+set :branch, 'new_demo'
 set :domain, 'indra'
 set :deploy_to, "/var/www/#{application}" # I like this location
 set :deploy_via, :remote_cache
