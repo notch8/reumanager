@@ -1,4 +1,4 @@
-set :application, "new_demo" #matches names used in smf_template.erb
+set :application, 'new_demo' #matches names used in smf_template.erb
 set :rvm_ruby_string, "2.1.1@#{application}"
 set :rvm_type, :system
 
@@ -8,7 +8,7 @@ require "rvm/capistrano"
 
 #set :whenever_command, "bundle exec whenever"
 #require "whenever/capistrano"
-
+# set :repository,  'git@github.com:notch8/reumanager.git'
 set :repository,  "https://github.com/notch8/reumanager.git"
 set :branch, 'new_demo'
 set :domain, 'indra'

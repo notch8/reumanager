@@ -376,7 +376,7 @@ DEPENDENCIES
   bond
   bootstrap-datepicker-rails!
   bootstrap-sass (~> 2.1)
-  capistrano
+  capistrano (= 2.15.5)
   capybara
   capybara-webkit
   carmen-rails!
@@ -417,7 +417,7 @@ DEPENDENCIES
   rich!
   rspec-rails
   ruby_gntp
-  rvm-capistrano
+  rvm-capistrano (= 1.5.1)
   sass-rails (~> 4.0.0)
   shoulda
   simplecov
@@ -427,3 +427,6 @@ DEPENDENCIES
   what_methods
   whenever
   wirble
+
+BUNDLED WITH
+   1.11.2

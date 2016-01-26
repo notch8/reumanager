@@ -9,7 +9,8 @@ gem 'addressable'
 gem 'carmen-rails', :github => 'jim/carmen-rails', :branch => 'master'
 gem 'client_side_validations', :github => "tagliala/client_side_validations", :branch => "rails-4.2"
 gem 'cocaine', :git => 'git://github.com/thoughtbot/cocaine.git'
-gem 'capistrano'
+gem 'capistrano', '2.15.5'
+# gem 'capistrano'
 gem 'devise'
 gem 'factory_girl_rails'
 gem 'faker'
@@ -24,7 +25,8 @@ gem 'paper_trail'
 gem 'rails_admin'
 gem 'redcarpet'
 gem 'rich', :git => "https://github.com/joeswann/rich.git"
-gem 'rvm-capistrano', :require => false
+# gem 'rvm-capistrano', :require => false
+gem 'rvm-capistrano', '1.5.1', :require => false
 # gem 'sqlite3'
 gem 'state_machine'
 gem 'whenever', :require => false
