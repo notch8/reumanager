@@ -1,8 +1,10 @@
 .row
-  .span8
+  .col-xs-6
     .inner
       %h3 General Info
       = raw Snippet[:general_description]
+  .col-xs-6
+    .inner
       - if expired?
         %h3.deadline
           The deadline for applications has passed. Please sign in to see existing application status.
@@ -17,6 +19,5 @@
           - else
             = link_to "Apply Now", new_applicant_registration_path, :class => "btn btn-large btn-ar btn-primary", :type => "button"
 
-  %aside.span4
-    .inner
-      =render :partial => "aside_text"
+  %aside
+    =render :partial => "aside_text"
