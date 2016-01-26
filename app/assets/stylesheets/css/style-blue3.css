@@ -2755,6 +2755,12 @@ textarea.form-control:focus {
 .panel-primary {
   border-color: #6695e2;
 }
+.panel-primary h2{
+  color: white;
+}
+.panel-heading h2{
+  color:white
+}
 .panel-primary .panel-heading,
 .panel-primary .panel-footer {
   background-color: #6695e2;

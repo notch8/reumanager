@@ -1,32 +1,8 @@
 <fieldset>
-  <div class="row">
-
-    <div class="span4">
-      <div class="inner">
-        <%= f.text_field :title, :placeholder => :Title %>
-      </div>
-    </div>
-
-    <div class="span4 offset1">
-      <div class="inner">
-        <%= f.text_field :date, 'data-behaviour' => 'datepicker', :placeholder => "Date (YYYY-MM-DD)" %>
-      </div>
-    </div>
-
-    <div class="span9">
-      <div class="inner">
-        <%= f.text_area :description, :class => 'span8', :rows => 2, :placeholder => "Award Description (Optional)" %>
-      </div>
-    </div>
-
-    <div class="span9">
-      <div class="inner">
+        <%= f.text_field :title, :class=> 'form-control', :placeholder => :Title %>
+        <%= f.text_field :date, 'data-behaviour' => 'datepicker', :class=>'form-control', :placeholder => "Date (YYYY-MM-DD)" %>
+        <%= f.text_area :description, :class => 'form-control', :rows => 2, :placeholder => "Award Description (Optional)" %>
         <%= f.hidden_field :_destroy %>
         <%= link_to "remove this record", '#', class: "remove_fields btn btn-mini btn-danger" %>
-      </div>
-    </div>
-
-  </div>
-
   <hr class="inner clear" />
 </fieldset>
