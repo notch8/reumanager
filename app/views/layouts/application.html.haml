@@ -8,11 +8,12 @@
 
     = javascript_include_tag :application
 
-    -# %script{ :src => "/assets/js/styleswitcher.js?body=1" }
-    -# %script{ :src => "/assets/js/styleswitcher_leadpage.js?body=1" }
+    %script{ :src => "/assets/js/styleswitcher.js?body=1" }
+    %script{ :src => "/assets/js/styleswitcher_leadpage.js?body=1" }
+    = stylesheet_link_tag "/assets/css/style-blue3";
 
     /[if lt IE 9]
-      =raw microsloth_sucks
+    =raw microsloth_sucks
     %link{:href => "#{image_path('icons/favicon.ico')}", :rel => "shortcut icon", :type => "image/x-icon"}/
     %link{:href => "#{image_path('icons/apple-touch-icon.png')}", :rel => "apple-touch-icon"}/
     %link{:href => "#{image_path('icons/apple-touch-icon-57x57.png')}", :rel => "apple-touch-icon", :sizes => "57x57"}/
