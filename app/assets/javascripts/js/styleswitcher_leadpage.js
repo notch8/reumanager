@@ -79,7 +79,7 @@ function navbar_style(navbar_class) {
 
 function urlofdoc (jsfile) {
     var i, element, myfile, myurl;
-    var scriptElement = $("script[src*='styleswitcher_leadpage.js']");
+    var scriptElement = $("script[src*='styleswitcher_leadpage']");
 
     myfile = scriptElement.attr("src");
 

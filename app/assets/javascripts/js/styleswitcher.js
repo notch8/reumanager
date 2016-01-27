@@ -110,7 +110,7 @@ function navbar_style(navbar_class) {
 
 function urlofdoc (jsfile) {
     var i, element, myfile, myurl;
-    var scriptElement = $("script[src*='styleswitcher.js']");
+    var scriptElement = $("script[src*='styleswitcher']");
 
     myfile = scriptElement.attr("src");
 
