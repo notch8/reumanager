@@ -8,7 +8,8 @@
     <div class="panel-body">
 
       <div class="form-group">
-        <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }), :include_blank => 'Current Academic Level', :class => "form-control"%>
+        <%= f.label :academic_level %>
+        <%= f.select(:academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }), {}, { :include_blank => 'Current Academic Level', :class => "form-control" }) %>
 
 
         <%= f.fields_for :records do |builder| %>
@@ -58,8 +59,8 @@
 
     <%= render "applicants/shared/nav" %>
       <div class="panel-body">
-        <p class='clear'><%= f.submit "Save Academic Info", :class => "btn btn-success" %></p>
-      </div>  
+        <p class='clear'><%= f.submit "Save Academic Info", :class => "btn btn-ar btn-primary" %></p>
+      </div>
   </div>
 
 

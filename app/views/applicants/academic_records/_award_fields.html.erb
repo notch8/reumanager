@@ -1,8 +1,15 @@
 <fieldset>
-        <%= f.text_field :title, :class=> 'form-control', :placeholder => :Title %>
-        <%= f.text_field :date, 'data-behaviour' => 'datepicker', :class=>'form-control', :placeholder => "Date (YYYY-MM-DD)" %>
-        <%= f.text_area :description, :class => 'form-control', :rows => 2, :placeholder => "Award Description (Optional)" %>
-        <%= f.hidden_field :_destroy %>
-        <%= link_to "remove this record", '#', class: "remove_fields btn btn-mini btn-danger" %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :class=> 'form-control', :placeholder => :Title %>
+
+  <%= f.label :date %>
+  <%= f.text_field :date, 'data-behaviour' => 'datepicker', :class=>'form-control', :placeholder => "Date (YYYY-MM-DD)" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, :class => 'form-control', :rows => 2, :placeholder => "Award Description (Optional)" %>
+
+  <%= f.hidden_field :_destroy %>
+  <br />
+  <%= link_to "remove this record", '#', class: "remove_fields btn btn-mini btn-danger" %>
   <hr class="inner clear" />
 </fieldset>
