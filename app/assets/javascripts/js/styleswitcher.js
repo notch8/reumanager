@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     /* Difinimos variables */
     // var url_base = urlofdoc ('styleswitcher.js');
-    var url_css = "/assets/css/";
+    var url_css = "/css/";
     var colorLink = $("link[href|= '" + url_css + "style']");
     var widthLink = $("link[href|= '" + url_css + "width']");
     var switchCheck = $('input[name="full-width-checkbox"]');
