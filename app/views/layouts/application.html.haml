@@ -7,6 +7,10 @@
     = javascript_include_tag :modernizr
 
     = javascript_include_tag :application
+
+    %script{ :src => "/assets/js/styleswitcher.js?body=1" }
+    %script{ :src => "/assets/js/styleswitcher_leadpage.js?body=1" }
+
     /[if lt IE 9]
       =raw microsloth_sucks
     %link{:href => "#{image_path('icons/favicon.ico')}", :rel => "shortcut icon", :type => "image/x-icon"}/
