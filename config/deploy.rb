@@ -34,12 +34,17 @@ set :db_server_app, "mysql"
 set :db_database_name, 'surf_production'
 set :db_username, 'surf'
 
+after "deploy:update_code", "deploy:symlink_pdf"
 namespace :deploy do
 
   desc "chown & chmod to www-data"
   task :chown do
     sudo "chown -R #{user}:www-data #{deploy_to}"
     sudo "chmod -R 770 #{deploy_to}"
+  end
+
+  task :symlink_pdf, :roles => :app, :except => { :no_release => true } do
+    run "ln -s #{shared_path}/pdf #{release_path}/public/pdf"
   end
 
   task :start, :roles => :app, :except => { :no_release => true } do
