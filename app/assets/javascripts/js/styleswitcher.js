@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
     /* Difinimos variables */
-    var url_base = urlofdoc ('styleswitcher.js');
-    var url_css = url_base + "css/";
+    // var url_base = urlofdoc ('styleswitcher.js');
+    var url_css = "/assets/css/";
     var colorLink = $("link[href|= '" + url_css + "style']");
     var widthLink = $("link[href|= '" + url_css + "width']");
     var switchCheck = $('input[name="full-width-checkbox"]');
@@ -42,7 +42,7 @@ $(document).ready(function() {
     switchCheck.on('switchChange.bootstrapSwitch', function(event, state) {
         if (state) {
             widthLink.attr("href", url_css + "width-full.css");
-            $.cookie("reason-width-wp", "width-full.css", {expires: 7, path: '/'}); 
+            $.cookie("reason-width-wp", "width-full.css", {expires: 7, path: '/'});
         }
         else {
             widthLink.attr("href", url_css + "width-boxed.css");
@@ -95,7 +95,7 @@ function navbar_style(navbar_class) {
          $("#header").addClass('navbar-light');
          $("#header").removeClass('navbar-dark navbar-inverse');
     }
-    
+
     else if(navbar_class == "navbar-dark") {
          $("#header").addClass('navbar-dark');
          $("#header").removeClass('navbar-light navbar-inverse');
