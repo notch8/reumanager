@@ -1,6 +1,6 @@
 <div>
 	<label>Please list up to five academic awards that you have received (e.g. Award - Date Received [mm/yy])</label><br />
-	<%= e.awards.blank? || e.awards.size <= 4 ? e.awards : "You have not added any academic awards." %>
+	<%= e.awards.blank? || e.awards.size <= 4 ? "You have not added any academic awards." :  e.awards %>
 </div>
 <br style="clear:both;"/>
 
