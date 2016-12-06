@@ -9,8 +9,8 @@ Run '''rake settings:load''' to load snippets.
 
 If you're having trouble with event_machine during bundle - use '''bundle config build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include'''
 
-'''bash
 # DB setup
+'''bash
 bundle exec rake db:create
 bundle exec rake db:migrate
 bundle exec rake db:seed
