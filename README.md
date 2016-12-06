@@ -9,6 +9,14 @@ Run '''rake settings:load''' to load snippets.
 
 If you're having trouble with event_machine during bundle - use '''bundle config build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include'''
 
+'''bash
+# DB setup
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+bundle exec rake settings:load
+'''
+
 ## Info
 This program facilitates the application process for science oriented [NSF REU programs](http://www.nsf.gov/crssprgm/reu/) and is developed by the IT staff of the [UC San Diego Institute of Engineering in Medicine](https://iem.ucsd.edu/).
 

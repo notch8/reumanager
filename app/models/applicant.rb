@@ -2,8 +2,15 @@ class Applicant < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, and :omniauthable
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable, :confirmable
-  attr_accessible :academic_level, :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :phone, :dob, :citizenship, :disability, :gender, :ethnicity, :race, :cpu_skills, :gpa_comment, :lab_skills, :addresses_attributes, :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes, :statement, :recommenders, :current_status, :state
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable, :lockable, :timeoutable, :confirmable
+  attr_accessible :academic_level, :email, :password, :password_confirmation,
+                  :remember_me, :first_name, :last_name, :phone, :dob, :citizenship,
+                  :disability, :gender, :ethnicity, :race, :cpu_skills, :gpa_comment,
+                  :lab_skills, :addresses_attributes, :awards_attributes, :records_attributes,
+                  :recommendations_attributes, :recommenders_attributes, :statement, :recommenders,
+                  :current_status, :state, :additional_info, :found_us, :underrepresented_eligibility,
+                  :past_experience, :other_funds
 
   has_many :addresses, :class_name => "Address", :dependent => :destroy
   has_many :records, :class_name => "AcademicRecord", :dependent => :destroy
@@ -271,7 +278,7 @@ class Applicant < ActiveRecord::Base
   def validates_personal_info
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
-    validates_presence_of :statement, :message => "can't be blank. Please add at least one phone number to your profile."
+    validates_presence_of :statement, :message => "Personal statement can't be blank."
 
     return true if self.errors.empty?
   end

@@ -2,13 +2,9 @@
   .col-md-12
     .col-md-12
       %h3 General Info
-    .col-md-5
-      = image_tag('REU2016.jpg', class: 'pull-left img-responsive center-block')
-    .col-md-7
+    .col-md-12
       = raw Snippet[:general_description]
     .col-md-12
-      %h3.deadline
-        Applications will be available in January 2017 for the Summer 2017 Program. Applications will be due on February 15, 2017 and Decisions sent to applicants by March 15, 2017.
       .app_button
         - if applicant_signed_in? && current_applicant.state == 'submitted'
           = link_to "Check Status", applicant_status_url, :class => "btn btn-lg btn-success"

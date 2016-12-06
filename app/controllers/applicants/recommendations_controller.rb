@@ -4,8 +4,9 @@ class Applicants::RecommendationsController < ApplicationController
 
   # GET /recommendations/:token
   def edit
-    if @recommendation.blank?
-      flash[:notice] = 'Sorry, that url is invalid contact the person who sent it to you to get another'
+    deadline_passed = Date.parse(Setting['application_deadline']) < Time.now
+    if @recommendation.blank? || deadline_passed
+      flash[:notice] = deadline_passed ? 'Sorry, the deadline has passed.' : 'Sorry, that url is invalid contact the person who sent it to you to get another'
       redirect_to :root
     end
   end

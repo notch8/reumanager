@@ -3,43 +3,45 @@ general_description:
   description: This is the text used as a general description for your program.
     It is displayed on the front page under the main image.
   value: |
-    The Jacobs school of Engineering (JSOE) at UC San Diego hosts a summer Research Experience for Undergraduates (REU) summer program in Biomaterials. The objectives of the program are to train undergraduates in basic research through challenging biomaterial-related engineering projects performed with research mentors from engineering departments across JSOE. Research areas include tissue engineering and 3D printing, bio-inspired biomaterials, biomaterial-stem cell interaction, nanoparticles and drug delivery.
+    This program is designed for motivated undergraduate students from groups that have been shown by the National Science Foundation (NSF) to be underrepresented in health sciences on a national basis and who are interested in seeking future training in a combined MD/PhD program or an academically oriented career in medicine.
 
 highlights:
   name: highlights
   description: ''
   value: |
     <ul>
-      <li>$5,000 stipend</li>
-      <li>On-campus housing</li>
-      <li>Travel to and from San Diego</li>
-      <li>Presentations at UC San Diego Research Symposium and BMES National Meeting</li>
-      <li>Weekly research development workshops/li>
-      <li>GRE preparation course</li>
-      <li>Field trips and social events</li>
+      <li>Principal focus is an 8-week research project conducted in the laboratory of a faculty member in the biomedical sciences</li>
+      <li>Weekly seminars</li>
+      <li>Stipend for the eight-week period - $1600/month</li>
+      <li>Includes room (not board)</li>
+      <li>A physician-scientist clinical shadowing experience</li>
+      <li>Career development seminars</li>
+      <li>Presentation of your work at the UCSD Summer Research Conference</li>
     </ul>
 eligibility_requirements:
   name: eligibility_requirements
   description: ''
   value: |
     <ul>
-      <li>Full-time undergraduate student</li>
-      <li>U.S. citizen or permanent resident</li>
-      <li>Full-time availability during the program.</li>
-      <li>Lower division students in bioengineering, material science, chemical engineering, life sciences, or other related field are especially encouraged to apply</li>
-      <li>Women and underrepresented minorities are especially encouraged to apply</li>
+      <li>Students appointed to this program must be citizens or non-citizen nationals of the US.</li>
+      <li>Students must have completed at least one undergraduate year</li>
+      <li>Student must either come from a racial or ethnic group shown to be underrepresented in the health sciences,disabled, or come from a disadvantaged background.</li>
+      <li>See website for more detailed information on eligibility:
+        <a href="http://mstp.ucsd.edu/surf/Pages/eligibility.aspx">Click Here</a>
+      </li>
     </ul>
 application_information:
   name: application_information
   description: ''
   value: |
     <ul>
-      <li>Major components of the online application include: personal and academic information, a personal statement, a copy of your unofficial school transcript (as a pdf), and contact information for one reference</li>
-      <li>The person writing your letter of recommendation will be contacted via e-mail and will submit their letter online.</li>
-      <li>Once you begin an application, you can check the status of it any time by logging into this website.</li>
-      <li>All components of the application must be submitted before the deadline to be considered complete. Only complete applications will be reviewed.</li>
+      <li>A PDF of your unofficial school transcript, a hard copy of your official school transcript, and contact information for two references</li>
+      <li>The people writing your letter of recommendation will be contacted via e-mail and will submit their letter online</li>
+      <li>Once you begin an application, you can check the status of it any time by logging into this website</li>
+      <li>All components of the application must be submitted before the deadline to be considered complete.</li>
+      <li>Only complete applications will be reviewed</li>
     </ul>
 acknowledgment_of_funding_soruces:
   name: acknowledgment_of_funding_soruces
   description: Please provide text to be included on the site as acknowledgment of program funding. In addition (or instead) you may send an image of the funding agency logo.
-  value: This program is supported by the National Science Foundation.
+  value: Development for this project is supported by NSF EEC-1062979.

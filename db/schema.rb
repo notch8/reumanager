@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126234350) do
+ActiveRecord::Schema.define(version: 20161205233757) do
 
   create_table "academic_records", force: true do |t|
     t.string   "university"
@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 20141126234350) do
     t.text     "statement"
     t.datetime "submitted_at"
     t.datetime "completed_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                        default: "", null: false
+    t.string   "encrypted_password",           default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",                default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20141126234350) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "failed_attempts",        default: 0
+    t.integer  "failed_attempts",              default: 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
@@ -84,6 +84,11 @@ ActiveRecord::Schema.define(version: 20141126234350) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "gpa_comment"
+    t.text     "additional_info"
+    t.string   "found_us"
+    t.text     "underrepresented_eligibility"
+    t.text     "past_experience"
+    t.text     "other_funds"
   end
 
   add_index "applicants", ["authentication_token"], name: "index_applicants_on_authentication_token", unique: true, using: :btree

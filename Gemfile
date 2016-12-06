@@ -1,7 +1,7 @@
 source 'http://gems.github.com'
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '4.1.8'
 
 gem 'airbrake'
 gem 'addressable'

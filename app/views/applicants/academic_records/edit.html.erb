@@ -6,7 +6,7 @@
 
       <div class="form-group">
         <%= f.label 'Current Academic Level' %>
-        <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }), {:include_blank => ''}, { :class => "form-control" }%>
+        <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }, current_applicant.academic_level), {:include_blank => ''}, { :class => "form-control" }%>
 
         <%= f.fields_for :records do |builder| %>
           <%= render 'record_fields', f: builder %>
@@ -28,14 +28,22 @@
       <div class="add-container"><%= link_to_add_fields "Add award", f, :awards %></div>
     </div>
 
-    <div class="panel-heading">Computer Skills</div>
+    <div class="panel-heading">Additional Questions</div>
     <div class="panel-body">
-      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. Application experience, programming ability, etc.)"  %>
-    </div>
+      <%= f.label :cpu_skills, 'Computer Skills' %>
+      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. Application experience, programming ability, etc.), and skills you are looking to improve."  %>
 
-    <div class="panel-heading">Laboratory Skills</div>
-    <div class="panel-body">
-      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills"  %>
+      <%= f.label :lab_skills, 'Laboratory Skills' %>
+      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills, and skills you are looking to improve."  %>
+
+      <%= f.label :underrepresented_eligibility, 'Please explain why you consider yourself eligible for this program as an individual from an ethnicity, background or other group that is disadvantaged and underrepresented. Please provide as much detail as possible.' %>
+      <%= f.text_area :underrepresented_eligibility, class: 'form-control', rows: 6, placeholder: "" %>
+
+      <%= f.label :past_experience, 'Discuss your past research experiences. If you have not done any research yet, please list any relevant courses or other experiences you feel are relevant.' %>
+      <%= f.text_area :past_experience, class: 'form-control', rows: 2 %>
+
+      <%= f.label :other_funds, 'Will you receive funding from any other program throughout the summer? If "yes", please name funding source.' %>
+      <%= f.text_area :other_funds, class: 'form-control', rows: 2 %>
     </div>
 
     <%= render "applicants/shared/nav" %>

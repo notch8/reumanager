@@ -87,6 +87,21 @@
       </div>
     </div>
 
+    <div class="panel-heading">Additional Information</div>
+    <div class="panel-body">
+
+      <div class="form-group">
+        <%= f.text_area :additional_info, :class => 'form-control', :rows => 6, :placeholder => "Please add any additional information that may help us evaluate your application."  %>
+      </div>
+
+      <label for="">How did you hear about us?</label>
+      <div class="radio"><label for=""><%= f.radio_button(:found_us, 'NSF REU Website') %>NSF REU Website</label></div>
+      <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Professor') %>Professor</label></div>
+      <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Undergraduate Program') %>Undergraduate Program</label></div>
+      <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Email') %>Email</label></div>
+      <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Other') %>Other</label></div>
+    </div>
+
     <%= render "applicants/shared/nav" %>
 
     <div class="panel-body">

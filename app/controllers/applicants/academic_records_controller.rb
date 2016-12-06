@@ -10,7 +10,7 @@ class Applicants::AcademicRecordsController < ApplicationController
   end
 
   def update
-    if current_applicant.update_attributes params[:applicant]
+    if current_applicant.update_attributes(params[:applicant])
       current_applicant.can_complete_academic_info? ? current_applicant.complete_academic_info : current_applicant.incomplete_academic_info
 
       redirect_to current_applicant.redirect_url

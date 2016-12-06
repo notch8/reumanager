@@ -1,21 +1,21 @@
 
 development:
   adapter: mysql2
-  database: reumanager_dev
+  database: reu_mstp_surf_new_dev
   username: root
   pool: 5
   timeout: 5000
 
 test:
   adapter: mysql2
-  database: reumanager_test
+  database: reu_mstp_surf_new_test
   username: root
   pool: 5
   timeout: 5000
 
 production:
   adapter: mysql2
-  database: reumanager_prod
+  database: reu_mstp_surf_new__prod
   username:
   password:
   pool: 5
