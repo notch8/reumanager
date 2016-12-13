@@ -102,19 +102,52 @@
           </div>
         </div>
 
+        <div class='span4'>
+          <div class="inner control-group">
+            <%= f.label :are_you_a_first_generation_college_student? %>
+            <%= f.select :first_gen_college, options_for_select(['Yes'] + ['No']), :include_blank => "Prefer to not respond" %>
+          </div>
+        </div>
+        <div class='span4 offset1'>
+          <div class="inner control-group">
+            <%= f.label :are_you_a_veteran_of_the_USA_military? %>
+            <%= f.select :military, options_for_select(['Yes'] + ['No']), :include_blank => "Prefer to not respond" %>
+          </div>
+        </div>
 
         <section class='personal_statement'>
           <div class="span9">
             <div class="inner">
               <h2>Personal Statement</h2>
-              <%= f.text_area :statement, :class => 'span8', :rows => 6, :placeholder => "Please Complete a brief essay (up to 250 words) explaining why you are interested in our program and how the experience may help you achieve your future goals."  %>
+              <%= f.text_area :statement, :class => 'span8', :rows => 6, :placeholder => "Please Complete a short statement describing research you would like to perform here or your interest in SDNI research topics (why you are interested in this area of research, what you hope to learn of how you hope to benefit from the program)."  %>
             </div> <!-- end  inner -->
           </div>
         </section>
 
+        <div class="span9">
+          <div class="inner">
+            <h2>Additional Info</h2>
+          </div><!-- end  inner -->
+        </div>
+
+        <div class="span9">
+          <div class="inner">
+            <%= f.text_area :additional_info, :class => 'span8', :rows => 6, :placeholder => "Please add any other information that may be helpful in evaluating your application."  %>
+          </div>
+        </div>
+
+        <div class="span9">
+          <div class="inner">
+            <label for="">How did you hear about us?</label>
+            <div class="radio"><label for=""><%= f.radio_button(:found_us, 'NSF REU Website') %>NSF REU Website</label></div>
+            <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Professor') %>Professor</label></div>
+            <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Undergraduate Program') %>Undergraduate Program</label></div>
+            <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Email') %>Email</label></div>
+            <div class="radio"><label for=""><%= f.radio_button(:found_us, 'Other') %>Other</label></div>
+          </div>
+        </div>
 
       </div><!-- end  span9 -->
-
 
     </div><!-- end  span9 -->
 

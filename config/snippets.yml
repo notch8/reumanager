@@ -3,39 +3,33 @@ general_description:
   description: This is the text used as a general description for your program.
     It is displayed on the front page under the main image.
   value: |
-    In the Engineering Center For Diabetes Research and Education (ECDRE) researchers at the Illinois Institute of Technology (IIT) collaborate with basic scientists and clinicians applying engineering techniques towards the understanding and treatment of diabetes and its complications. The Biomedical Engineering Department at IIT and ECDRE provides the foundation for this 10-week summer program. Students will be paired with faculty to complete a diabetes related research project working with a faculty mentor from IIT. Diabetes is a complex disease that can lead to a number of health complications. The projects offered in this program reflect this diversity, with topics in biomaterials for islet cell encapsulation, models of glucose metabolism, imaging techniques for prognosis/diagnosis of disease, regeneration strategies for the treatment of ulcers and ischemic limbs and vascular changes in diabetic retinopathy.
-
+    The San Diego Nanotechnology Infrastructure (SDNI) contributes to the development of nanoscience, nanoengineering, and nanotechnology education by providing:	Training of students (undergraduates and graduates), postdoctoral fellows, and more senior researchers, including engineers working in industry who are new to nanofabrication and characterization. Engagement of students and educators in community colleges and vocational schools, especially those serving large numbers of students who are members of underrepresented minority (URM) groups.	Dissemination of new knowledge relevant to nanotechnology practitioners and to the general public.
 highlights:
   name: highlights
   description: ''
   value: |
-    <ul>
-      <li>Wide variety of research topics</li>
-      <li>Weekly seminars </li>
-      <li>Research ethics</li>
-      <li>Social programs</li>
-      <li>Outreach and mentoring of K-12 educational program</li>
-    </ul>
+    The SDNI-REU offers a 10-week summer research experience for undergraduates at UC San Diego. Students are paired with leading researchers in science and engineering fields. Research areas include: NanoBioMedicine, NanoPhotonics, and NanoMagnetics. The goal is to prepare students for advanced studies in a Ph.D. program. Participants are paid a $4,500 stipend, housing, and up to $500 in travel expenses.
 eligibility_requirements:
   name: eligibility_requirements
   description: ''
   value: |
     <ul>
-      <li>Students should have a declared engineering or science (biology, chemistry, mathematics, computer science, or physics) major.</li>
-      <li>Students should have a minimum GPA of 2.80/4.00.</li>
-      <li>Applicants must be US citizens or permanent residents.</li>
-      <li>Students from community colleges are encouraged to apply.</li>
+      <li>Students from bioengineering, material science, chemical engineering, mechanical engineering, photonics, engineering physics, bio-physics, biology, physics, computer science, and engineering backgrounds are encouraged to apply.</li>
+      <li>Be a U.S. citizen</li>
+      <li>Students from racial or ethnic minority groups, low-income family backgrounds, first generation U.S. citizens, and first generation college students are especially encouraged to apply.</li>
+      <li>Have a minimum overall 3.0 GPA (on a 4.0 scale).</li>
+      <li>Be entering their junior or senior year in college and not scheduled to graduate before Sept 2017.</li>
     </ul>
 application_information:
   name: application_information
   description: ''
   value: |
     <ul>
-      <li>Academic Transcript</li>
-      <li>Letters of recommendation</li>
-      <li>Two essays to the application form. The essays should be no longer than one page in length, single spaced, and font no less than 10 pt. A) What are you future academic/career goals? Explain how participation in this REU program will help you achieve those goals. B) Describe an activity (hobby, sport, club, service, etc.) you enjoy outside of classes. Discuss how you got involved and what it requires from you.</li>
+      <li>An online completed Application Form</li>
+      <li>Unofficial transcripts of all previous college work or university work, including work in progress.</li>
+      <li>Two letters of recommendation from professors in your major field.</li>
     </ul>
 acknowledgment_of_funding_soruces:
   name: acknowledgment_of_funding_soruces
   description: Please provide text to be included on the site as acknowledgment of program funding. In addition (or instead) you may send an image of the funding agency logo.
-  value: This program is supported by the National Science Foundation (EEC-1461215).
+  value: |
