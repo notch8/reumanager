@@ -5,8 +5,8 @@ gem 'rails'
 
 gem 'airbrake'
 gem 'addressable'
-gem 'carmen-rails', github: 'jim/carmen-rails', :branch => 'master'
-gem 'client_side_validations', github: "tagliala/client_side_validations", :branch => "rails-4.2"
+gem 'carmen-rails', :github => 'jim/carmen-rails', :branch => 'master'
+gem 'client_side_validations', :github => "tagliala/client_side_validations", :branch => "rails-4.2"
 gem 'cocaine', :git => 'git://github.com/thoughtbot/cocaine.git'
 gem 'capistrano'
 gem 'devise'
@@ -16,14 +16,15 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
-gem 'mysql2'
+gem 'modernizr-rails'
+gem 'mysql2', '0.3.18'
 gem 'paperclip'
 gem 'paper_trail'
 gem 'rails_admin'
 gem 'redcarpet'
 gem 'rich', :git => "https://github.com/joeswann/rich.git"
-gem 'rvm-capistrano', require: false
-gem 'sqlite3'
+gem 'rvm-capistrano', :require => false
+# gem 'sqlite3'
 gem 'state_machine'
 gem 'whenever', :require => false
 gem 'validates_email_format_of'
@@ -52,6 +53,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'bond'
   gem 'crack'
+  gem 'quiet_assets'
   gem 'hirb-unicode'
   gem 'meta_request'
   gem 'net-http-spy'
@@ -66,7 +68,8 @@ end
 
 group :test, :development do
   gem 'capybara'
-  gem "capybara-webkit"
+  # need to disable for Sierra
+  #gem "capybara-webkit"
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
@@ -77,6 +80,6 @@ end
 group :test do
   gem 'guard-livereload'
   gem 'guard-rspec'
-  gem 'mocha', require: "mocha/api"
+  gem 'mocha', :require => "mocha/api"
   gem 'shoulda'
 end

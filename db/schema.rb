@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20161213010304) do
     t.text     "statement"
     t.datetime "submitted_at"
     t.datetime "completed_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -84,10 +84,11 @@ ActiveRecord::Schema.define(version: 20161213010304) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "gpa_comment"
+    t.string   "found_us"
+    t.boolean  "acknowledged_dates",     default: false
     t.string   "military"
     t.string   "first_gen_college"
     t.text     "additional_info"
-    t.string   "found_us"
     t.string   "previous_research"
     t.text     "top_choices"
     t.boolean  "permission_to_share"

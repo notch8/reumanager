@@ -1,105 +1,64 @@
-<%= form_for(current_applicant, :url => applicants_records_url, :html => { :method => :put, :multipart => true }) do |f| %>
+<div class="panel panel-primary">
+  <%= form_for(current_applicant, :url => applicants_records_url, :html => { :method => :put, :multipart => true }) do |f| %>
+    <div class="panel-heading">Academic Info</div>
+    <div class="panel-body">
+      <%= errors_for current_applicant %>
 
-  <%= errors_for current_applicant %>
+      <div class="form-group">
+        <%= f.label 'Current Academic Level' %>
+        <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }), {:include_blank => ''}, { :class => "form-control" }%>
 
-  <div class='row'>
-    <div class="span9">
-
-      <div class='row'>
-        <div class="span9">
-          <div class="inner">
-            <h2>Academic Info</h2>
-          </div> <!-- end  inner -->
-        </div>
-
-        <section class='records'>
-          <div class="span9">
-            <div class="inner">
-              <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }), :include_blank => 'Current Academic Level'%>
-            </div>
-          </div>
-
-          <div class="span9">
-            <%= f.fields_for :records do |builder| %>
-              <%= render 'record_fields', f: builder %>
-            <% end %>
-            <div class="inner"><%= link_to_add_fields "Add academic record", f, :records %></div>
-          </div>
-
-        </section>
-
-        <section class='gpa_comment'>
-          <div class="span9">
-            <div class="inner">
-              <h2>GPA Comments</h2>
-              <%= f.text_area :gpa_comment, :class => 'span8', :rows => 2, :placeholder => "Do you feel your GPA accurately reflects your academic abilities? Please comment on why or why not in the space provided."  %>
-            </div> <!-- end  inner -->
-          </div>
-        </section>
-
-        <section class='awards'>
-          <div class="span9">
-            <div class="inner">
-              <h2>Awards</h2>
-            </div> <!-- end  inner -->
-            <%= f.fields_for :awards do |builder| %>
-              <%= render 'award_fields', f: builder %>
-            <% end %>
-            <div class="inner"><%= link_to_add_fields "Add award", f, :awards %></div>
-          </div>
-        </section>
-
-        <section class='cpu_skills'>
-          <div class="span9">
-            <div class="inner">
-              <h2>Computer Skills</h2>
-              <%= f.text_area :cpu_skills, :class => 'span8', :rows => 2, :placeholder => "Please list any computer related skills (e.g. Application experience, programming ability, etc.)"  %>
-            </div> <!-- end  inner -->
-          </div>
-        </section>
-
-        <section class='lab_skills'>
-          <div class="span9">
-            <div class="inner">
-              <h2>Laboratory Skills</h2>
-              <%= f.label :have_you_previously_participated_in_research? %>
-              <%= f.select :previous_research, options_for_select(['Yes'] + ['No']), :include_blank => "" %>
-              <%= f.text_area :lab_skills, :class => 'span8', :rows => 2, :placeholder => "If yes, list any laboratory related skills or previous lab/research experience."  %>
-            </div> <!-- end  inner -->
-          </div>
-
-        <section class='top_choices'>
-          <div class='span9'>
-            <div class="inner">
-              <h2>Top Choices</h2>
-              <%= f.text_area :top_choices, :class => 'span8', :rows => 2, :placeholder => "Top two choices of faculty or research project you would like to apply to" %>
-            </div>
-          </div>
-          <hr>
-          <div class='span9'>
-            <div class="inner">
-              <%= f.check_box(:permission_to_share) %><p> In order to complete your application, please let us know that you agree to give us permission to share your application with faculty and staff members affiliated with this program by checking the box below</p>
-            </div>
-          </div>
-        </section>
-
-
-      </div> <!-- end .row -->
-    </div> <!-- end .span9 -->
-
-    <%= render "applicants/shared/nav" %>
-
-    <div class="span12">
-      <div class="inner">
-        <hr />
-        <p class='clear'><%= f.submit "Save Academic Info", :class => "btn btn-success" %></p>
-        <small><strong>You can <%= link_to "logout", destroy_applicant_session_path, :method => :delete %> and continue you application at anytime, however, it will not be accepted until all the above data has been submitted.</strong></small>
+        <%= f.fields_for :records do |builder| %>
+        <%= render 'record_fields', f: builder %>
+        <% end %>
+        <div class="add-container"><%= link_to_add_fields "Add academic record", f, :records %></div>
       </div>
     </div>
 
+    <div class="panel-heading">GPA Comments</div>
+    <div class="panel-body">
+      <%= f.text_area :gpa_comment, :class => 'form-control', :rows => 2, :placeholder => "Do you feel your GPA accurately reflects your academic abilities? Please comment on why or why not in the space provided."  %>
+    </div>
 
-  </div>
+    <div class="panel-heading">Awards</div>
+    <div class="panel-body">
+      <%= f.fields_for :awards do |builder| %>
+      <%= render 'award_fields', f: builder %>
+      <% end %>
+      <div class="add-container"><%= link_to_add_fields "Add award", f, :awards %></div>
+    </div>
 
+    <div class="panel-heading">Computer Skills</div>
+    <div class="panel-body">
+      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. Application experience, programming ability, etc.)"  %>
+    </div>
 
+    <div class="panel-heading">Laboratory Skills</div>
+    <div class="panel-body">
+      <%= f.label :have_you_previously_participated_in_research? %>
+      <%= f.select :previous_research, options_for_select(%w{No Yes}, current_applicant.previous_research), { :include_blank => "" }, { :class => "form-control" } %>
+      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "If yes, list any laboratory related skills or previous lab/research experience."  %>
+    </div>
 
-<% end %>
+    <div class="panel-heading">Top Choices</div>
+    <div class="panel-body">
+      <%= f.text_area :top_choices, :class => 'form-control', :rows => 2, :placeholder => "Top two choices of faculty or research project you would like to apply to" %>
+    </div>
+
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+      <div class="checkbox">
+        <%= f.check_box :permission_to_share %>
+        <%= f.label :permission_to_share, "In order to complete your application, please let us know that you agree to give us permission to share your application with faculty and staff members affiliated with this program by checking the box." %>
+      </div>
+    </div>
+
+    <%= render "applicants/shared/nav" %>
+
+    <div class="panel-body">
+      <hr />
+      <p class='clear'><%= f.submit "Save Academic Info", :class => "btn btn-success" %></p>
+      <small><strong>You can <%= link_to "logout", destroy_applicant_session_path, :method => :delete %> and continue you application at anytime, however, it will not be accepted until all the above data has been submitted.</strong></small>
+    </div>
+  <% end %>
+</div>
