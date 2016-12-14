@@ -35,7 +35,6 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git
 gem 'coffee-rails'
 gem 'font-awesome-sass-rails'
 # gem 'libv8'
-gem 'modernizr-rails'
 # gem 'therubyracer'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier'
