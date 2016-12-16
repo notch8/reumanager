@@ -5,7 +5,7 @@ require "rvm/capistrano"
 #set :whenever_command, "bundle exec whenever"
 #require "whenever/capistrano"
 
-set :application, "biomaterials" #matches names used in smf_template.erb
+set :application, "sdni" #matches names used in smf_template.erb
 set :repository,  "https://github.com/notch8/reumanager.git"
 set :branch, "#{application}"
 set :domain, 'indra'
@@ -41,6 +41,16 @@ namespace :rake do
     end
   end
 end
+
+#For troubleshooting only
+namespace :deploy do
+  task :update_code, :except => { :no_release => true } do
+    #on_rollback { run "rm -rf #{release_path}; true" }
+    strategy.deploy!
+    finalize_update
+  end
+end
+
 
 namespace :deploy do
   task :start do ; end
