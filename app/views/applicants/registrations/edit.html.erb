@@ -86,7 +86,8 @@
 
     <div class="panel-heading">Personal Statement</div>
     <div class="panel-body">
-      <div class="form-group"> *
+      <div class="form-group">
+        <%= f.label :statement, 'Statement *' %>
         <%= f.text_area :statement, :class => 'form-control', :rows => 6, :placeholder => "Please Complete a short statement describing research you would like to perform here or your interest in SDNI research topics (why you are interested in this area of research, what you hope to learn of how you hope to benefit from the program)."  %>
       </div>
     </div>
@@ -105,11 +106,18 @@
       <%= f.text_area :additional_info, :class => 'form-control', :rows => 6, :placeholder => "Please add any other information that may be helpful in evaluating your application."  %>
     </div>
 
-    <div class="panel-heading">Program Dates</div>
+    <div class="panel-heading">Acknowledgements</div>
     <div class="panel-body">
       <div class="checkbox">
         <%= f.check_box :acknowledged_dates %>
         <%= f.label :acknowledged_dates, "By checking this box I acknowledge the dates of the programs as, Program Start Date: #{format_date_string(Setting['program_start_date'])}, Program End Date: #{format_date_string(Setting['program_end_date'])}" %>
+      </div>
+
+      <div class='form-group'>
+        <div class="checkbox">
+          <%= f.check_box :permission_to_share %>
+          <%= f.label :permission_to_share, "In order to complete your application, please let us know that you agree to give us permission to share your application with faculty and staff members affiliated with this program by checking the box. *" %>
+        </div>
       </div>
     </div>
 

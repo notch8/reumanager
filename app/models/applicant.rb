@@ -1,6 +1,7 @@
 class Applicant < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, and :omniauthable
+  attr_accessor :first_run
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable, :lockable, :timeoutable, :confirmable
@@ -30,15 +31,15 @@ class Applicant < ActiveRecord::Base
   validates_associated :addresses, :awards, :records, :recommenders
   validates_presence_of :first_name, :on => :create, :message => "can't be blank"
   validates_presence_of :last_name, :on => :create, :message => "can't be blank"
-  validates :email, presence: true, on: :update
-  validates :phone, presence: true, on: :update
-  validates :dob, presence: true, on: :update
-  validates :gender, presence: true, on: :update
-  validates :ethnicity, presence: true, on: :update
-  validates :race, presence: true, on: :update
-  validates :citizenship, presence: true, on: :update
-  validates :disability, presence: true, on: :update
-  validates :permission_to_share, presence: true, on: :update
+  validates :email, presence: true, on: :update, unless: :first_run
+  validates :phone, presence: true, on: :update, unless: :first_run
+  validates :dob, presence: true, on: :update, unless: :first_run
+  validates :gender, presence: true, on: :update, unless: :first_run
+  validates :ethnicity, presence: true, on: :update, unless: :first_run
+  validates :race, presence: true, on: :update, unless: :first_run
+  validates :citizenship, presence: true, on: :update, unless: :first_run
+  validates :disability, presence: true, on: :update, unless: :first_run
+  validates :permission_to_share, presence: true, on: :update, unless: :first_run
 
 
 
@@ -292,7 +293,7 @@ class Applicant < ActiveRecord::Base
   def validates_personal_info
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
-    validates_presence_of :statement, :message => "can't be blank. Please add at least one phone number to your profile."
+    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentance long."
 
     return true if self.errors.empty?
   end

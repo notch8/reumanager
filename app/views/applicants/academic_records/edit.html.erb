@@ -6,7 +6,7 @@
 
       <div class="form-group">
         <%= f.label 'Current Academic Level' %>
-        <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }), {:include_blank => ''}, { :class => "form-control" }%>
+        <%= f.select :academic_level, options_for_select(%w{ Freshman Sophomore Junior Senior }, current_applicant.academic_level), {:include_blank => ''}, { :class => "form-control" }%>
 
         <%= f.fields_for :records do |builder| %>
         <%= render 'record_fields', f: builder %>
@@ -43,14 +43,6 @@
     <div class="panel-heading">Top Choices</div>
     <div class="panel-body">
       <%= f.text_area :top_choices, :class => 'form-control', :rows => 2, :placeholder => "Top two choices of faculty or research project you would like to apply to" %>
-    </div>
-
-    <div class="panel-heading"></div>
-    <div class="panel-body">
-      <div class="checkbox">
-        <%= f.check_box :permission_to_share %>
-        <%= f.label :permission_to_share, "In order to complete your application, please let us know that you agree to give us permission to share your application with faculty and staff members affiliated with this program by checking the box." %>
-      </div>
     </div>
 
     <%= render "applicants/shared/nav" %>
