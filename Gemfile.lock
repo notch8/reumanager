@@ -41,7 +41,6 @@ GIT
       sass-rails
 
 GEM
-  remote: http://gems.github.com/
   remote: https://rubygems.org/
   specs:
     actionmailer (4.1.8)
@@ -139,7 +138,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.5.3)
     erubis (2.7.0)
-    eventmachine (1.0.8)
+    eventmachine (1.0.9)
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
@@ -386,6 +385,7 @@ DEPENDENCIES
   crack
   database_cleaner
   devise
+  eventmachine (= 1.0.9)
   factory_girl_rails
   faker
   font-awesome-sass-rails
@@ -427,6 +427,3 @@ DEPENDENCIES
   what_methods
   whenever
   wirble
-
-BUNDLED WITH
-   1.11.2

@@ -1,4 +1,3 @@
-source 'http://gems.github.com'
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.8'
@@ -28,14 +27,13 @@ gem 'rvm-capistrano', :require => false
 gem 'state_machine'
 gem 'whenever', :require => false
 gem 'validates_email_format_of'
-
+gem 'eventmachine', '1.0.9'
 # Old assets group
 gem 'bootstrap-sass', '~> 2.1'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'coffee-rails'
 gem 'font-awesome-sass-rails'
 # gem 'libv8'
-gem 'modernizr-rails'
 # gem 'therubyracer'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier'
