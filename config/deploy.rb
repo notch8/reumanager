@@ -18,7 +18,7 @@ set :rvm_type, :system
 set :server_name, domain
 set :scm, :git
 set :default_env, {
-  "RAILS_RELATIVE_URL_ROOT" => "/#{application}"
+  "RAILS_RELATIVE_URL_ROOT" => "/mstp_surf"
 }
 
 set :asset_env, "#{asset_env} RAILS_RELATIVE_URL_ROOT=/#{application}"
@@ -43,6 +43,14 @@ namespace :rake do
 end
 
 namespace :deploy do
+
+  #For troubleshooting only
+  task :update_code, :except => { :no_release => true } do
+    #on_rollback { run "rm -rf #{release_path}; true" }
+    strategy.deploy!
+    finalize_update
+  end
+
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
@@ -51,7 +59,7 @@ namespace :deploy do
 
   desc "chown & chmod to www-data"
   task :chown do
-    sudo "chown -R jjg:www-data #{deploy_to}"
+    sudo "chown -R ubuntu:www-data #{deploy_to}"
     sudo "chmod -R 775 #{deploy_to}"
   end
 
@@ -77,4 +85,5 @@ end
 # after 'deploy:update_code', 'ckeditor:symlink'
 
 before 'deploy:assets:precompile', 'deploy:symlink_configs'
+after 'deploy:setup', 'deploy:chown'
 after 'deploy:setup', 'deploy:add_shared_config'
