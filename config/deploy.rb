@@ -18,7 +18,7 @@ set :rvm_type, :system
 set :server_name, domain
 set :scm, :git
 set :default_env, {
-  "RAILS_RELATIVE_URL_ROOT" => "/mstp_surf"
+  "RAILS_RELATIVE_URL_ROOT" => "/new_mstp_surf"
 }
 
 set :asset_env, "#{asset_env} RAILS_RELATIVE_URL_ROOT=/#{application}"
