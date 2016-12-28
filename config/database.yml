@@ -20,3 +20,19 @@ production:
   password:
   pool: 5
   timeout: 5000
+
+
+old:
+  adapter: mysql2
+  database: reu_mstp_surf_development
+  username: root
+  password:
+  host: localhost
+
+old_production:
+  adapter: mysql2
+  database: reu_mstp_surf_production
+  encoding: utf8
+  username: reu_mstp_surf
+  password: sqz_EIz_EIpEojbeY4EojIMg
+  host: localhost
