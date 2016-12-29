@@ -8,6 +8,15 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
 
     applicant = Applicant.new
     applicant.first_name = user.firstname
+    applicant.last_name = user.lastname
+    applicant.phone = user.phone
+    applicant.dob = user.dob
+    applicant.citizenship = user.citizenship
+    applicant.disability = user.disability
+    applicant.gender = user.gender
+    applicant.ethnicity = user.ethnicity
+    applicant.race = user.race
+    applicant.academic_level = user.
     # map the rest of the user fieds
 
     academic_record = applicant.records.build

@@ -4,7 +4,7 @@
 .sass-cache
 capybara-*.html
 .rspec
-
+.DS_Store
 /.bundle
 /coverage/
 /db/*.sqlite3
@@ -14,3 +14,4 @@ capybara-*.html
 /tmp/*
 /vendor/bundle
 /config/database.yml
+/.DS-Store
