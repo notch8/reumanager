@@ -20,6 +20,9 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
     applicant.statement = old_extra.personal_statement
     applicant.underrepresented_eligibility = old_extra.extra_research_interests
     applicant.past_experience = old_extra.career
+    applicant.other_funds = old_extra.personal_statement
+    applicant.found_us = old_extra.learn
+
 
 
 
@@ -29,7 +32,7 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
     academic_record = applicant.records.build
     old_academic_record = user.academic_record
     academic_record.university = old_academic_record.college
-
+    academic_record.applicant_id = old_academic_record.user_id
     applicant.lab_skills = old_extra.lab_skills
     applicant.cpu_skills = old_extra.comp_skills
     applicant.academic_level = old_academic_record.college_level
@@ -46,7 +49,8 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
     academic_record.transcript_content_type = old_academic_record.transcript_content_type
     academic_record.transcript_file_size = old_academic_record.transcript_file_size
     academic_record.transcript_updated_at = old_academic_record.transcript_updated_at
-
+    academic_record.major = old_academic_record.major
+    academic_record.minor =
 
 
     # map the rest of the academic record fields
