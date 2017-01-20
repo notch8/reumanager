@@ -14,4 +14,3 @@ capybara-*.html
 /tmp/*
 /vendor/bundle
 /config/database.yml
-/.DS-Store
