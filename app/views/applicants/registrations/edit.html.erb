@@ -82,6 +82,14 @@
       </div>
     </div>
 
+    <div class="panel-heading">Permission to Share Application</div>
+    <div class="panel-body">
+
+      <div class="form-group">
+        <%= f.label :i_agree_to_allow_the_SURF_program_director_to_share_my_application_with_other_summer_research_programs %> *
+        <%= f.select :permission_to_share, options_for_select(%w{Yes,\ please\ share\ my\ application\ with\ other\ funding\ opportunities No,\ don’t\ share\ my\ information Please\ ask }, @applicant.permission_to_share), { :include_blank => false }, { :class => "form-control" } %>
+      </div>
+    </div>
 
     <div class="panel-heading">Personal Statement</div>
     <div class="panel-body">
@@ -103,25 +111,40 @@
     <div class="panel-heading">Preferred Mentor</div>
     <div class="panel-body">
       <%= f.label :mentor_choice_1 %> *
-      <%- if :mentor1 == "Other" -%>
-      <div id='mentor1_container' class='input-append'>
-        <%= f.text_field :mentor1, :class => "form-control" %>
-        <span class='add-on'> Please specify </span>
-        <button id='mentor1_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
-      </div>
+      <%- if mentor1_input? -%>
+        <div id='mentor1_container' class='input-append'>
+          <%= f.text_field :mentor1, :class => "form-control" %>
+          <span class='add-on'> Please specify </span>
+          <button id='mentor1_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
+        </div>
       <%- else -%>
-        <%= f.select :mentor1, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase Paul\ Jensen Lisa\ Levin Dan\ Lubin Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor1), { :class => "form-control" } %>
+        <%= f.select :mentor1, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase Paul\ Jensen Lisa\ Levin Dan\ Lubin Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor1), { :include_blank => false }, { :class => "form-control" } %>
       <%- end -%>
 
+      <br />
+
       <%= f.label :mentor_choice_2 %> *
-      <%- if :mentor2 == "Other" -%>
-      <div id='mentor2_container' class='input-append'>
-        <%= f.text_field :mentor2, :class => "form-control" %>
-        <span class='add-on'> Please specify </span>
-        <button id='mentor2_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
-      </div>
+      <%- if mentor2_input? -%>
+        <div id='mentor2_container' class='input-append'>
+          <%= f.text_field :mentor2, :class => "form-control" %>
+          <span class='add-on'> Please specify </span>
+          <button id='mentor2_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
+        </div>
       <%- else -%>
-        <%= f.select :mentor2, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase Paul\ Jensen Lisa\ Levin Dan\ Lubin Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor1), { :class => "form-control" } %>
+        <%= f.select :mentor2, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase Paul\ Jensen Lisa\ Levin Dan\ Lubin Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor2), { :include_blank => false }, { :class => "form-control" } %>
+      <%- end -%>
+
+      <br />
+
+      <%= f.label :mentor_choice_3 %> *
+      <%- if mentor3_input? -%>
+        <div id='mentor3_container' class='input-append'>
+          <%= f.text_field :mentor3, :class => "form-control" %>
+          <span class='add-on'> Please specify </span>
+          <button id='mentor3_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
+        </div>
+      <%- else -%>
+        <%= f.select :mentor3, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase Paul\ Jensen Lisa\ Levin Dan\ Lubin Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor3), { :include_blank => false }, { :class => "form-control" } %>
       <%- end -%>
     </div>
 
