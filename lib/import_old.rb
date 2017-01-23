@@ -19,7 +19,6 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
         academic_level: old_academic_record.college_level,
         lab_skills: old_extra.lab_skills,
         cpu_skills: old_extra.comp_skills,
-        # statement: old_extra.personal_statement,
         email: user.email,
         underrepresented_eligibility: old_extra.research_interests,
         past_experience: old_extra.career,
@@ -63,7 +62,6 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
         university: old_academic_record.college,
         start: old_academic_record.college_start,
         finish: old_academic_record.college_end,
-        # degree:
         gpa: old_academic_record.gpa,
         gpa_range: old_academic_record.gpa_range,
         gpa_comment: old_extra.gpa_comments,
@@ -80,7 +78,7 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
 
 
     user.recommendations.each do |r|
-        applicant.recommendations.build(
+        recommendation = applicant.recommendations.build(
             known_applicant_for: r.known_student,
             known_capacity: r.known_capacity,
             overall_promise: r.rating,
@@ -90,22 +88,16 @@ user = Old::User.all.detect do |user| user.academic_record.present? end
             recommender_id: r.recommender_id,
             created_at: r.created_at,
             updated_at: r.updated_at
-
-            )
-    end
-
-    user.recommenders.each do |r|
-        applicant.recommenders.build(
-            first_name: r.name,
-            last_name: r.name,
-            title: r.title,
-            department: r.department,
-            organization: r.college,
-            url:
-            email: r.email,
-            phone:
-            created_at: r.created_at,
-            updated_at: r.updated_at
+        )
+        recommendation.recomender.build(
+            first_name: r.recommender.name,
+            last_name: r.recommender.name,
+            title: r.recommender.title,
+            department: r.recommender.department,
+            organization: r.recommender.college,
+            email: r.recommender.email,
+            created_at: r.recommender.created_at,
+            updated_at: r.recommender.updated_at
         )
     end
 
