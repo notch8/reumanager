@@ -1,5 +1,5 @@
 class Recommendation < ActiveRecord::Base
-  attr_accessible :applicant_id, :body, :known_applicant_for, :known_capacity, :overall_promise, :recommender_id, :recommender_attributes, :undergraduate_institution, :received_at
+  attr_accessible :applicant_id, :body, :known_applicant_for, :known_capacity, :overall_promise, :recommender_id, :recommender_attributes, :undergraduate_institution, :received_at, :created_at, :updated_at
 
   belongs_to :applicant, :class_name => "Applicant"
   belongs_to :recommender, :class_name => "Recommender"
