@@ -8,7 +8,8 @@ class Applicant < ActiveRecord::Base
                   :remember_me, :first_name, :last_name, :phone, :dob, :citizenship, :disability,
                   :gender, :ethnicity, :race, :cpu_skills, :gpa_comment, :lab_skills, :addresses_attributes,
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes,
-                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :mentor1, :mentor2
+                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military,
+                  :mentor1, :mentor2, :mentor3, :permission_to_share
 
   has_many :addresses, :class_name => "Address", :dependent => :destroy
   has_many :records, :class_name => "AcademicRecord", :dependent => :destroy
@@ -36,6 +37,8 @@ class Applicant < ActiveRecord::Base
   validates :military, presence: true, on: :update
   validates :mentor1, presence: true, on: :update
   validates :mentor2, presence: true, on: :update
+  validates :mentor3, presence: true, on: :update
+  validates :permission_to_share, presence: true, on: :update
 
 
 
@@ -300,9 +303,9 @@ class Applicant < ActiveRecord::Base
   end
 
   def validates_recommender_info
-    validates_presence_of :recommenders, :message => "can't be blank.  Please add at least two recommenders."
-    if self.recommenders.size < 2
-      self.errors.add(:base, 'Please have at least 2 recommenders')
+    validates_presence_of :recommenders, :message => "can't be blank.  Please add at least one recommender."
+    if self.recommenders.size < 1
+      self.errors.add(:base, 'Please have at least 1 recommender')
     end
     return true if self.errors.empty? && !self.recommenders.blank? && self.recommenders.last.valid?
   end

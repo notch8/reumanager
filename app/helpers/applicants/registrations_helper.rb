@@ -104,4 +104,77 @@ module Applicants::RegistrationsHelper
   def show_disability_input?
     current_applicant.disability && current_applicant.disability != 'No' && current_applicant.disability != ''
   end
+
+  def mentor1_input?
+    current_applicant.mentor1 &&
+    current_applicant.mentor1 != 'Jeff Bowman' &&
+    current_applicant.mentor1 != 'Dimitri Deheyn' &&
+    current_applicant.mentor1 != 'Falk Feddersen' &&
+    current_applicant.mentor1 != 'Sarah Gille' &&
+    current_applicant.mentor1 != 'Vicki Grassian' &&
+    current_applicant.mentor1 != 'Jennifer Haase' &&
+    current_applicant.mentor1 != 'Paul Jensen' &&
+    current_applicant.mentor1 != 'Lisa Levin' &&
+    current_applicant.mentor1 != 'Dan Lubin' &&
+    current_applicant.mentor1 != 'Richard Norris' &&
+    current_applicant.mentor1 != 'Brian Palenik' &&
+    current_applicant.mentor1 != 'Lynn Russell' &&
+    current_applicant.mentor1 != 'Brice Semmens' &&
+    current_applicant.mentor1 != 'Ana Sirovic' &&
+    current_applicant.mentor1 != 'Dave Stegman' &&
+    current_applicant.mentor1 != 'Lynne Talley' &&
+    current_applicant.mentor1 != 'Lisa Tauxe' &&
+    current_applicant.mentor1 != 'Jennifer Taylor' &&
+    current_applicant.mentor1 != 'Jane Willenbring' &&
+    current_applicant.mentor1 != ''
+  end
+
+  def mentor2_input?
+    current_applicant.mentor2 &&
+    current_applicant.mentor2 != 'Jeff Bowman' &&
+    current_applicant.mentor2 != 'Dimitri Deheyn' &&
+    current_applicant.mentor2 != 'Falk Feddersen' &&
+    current_applicant.mentor2 != 'Sarah Gille' &&
+    current_applicant.mentor2 != 'Vicki Grassian' &&
+    current_applicant.mentor2 != 'Jennifer Haase' &&
+    current_applicant.mentor2 != 'Paul Jensen' &&
+    current_applicant.mentor2 != 'Lisa Levin' &&
+    current_applicant.mentor2 != 'Dan Lubin' &&
+    current_applicant.mentor2 != 'Richard Norris' &&
+    current_applicant.mentor2 != 'Brian Palenik' &&
+    current_applicant.mentor2 != 'Lynn Russell' &&
+    current_applicant.mentor2 != 'Brice Semmens' &&
+    current_applicant.mentor2 != 'Ana Sirovic' &&
+    current_applicant.mentor2 != 'Dave Stegman' &&
+    current_applicant.mentor2 != 'Lynne Talley' &&
+    current_applicant.mentor2 != 'Lisa Tauxe' &&
+    current_applicant.mentor2 != 'Jennifer Taylor' &&
+    current_applicant.mentor2 != 'Jane Willenbring' &&
+    current_applicant.mentor2 != ''
+  end
+
+  def mentor3_input?
+    current_applicant.mentor3 &&
+    current_applicant.mentor3 != 'Jeff Bowman' &&
+    current_applicant.mentor3 != 'Dimitri Deheyn' &&
+    current_applicant.mentor3 != 'Falk Feddersen' &&
+    current_applicant.mentor3 != 'Sarah Gille' &&
+    current_applicant.mentor3 != 'Vicki Grassian' &&
+    current_applicant.mentor3 != 'Jennifer Haase' &&
+    current_applicant.mentor3 != 'Paul Jensen' &&
+    current_applicant.mentor3 != 'Lisa Levin' &&
+    current_applicant.mentor3 != 'Dan Lubin' &&
+    current_applicant.mentor3 != 'Richard Norris' &&
+    current_applicant.mentor3 != 'Brian Palenik' &&
+    current_applicant.mentor3 != 'Lynn Russell' &&
+    current_applicant.mentor3 != 'Brice Semmens' &&
+    current_applicant.mentor3 != 'Ana Sirovic' &&
+    current_applicant.mentor3 != 'Dave Stegman' &&
+    current_applicant.mentor3 != 'Lynne Talley' &&
+    current_applicant.mentor3 != 'Lisa Tauxe' &&
+    current_applicant.mentor3 != 'Jennifer Taylor' &&
+    current_applicant.mentor3 != 'Jane Willenbring' &&
+    current_applicant.mentor3 != ''
+  end
+
 end
