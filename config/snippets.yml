@@ -10,7 +10,7 @@ highlights:
   description: ''
   value: |
     <ul>
-      <li>$5,000 stipend plus $350 food allowance</li>
+      <li>$6,000 stipend plus $350 food allowance</li>
       <li>On-campus housing or housing allowance</li>
       <li>Travel to and from San Diego</li>
       <li>Hands-on research experience</li>
@@ -23,18 +23,21 @@ eligibility_requirements:
   description: ''
   value: |
     <ul>
-      <li>Full-time undergraduate student</li>
-      <li>U.S. citizen or permanent resident</li>
+      <li>Participation is limited to currently enrolled, full-time undergraduate students who are not graduating before summer 2017.</li>
+      <li>Participation is limited to U.S. citizens or permanent residents.</li>
+      <li>Students from underrepresented groups, students who have not had previous exposure to marine sciences, students with limited research experience, and students from institutions with limited research opportunities are especially encouraged to apply.</li>
+      <li>Students who have previously participated in an ocean sciences REU are NOT generally not eligible, although some exceptions may apply.  Please ask if you’re interested.</li>
+      <li>Students should be available for the entire program.  The program dates for 2017 are June 25, 2017 through August 25, 2017.</li>
     </ul>
 application_information:
   name: application_information
   description: ''
   value: |
     <ul>
-      <li>Major components of the online application include: a personal statement, a copy of your unofficial school transcript (as a pdf), and contact information for one reference</li>
-      <li>The person writing your letter of recommendation will be contacted via e-mail and will submit their letter online</li>
-      <li>Once you begin an application, you can check the status of it any time by logging into this website</li>
-      <li>Only complete applications will be reviewed</li>
+      <li>Major components of the online application include: a personal statement, a copy of your unofficial school transcript (as a pdf), and contact information for one reference.</li>
+      <li>Your reference writer will be contacted via e-mail after you application is submitted and will submit their letter online.  Please submit your application before the deadline in order to allow your letter writer time to submit their letter.</li>
+      <li>Once you begin an application, you can check the status of it any time by logging into this website.</li>
+      <li>Only complete applications will be reviewed.</li>
     </ul>
 acknowledgment_of_funding_soruces:
   name: acknowledgment_of_funding_soruces

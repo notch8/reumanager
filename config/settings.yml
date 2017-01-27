@@ -2,7 +2,7 @@ app_title:
   name: app_title
   description: A snippet of text that describes your program (e.g. REU in Regenerative
     Medicine, Multi-Scale Bioengineering, and Systems Biology)
-  value: Student Undergraduate Research Experience (SURF)
+  value: Scripps Undergraduate Research Fellowship (SURF)
 university:
   name: university
   description: This is used anywhere your university name is referenced.
