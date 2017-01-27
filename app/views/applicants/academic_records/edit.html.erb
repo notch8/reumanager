@@ -17,7 +17,7 @@
 
     <div class="panel-heading">GPA Comments</div>
     <div class="panel-body">
-      <%= f.text_area :gpa_comment, :class => 'form-control', :rows => 2, :placeholder => "Do you feel your GPA accurately reflects your academic abilities? Please comment on why or why not in the space provided."  %>
+      <%= f.text_area :gpa_comment, :class => 'form-control', :rows => 2, :placeholder => "Do you feel that your academic record accurately reflects your abilities as a student?  Please explain. (please limit your response to 250 words)"  %>
     </div>
 
     <div class="panel-heading">Awards</div>
@@ -30,12 +30,12 @@
 
     <div class="panel-heading">Computer Skills</div>
     <div class="panel-body">
-      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. Application experience, programming ability, etc.)"  %>
+      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. application experience, programming ability, etc.) you currently possess.  Which existing skills would you like to improve, or new skills would you like to develop?  (please limit your response to 250 words)"  %>
     </div>
 
     <div class="panel-heading">Laboratory Skills</div>
     <div class="panel-body">
-      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills"  %>
+      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills you currently possess.  Which existing skills would you like to improve, or new skills would you like to develop? (please limit your response to 250 words)"  %>
     </div>
 
     <%= render "applicants/shared/nav" %>

@@ -9,7 +9,7 @@ class Applicant < ActiveRecord::Base
                   :gender, :ethnicity, :race, :cpu_skills, :gpa_comment, :lab_skills, :addresses_attributes,
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes,
                   :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military,
-                  :mentor1, :mentor2, :mentor3, :permission_to_share
+                  :mentor1, :mentor2, :mentor3, :permission_to_share, :research_experience, :recent_achievement
 
   has_many :addresses, :class_name => "Address", :dependent => :destroy
   has_many :records, :class_name => "AcademicRecord", :dependent => :destroy
@@ -39,6 +39,8 @@ class Applicant < ActiveRecord::Base
   validates :mentor2, presence: true, on: :update
   validates :mentor3, presence: true, on: :update
   validates :permission_to_share, presence: true, on: :update
+  validates :research_experience, presence: true, on: :update
+  validates :recent_achievement, presence: true, on: :update
 
 
 
