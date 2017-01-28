@@ -114,8 +114,10 @@ module Applicants::RegistrationsHelper
     current_applicant.mentor1 != 'Vicki Grassian' &&
     current_applicant.mentor1 != 'Jennifer Haase' &&
     current_applicant.mentor1 != 'Paul Jensen' &&
+    current_applicant.mentor1 != 'J. Tony Koslow' &&
     current_applicant.mentor1 != 'Lisa Levin' &&
     current_applicant.mentor1 != 'Dan Lubin' &&
+    current_applicant.mentor2 != 'Deirdre Lyons' &&
     current_applicant.mentor1 != 'Richard Norris' &&
     current_applicant.mentor1 != 'Brian Palenik' &&
     current_applicant.mentor1 != 'Lynn Russell' &&
@@ -138,8 +140,10 @@ module Applicants::RegistrationsHelper
     current_applicant.mentor2 != 'Vicki Grassian' &&
     current_applicant.mentor2 != 'Jennifer Haase' &&
     current_applicant.mentor2 != 'Paul Jensen' &&
+    current_applicant.mentor1 != 'J. Tony Koslow' &&
     current_applicant.mentor2 != 'Lisa Levin' &&
     current_applicant.mentor2 != 'Dan Lubin' &&
+    current_applicant.mentor2 != 'Deirdre Lyons' &&
     current_applicant.mentor2 != 'Richard Norris' &&
     current_applicant.mentor2 != 'Brian Palenik' &&
     current_applicant.mentor2 != 'Lynn Russell' &&
@@ -162,8 +166,10 @@ module Applicants::RegistrationsHelper
     current_applicant.mentor3 != 'Vicki Grassian' &&
     current_applicant.mentor3 != 'Jennifer Haase' &&
     current_applicant.mentor3 != 'Paul Jensen' &&
+    current_applicant.mentor1 != 'J. Tony Koslow' &&
     current_applicant.mentor3 != 'Lisa Levin' &&
     current_applicant.mentor3 != 'Dan Lubin' &&
+    current_applicant.mentor2 != 'Deirdre Lyons' &&
     current_applicant.mentor3 != 'Richard Norris' &&
     current_applicant.mentor3 != 'Brian Palenik' &&
     current_applicant.mentor3 != 'Lynn Russell' &&
