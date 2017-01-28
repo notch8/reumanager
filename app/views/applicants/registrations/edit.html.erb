@@ -61,7 +61,7 @@
         <%= f.select :ethnicity, options_for_select(%w{ Hispanic\ or\ Latino Not\ Hispanic\ or\ Latino }, @applicant.ethnicity), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
 
         <%= f.label :race %> *
-        <%= f.select :race, options_for_select(%w{ American\ Indian\ or\ Alaskan Caucasian Native Asian Black\ or\ African\ American Native\ Hawaiian\ or\ Pacific\ Islander}, @applicant.race), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :race, options_for_select(%w{ American\ Indian\ or\ Alaska\ Native Native\ Hawaiian\ or\ Pacific\ Islander Black\ or\ African\ American Asian White Mixed\ Race }, @applicant.race), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
 
         <%= f.label :citizenship %> *
         <%= f.select :citizenship, options_for_select(['United States'] + Carmen::Country.all.map(&:name), @applicant.citizenship), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
@@ -76,8 +76,8 @@
         <%- else -%>
           <%= f.select :disability, options_for_select(%w{No Yes}, @applicant.disability), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
         <%- end -%>
-
-        <%= f.label :are_you_a_veteran_of_the_USA_military? %> *
+    
+        <%= f.label(:military, 'Are you a veteran of the USA Military') %> *
         <%= f.select :military, options_for_select(%w{No Yes}, @applicant.military), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
       </div>
     </div>
@@ -95,7 +95,21 @@
     <div class="panel-body">
 
       <div class="form-group"> *
-        <%= f.text_area :statement, :class => 'form-control', :rows => 6, :placeholder => "Please Complete a brief essay (up to 250 words) explaining why you are interested in our program and how the experience may help you achieve your future goals."  %>
+        <%= f.text_area :statement, :class => 'form-control', :rows => 6, :placeholder => "Why are you applying to the Scripps Undergraduate Research Fellowship (SURF) REU program? (please limit your response to 250 words)"  %>
+      </div>
+    </div>
+
+    <div class="panel-heading">Research Experience</div>
+    <div class="panel-body">
+      <div class="form-group"> *
+        <%= f.text_area :research_experience, :class => 'form-control', :rows => 6, :placeholder => "What, if any, research experience do you have?  What type(s) of research experience would you like to experience and develop? (note: previous research experience is not required for participation in the program) (please limit your response to 250 words)"  %>
+      </div>
+    </div>
+
+    <div class="panel-heading">Recent Achievement</div>
+    <div class="panel-body">
+      <div class="form-group"> *
+        <%= f.text_area :recent_achievement, :class => 'form-control', :rows => 6, :placeholder => "Please tell us about a recent achievement that you are proud of. This achievement can be in any realm of your personal or professional life.  Examples include an academic achievement, employment, an award or honor in an extra-curricular activity (i.e. sports, music, hobbies), community service, family responsibility etc. (please limit your response to 250 words)"  %>
       </div>
     </div>
 
