@@ -1,10 +1,10 @@
 <fieldset>
   <%= f.label :university %>
   <%= f.text_field :university, :class => 'form-control'%>
-  <%= f.label :start %>
-  <%= f.text_field :start, 'data-behaviour' => 'datepicker', :placeholder => 'Start (YYYY-MM-DD)', :class => 'form-control' %>
-  <%= f.label :finish %>
-  <%= f.text_field :finish, 'data-behaviour' => 'datepicker', :placeholder => 'Finish or Expected Finish (YYYY-MM-DD)', :class => 'form-control' %>
+  <%= f.label :finish_month, "Finish Date" %> <br />
+  <%= f.select :finish_month, (1..12)%>
+  <%= f.select :finish_year, (Time.zone.now.year - 10)..(Time.zone.now.year + 10) %><br />
+  <!-- <#%= f.text_field :finish, 'data-behaviour' => 'datepicker', :placeholder => 'Finish or Expected Finish (YYYY-MM-DD)', :class => 'form-control' %> -->
   <%= f.label :major %>
   <%= f.text_field :major, :placeholder => 'Computer Science', :class => 'form-control' %>
   <%= f.label :minor %>
