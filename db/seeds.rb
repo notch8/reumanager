@@ -5,7 +5,7 @@
 admins = [{ email: 'jteranes@ucsd.edu', first_name: 'Jane', last_name: 'Teranes', password: 'REUappUCSD'},
           { email: 'jdreeves@ucsd.edu', first_name: 'Josh', last_name: "Reeves", password: 'REUappUCSD' },
           { email: 'crystal@notch8.com', first_name: 'Crystal', last_name: 'Richardson', password: 'REUappUCSD' },
-          { email: 'rob@notch8.com', first_name: 'Rob', last_name: 'Kaufman', password: 'REUappUCSD' }]
+          { email: 'rob@notch8.com', first_name: 'Rob', last_name: 'Kaufman', password: 'testing123' }]
 
 admins.map { |user| admin = User.new(user); admin.confirmed_at = DateTime.now; admin.save; }
 
