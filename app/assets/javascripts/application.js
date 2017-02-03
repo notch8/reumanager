@@ -22,9 +22,17 @@
 //= require js/index
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require select2
 //= require academic_records
 //= require recommendations
 //= require registrations
 //= require rich
 //= require js/styleswitcher
 //= require js/styleswitcher_leadpage
+
+
+$( document ).ready(function() {
+  $( "#switch_user_identifier" ).select2({
+    theme: "bootstrap"
+  });
+});

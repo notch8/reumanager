@@ -46,7 +46,7 @@ gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem 'activerecord-deprecated_finders'
-
+gem 'select2-rails'
 group :development do
   gem 'awesome_print'
   gem "better_errors"
