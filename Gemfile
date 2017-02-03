@@ -25,6 +25,7 @@ gem 'rich', :git => "https://github.com/joeswann/rich.git"
 gem 'rvm-capistrano', :require => false
 # gem 'sqlite3'
 gem 'state_machine'
+gem 'switch_user'
 gem 'whenever', :require => false
 gem 'validates_email_format_of'
 
