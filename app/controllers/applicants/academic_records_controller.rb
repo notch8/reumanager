@@ -16,7 +16,7 @@ class Applicants::AcademicRecordsController < ApplicationController
       end
       redirect_to current_applicant.redirect_url
     else
-      redirect_to applicants_records_path
+       render :edit
     end
   end
 
