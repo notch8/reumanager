@@ -125,7 +125,7 @@ class Applicant < ActiveRecord::Base
 
 
     event :complete_academic_info do
-      transition all => :completed_recommender_info, :if => lambda { |applicant| applicant.validates_application_completeness }
+      # transition all => :completed_recommender_info, :if => lambda { |applicant| applicant.validates_application_completeness }
       transition all => :completed_academic_info, :if => lambda { |applicant| applicant.validates_academic_info && applicant.validates_personal_info }
     end
     event :incomplete_academic_info do

@@ -64,7 +64,7 @@
         <%= f.select :race, options_for_select(["American Indian or Alaska Native", "Native Hawaiian or Pacific Islander", "Black or African American", "Asian", "White", "Mixed Race", "Prefer to not respond"], @applicant.race), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :citizenship %> *
-        <%= f.select :citizenship, options_for_select(['United States'] + Carmen::Country.all.map(&:name) + ["Prefer to not respond"], @applicant.citizenship), { :include_blank => true }, { :class => "form-control" } %>
+        <%= f.select :citizenship, options_for_select(['United States', 'Permanent Resident'], @applicant.citizenship), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :disability %> *
         <%- if show_disability_input? -%>
@@ -76,7 +76,7 @@
         <%- else -%>
           <%= f.select :disability, options_for_select(["No", "Yes", "Prefer to not respond"], @applicant.disability), { :include_blank => true }, { :class => "form-control" } %>
         <%- end -%>
-    
+
         <%= f.label(:military, 'Are you a veteran of the USA Military') %> *
         <%= f.select :military, options_for_select(["No", "Yes", "Prefer to not respond"], @applicant.military), { :include_blank => true }, { :class => "form-control" } %>
       </div>
