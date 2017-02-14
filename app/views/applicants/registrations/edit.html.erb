@@ -53,16 +53,16 @@
         <%= f.text_field :dob, 'data-behaviour' => 'datepicker', :class => "form-control" %>
 
         <%= f.label :gender %> *
-        <%= f.select :gender, options_for_select(%w{Male Female}, resource.gender), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :gender, options_for_select(["Male", "Female", "Prefer to not respond"], resource.gender), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :ethnicity %> *
-        <%= f.select :ethnicity, options_for_select(%w{ Hispanic\ or\ Latino Not\ Hispanic\ or\ Latino }, resource.ethnicity), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :ethnicity, options_for_select(["Hispanic or Latino", "Not Hispanic or Latino", "Prefer to not respond"], resource.ethnicity), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :race %> *
-        <%= f.select :race, options_for_select(%w{ American\ Indian\ or\ Alaskan Caucasian Native Asian Black\ or\ African\ American Native\ Hawaiian\ or\ Pacific\ Islander}, resource.race), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :race, options_for_select(["American Indian or Alaskan Native", "Caucasian", "Asian", "Black or African", "American Native Hawaiian or Pacific Islander", "Prefer to not respond"], resource.race), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :citizenship %> *
-        <%= f.select :citizenship, options_for_select(['United States'] + Carmen::Country.all.map(&:name), resource.citizenship), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :citizenship, options_for_select(['United States'] + Carmen::Country.all.map(&:name) + ['Prefer to not respond'], resource.citizenship), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :disability %> *
         <%- if show_disability_input? -%>
@@ -72,14 +72,14 @@
             <button id='disability_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
           </div>
         <%- else -%>
-          <%= f.select :disability, options_for_select(%w{No Yes}, resource.disability), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+          <%= f.select :disability, options_for_select(["No", "Yes", "Prefer to not respond"], resource.disability), { :include_blank => true }, { :class => "form-control" } %>
         <%- end -%>
 
         <%= f.label :are_you_a_first_generation_college_student? %>
-        <%= f.select :first_gen_college, options_for_select(%w{No Yes}, resource.first_gen_college), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :first_gen_college, options_for_select(["No", "Yes", "Prefer to not respond"], resource.first_gen_college), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :are_you_a_veteran_of_the_USA_military? %>
-        <%= f.select :military, options_for_select(%w{No Yes}, resource.military), { :include_blank => "Prefer to not respond" }, { :class => "form-control" } %>
+        <%= f.select :military, options_for_select(["No", "Yes", "Prefer to not respond"], resource.military), { :include_blank => true }, { :class => "form-control" } %>
 
       </div> <!-- end form-group -->
     </div><!-- end  panel-body -->

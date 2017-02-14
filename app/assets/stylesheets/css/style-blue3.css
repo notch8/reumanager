@@ -2495,14 +2495,14 @@ textarea.form-control:focus {
 .checkbox-inline {
   padding-left: 20px;
 }
-.checkbox > label,
+/*.checkbox > label,
 .checkbox-inline label {
   display: inline-block;
   vertical-align: middle;
   position: relative;
   padding-left: 5px;
   margin-right: 10px;
-}
+}*/
 /*.checkbox > label::before,
 .checkbox-inline label::before {
   content: "";
