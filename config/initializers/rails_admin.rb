@@ -93,7 +93,17 @@ RailsAdmin.config do |config|
             <b>Address</b>  #{applicant.address}
 
           <h4>Statement</h4>
-          #{Markdown.render applicant.statement if applicant.statement}}
+          #{Markdown.render applicant.statement if applicant.statement}
+
+          <h4>Additional Info</h4>
+          #{Markdown.render applicant.additional_info if applicant.additional_info}
+
+          <b>Found Us:</b>
+          #{applicant.found_us if applicant.found_us}<br />
+
+          <h4>Top Choices</h4>
+          #{Markdown.render applicant.top_choices if applicant.top_choices} <br />
+          }
         end
       end
 
