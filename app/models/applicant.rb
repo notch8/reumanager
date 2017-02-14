@@ -293,7 +293,7 @@ class Applicant < ActiveRecord::Base
   def validates_personal_info
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
-    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentance long."
+    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentence long."
 
     return true if self.errors.empty?
   end
