@@ -9,7 +9,8 @@ class Applicant < ActiveRecord::Base
                   :gender, :ethnicity, :race, :cpu_skills, :gpa_comment, :lab_skills, :addresses_attributes,
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes,
                   :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military,
-                  :mentor1, :mentor2, :mentor3, :permission_to_share, :research_experience, :recent_achievement
+                  :mentor1, :mentor2, :mentor3, :permission_to_share, :research_experience, :recent_achievement,
+                  :open
 
   has_many :addresses, :class_name => "Address", :dependent => :destroy
   has_many :records, :class_name => "AcademicRecord", :dependent => :destroy
@@ -235,7 +236,7 @@ class Applicant < ActiveRecord::Base
 
   def open=(value)
     @open = value
-    if @open
+    if @open && @open != "0"
       self.submitted_at = nil
     else
       self.submitted_at = Time.now
