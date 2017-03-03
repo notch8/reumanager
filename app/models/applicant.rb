@@ -239,6 +239,7 @@ class Applicant < ActiveRecord::Base
     @ropen = value
     Rails.logger.error "=========== #{value}"
     if @reopen
+      self.state = 'recommended'
       self.submitted_at = nil
     end
   end
