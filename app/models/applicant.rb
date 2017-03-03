@@ -231,16 +231,16 @@ class Applicant < ActiveRecord::Base
     'No demographic info'
   end
 
-  def reopen
-    @reopen ||= false
+  def open
+    @open = self.submitted_at.blank?
   end
 
-  def reopen=(value)
-    @ropen = value
-    Rails.logger.error "=========== #{value}"
-    if @reopen
-      self.state = 'recommended'
+  def open=(value)
+    @open = value
+    if @open
       self.submitted_at = nil
+    else
+      self.submitted_at = Time.now
     end
   end
 
