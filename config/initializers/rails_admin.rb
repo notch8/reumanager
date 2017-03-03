@@ -160,8 +160,8 @@ RailsAdmin.config do |config|
       end
       field :first_name
       field :last_name
-      field :completed_at do
-        label "Completed Date"
+      field :submitted_at do
+        label "Submitted Date"
         help 'Clear this reopen the application'
       end
 
