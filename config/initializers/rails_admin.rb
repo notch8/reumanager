@@ -1,3 +1,4 @@
+# coding: utf-8
 # RailsAdmin config file. Generated on September 22, 2012 18:58
 # See github.com/sferik/rails_admin for more informations
 require Rails.root.join('lib', 'admin_accept')
@@ -159,7 +160,11 @@ RailsAdmin.config do |config|
       end
       field :first_name
       field :last_name
-      field :email
+      field :completed_at do
+        label "Completed Date"
+        help 'Clear this reopen the application'
+      end
+
     end
   }
 
