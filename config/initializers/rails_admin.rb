@@ -160,9 +160,9 @@ RailsAdmin.config do |config|
       end
       field :first_name
       field :last_name
-      field :reopen, :boolean do
-        label "Reopen the Applicantion"
-        help 'Check this and hit save to reopen the application for editing'
+      field :open, :boolean do
+        label "Open the Applicantion"
+        help 'Check this and hit save to reopen the application for editing, uncheck it and save to stop editing'
       end
 
     end

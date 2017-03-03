@@ -42,8 +42,6 @@ class Applicant < ActiveRecord::Base
   validates :research_experience, presence: true, on: :update
   validates :recent_achievement, presence: true, on: :update
 
-  attr_accessor :reopen
-
   #  validates_presence_of :records, :if => :academic_records_controller?
 
   #  validate :must_have_academic_record, :if => :academic_records_controller?
