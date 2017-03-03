@@ -42,7 +42,7 @@ class Applicant < ActiveRecord::Base
   validates :research_experience, presence: true, on: :update
   validates :recent_achievement, presence: true, on: :update
 
-
+  attr_accessor :reopen
 
   #  validates_presence_of :records, :if => :academic_records_controller?
 
@@ -229,6 +229,15 @@ class Applicant < ActiveRecord::Base
 
   def demographic_info
     'No demographic info'
+  end
+
+  def reopen
+    @reopen ||= false
+  end
+
+  def reopen=(value)
+    @ropen = true
+    self.submitted_at = nil
   end
 
   def recommender

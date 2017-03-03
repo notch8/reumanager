@@ -160,9 +160,9 @@ RailsAdmin.config do |config|
       end
       field :first_name
       field :last_name
-      field :submitted_at do
-        label "Submitted Date"
-        help 'Clear this reopen the application'
+      field :reopen do
+        label "Reopen the Applicantion"
+        help 'Check this and hit save to reopen the application for editing'
       end
 
     end
