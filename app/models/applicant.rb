@@ -236,8 +236,11 @@ class Applicant < ActiveRecord::Base
   end
 
   def reopen=(value)
-    @ropen = true
-    self.submitted_at = nil
+    @ropen = value
+    Rails.logger.error "=========== #{value}"
+    if @reopen
+      self.submitted_at = nil
+    end
   end
 
   def recommender
