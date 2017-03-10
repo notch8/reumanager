@@ -21,7 +21,7 @@
   <div class="inner">
     <%= f.label :transcript %>
     <p>Attach a PDF or image of your transcript.</p>
-    <%= f.file_field :transcript %>
+    <%= f.file_field :transcript, :class => 'btn btn-primary btn-ar' %>
     <%= content_tag :p, raw("Current attachment: #{link_to current_applicant.records.find_by_applicant_id(current_applicant).transcript_file_name, current_applicant.records.find_by_applicant_id(current_applicant).transcript.url}") unless f.object.new_record?  %>
   </div>
 
