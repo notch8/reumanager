@@ -1,5 +1,5 @@
 class Recommender < ActiveRecord::Base
-  attr_accessible :department, :email, :first_name, :last_name, :organization, :phone, :title, :url, :id
+  attr_accessible :department, :email, :first_name, :last_name, :organization, :phone, :title, :url, :id, :created_at, :updated_at
 
   has_many :recommendations, :dependent => :destroy
   has_many :applicants, :through => :recommendations
