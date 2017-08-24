@@ -59,7 +59,5 @@ class GrantsController < ApplicationController
     end
 
 
-    def tenant_not_found
-        render 'lvh.me:3000'
-    end
+  
 end

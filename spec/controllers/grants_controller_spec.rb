@@ -23,7 +23,7 @@ describe GrantsController do
   # This should return the minimal set of attributes required to create a valid
   # Grant. As you add validations to Grant, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "program_title" => "MyString" } }
+  let(:valid_attributes) { { "subdomain" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

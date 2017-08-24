@@ -401,7 +401,6 @@ DEPENDENCIES
   kaminari
   launchy
   meta_request
-  minitest (~> 5.10, >= 5.10.3)
   mocha
   modernizr-rails
   mysql2 (= 0.3.18)
