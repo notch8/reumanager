@@ -26,11 +26,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  
+
   def tenant_not_found
       redirect_to 'lvh.me:3000'
   end
-
-
 
 end

@@ -102,7 +102,3 @@ Apartment::Elevators::Subdomain.prepend RescuedApartmentMiddleware
 
 
 # Rails.application.config.middleware.use Apartment::Elevators::FirstSubdomain
-
-
-
-

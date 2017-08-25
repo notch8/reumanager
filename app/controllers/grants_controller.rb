@@ -58,6 +58,4 @@ class GrantsController < ApplicationController
     def grant_params
       params.require(:grant).permit(:program_title, :institution, :department, :program_description, :subdomain)
     end
-
-
 end
