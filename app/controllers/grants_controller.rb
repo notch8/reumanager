@@ -25,6 +25,7 @@ class GrantsController < ApplicationController
   def create
     @grant = Grant.new(grant_params)
 
+
     if @grant.save
       redirect_to @grant, notice: 'Grant was successfully created.'
     else
@@ -59,7 +60,4 @@ class GrantsController < ApplicationController
     end
 
 
-    def tenant_not_found
-        render 'lvh.me:3000'
-    end
 end

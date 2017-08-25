@@ -210,7 +210,6 @@ GEM
       metaclass (~> 0.0.1)
     modernizr-rails (2.7.1)
     multi_json (1.10.1)
-    mysql2 (0.3.18)
     nested_form (0.3.2)
     net-http-spy (0.2.1)
     net-scp (1.1.2)
@@ -231,6 +230,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.21.0)
     poltergeist (1.5.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -401,13 +401,12 @@ DEPENDENCIES
   kaminari
   launchy
   meta_request
-  minitest (~> 5.10, >= 5.10.3)
   mocha
   modernizr-rails
-  mysql2 (= 0.3.18)
   net-http-spy
   paper_trail
   paperclip
+  pg
   poltergeist
   protected_attributes
   pry

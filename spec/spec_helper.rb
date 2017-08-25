@@ -42,6 +42,10 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
+    (ActiveRecord::Base.connection.tables - %w{schema_migrations}).each do |table_name|
+      ActiveRecord::Base.connection.execute "TRUNCATE TABLE #{table_name};"
+    end
+
     DatabaseCleaner.start
   end
 
