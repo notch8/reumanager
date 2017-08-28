@@ -24,10 +24,11 @@ class GrantsController < ApplicationController
   # POST /grants
   def create
     @grant = Grant.new(grant_params)
-
+    @subdomain = @grant.subdomain
 
     if @grant.save
-      redirect_to @grant, notice: 'Grant was successfully created.'
+      # flash[:notice] = 'successfully created'
+      redirect_to root_url(subdomain: @subdomain)
     else
       render :new
     end

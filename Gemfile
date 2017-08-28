@@ -20,25 +20,24 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
+gem 'mimemagic', '~> 0.3.2'
 gem 'pg'
-
 gem 'paperclip', '~> 5.1'
-
 gem 'paper_trail'
 gem 'rails_admin'
 gem 'rails-deprecated_sanitizer'
 gem 'redcarpet'
 gem 'responders', '~> 2.0'
 # gem 'rich', :git => "https://github.com/joeswann/rich.git"
-gem 'rich', :git => "https://github.com/rcronk87/rich.git"
+gem 'rich', :git => "https://github.com/notch8/rich.git"
 # gem 'rich'
 gem 'rvm-capistrano', require: false
-
 gem 'sqlite3'
 # gem 'state_machine'
 # gem 'state-machine', :git => "https://github.com/seuros/state_machine.git"
 # gem 'state_machine', '~> 1.2'
 gem 'state_machines-activerecord'
+gem 'stripe'
 gem 'whenever', :require => false
 gem 'validates_email_format_of'
 gem 'apartment'
@@ -71,7 +70,6 @@ group :development do
   gem 'crack'
   gem 'hirb-unicode'
   gem 'meta_request'
-  gem 'net-http-spy'
   gem 'rb-fchange', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-inotify', :require => false

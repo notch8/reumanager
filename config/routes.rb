@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  resources :charges
   resources :grants
 
   # mount Rich::Engine => '/rich', :as => 'rich'
