@@ -235,10 +235,10 @@ RailsAdmin.config do |config|
       field :name
       field :description
       field :value, :rich_editor do
-        config({
-          :insert_many => true
-        })
-      end
+       config({
+         :insert_many => true
+       })
+     end
     end
     list do
       field :display_name

@@ -69,7 +69,7 @@ class Applicants::RegistrationsController < Devise::RegistrationsController
   end
 
   def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) { |p| p.permit(:first_name, :last_name, :phone, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone, :email, :password, :password_confirmation])
   end
 
 
@@ -83,7 +83,7 @@ class Applicants::RegistrationsController < Devise::RegistrationsController
 
   def remove_blank_attribs
   #  debugger
-    params[:applicant][:addresses_attributes].each do |attribs|
+    params[:applicant][:addresses_attributes].to_unsafe_h.each do |attribs|
       # remove destroy flag unless it's set to true/1
       attribs[1][:_destroy] = '1' if attribs[1][:address].blank? && attribs[1][:city].blank? && attribs[1][:zip].blank?
     end

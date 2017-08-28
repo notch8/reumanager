@@ -1,12 +1,15 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails/all'
 require 'apartment/elevators/subdomain'
 
-Bundler.require(:default, Rails.env)
+# Require the gems listed in Gemfile, including any gems
+# you've limited to :test, :development, or :production.
+Bundler.require(*Rails.groups)
 
 module Reuman
   class Application < Rails::Application
+
     config.middleware.use Apartment::Elevators::Subdomain
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -52,7 +55,8 @@ module Reuman
 
     # Enable the asset pipeline
     config.assets.enabled = true
-  end
+    config.load_defaults 5.1
+   end
 
   class Apartment < ::Apartment::Elevators::Subdomain
     def call(env)
@@ -61,6 +65,8 @@ module Reuman
             [302, {'Location' => '/'}, []]
     end
   end
+
+
 
 
 end

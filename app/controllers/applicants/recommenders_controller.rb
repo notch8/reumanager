@@ -1,6 +1,6 @@
 class Applicants::RecommendersController < ApplicationController
-  before_filter :authenticate_applicant!
-  before_filter :instantiate_applicant
+  before_action :authenticate_applicant!
+  before_action :instantiate_applicant
 
   def edit
     if @applicant.recommenders.count == 0
@@ -12,8 +12,7 @@ class Applicants::RecommendersController < ApplicationController
 
   def update
     # check to see if recommender_attribs correlates to an existing recommender(s)
-    recommender_data = Recommender.remove_exisitng_recommenders_from_params(params[:applicant][:recommenders_attributes])
-
+    recommender_data = Recommender.remove_existing_recommenders_from_params(params[:applicant][:recommenders_attributes])
 
     # add existing recommenders to applicant
     unless recommender_data[0].empty?
@@ -40,5 +39,11 @@ class Applicants::RecommendersController < ApplicationController
   def instantiate_applicant
     @applicant = current_applicant
   end
+
+  def recommenders_attributes
+    params.require(:recommender).permit(:department, :email, :first_name, :last_name, :organization, :phone, :title, :url, :id)
+  end
+
+
 
 end
