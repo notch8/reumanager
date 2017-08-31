@@ -1,6 +1,9 @@
 
 Rails.application.routes.draw do
-  resources :charges
+  resources :payments, only: [:new, :create]
+  get 'payment-thanks', to: 'payments#thanks', as: 'payment_thanks'
+  resources :charges, only: [:new, :create, :index]
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
   resources :grants
 
   # mount Rich::Engine => '/rich', :as => 'rich'

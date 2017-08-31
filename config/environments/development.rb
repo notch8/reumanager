@@ -49,7 +49,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   #config.action_mailer.default_url_options = { :host => 'localhost:3000/test' }
-  Rails.application.routes.default_url_options = { :host => 'localhost:3000' }
+  Rails.application.routes.default_url_options = { :host => 'lvh.me:3000' }
 
   config.action_mailer.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/rqi' }
   config.action_mailer.smtp_settings = {

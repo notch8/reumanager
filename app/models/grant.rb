@@ -4,6 +4,7 @@ class Grant < ActiveRecord::Base
 	after_create :create_tenant
 	after_destroy :destroy_tenant
 
+
 	def create_tenant
 		Apartment::Tenant.create(subdomain)
 		Apartment::Tenant.switch!(subdomain)
