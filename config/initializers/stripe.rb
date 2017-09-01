@@ -5,4 +5,4 @@ Rails.configuration.stripe = {
 }
 
 require "stripe"
-Stripe.api_key = "sk_test_zO6UjE4YsjNNGCCMZ3k0gM1y"
+Stripe.api_key = "sk_test_xp6wrmUz73aXUdQb7XDZm7mt"

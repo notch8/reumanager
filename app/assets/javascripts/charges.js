@@ -3,7 +3,7 @@ $(document).ready(function() {
   if($("#payment-form").length > 0) {
 
     // Create a Stripe client
-    var stripe = Stripe('pk_test_IX7h3ezgT2rZDkuqrnBvAhED');
+    var stripe = Stripe('pk_test_p7UXZiQWomIICnrBTZna13sH');
 
     // Create an instance of Elements
     var elements = stripe.elements();
@@ -72,6 +72,6 @@ $(document).ready(function() {
         // Submit the form
         form.submit();
       }
-    
+
   };
 });
