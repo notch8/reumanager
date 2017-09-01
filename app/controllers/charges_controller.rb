@@ -1,28 +1,38 @@
 class ChargesController < ApplicationController
-  def index
-  end
 
-  def new
-  end
+	before_action :amount_to_be_charged
 
-  def create
-    # Amount in cents
-    @amount = 79500
+def new
+end
 
-    customer = Stripe::Customer.create(
-    # :email => params[:stripeEmail],
+def create
+
+
+  customer = Stripe::Customer.create(
+    :email => 'amy.dyson@mac.com',
     :source  => params[:stripeToken]
-    )
+  )
 
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Pay To Register A New Grant',
-      :currency    => 'usd'
-    )
+  charge = Stripe::Charge.create(
 
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
-  end
+    :customer    => customer.id,
+    :amount      => @amount,
+    :description => 'Rails Stripe customer',
+    :currency    => 'usd'
+  )
+
+  redirect_to root_url(subdomain: @subdomain)
+
+
+rescue Stripe::CardError => e
+  flash[:error] = e.message
+  redirect_to new_charge_path
+end
+
+private
+
+	def amount_to_be_charged
+		@amount = 2500
+	end
+
 end

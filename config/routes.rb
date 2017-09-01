@@ -1,10 +1,12 @@
 
 Rails.application.routes.draw do
-  resources :payments, only: [:new, :create]
-  get 'payment-thanks', to: 'payments#thanks', as: 'payment_thanks'
-  resources :charges, only: [:new, :create, :index]
-  get 'thanks', to: 'charges#thanks', as: 'thanks'
+
+  resources :grant_settings
+  resources :admin_accounts
+  resources :grant_snippets
   resources :grants
+  resources :charges
+
 
   # mount Rich::Engine => '/rich', :as => 'rich'
 
@@ -39,5 +41,8 @@ Rails.application.routes.draw do
   get "closed" => "welcome#closed"
   get "thanks" => "welcome#thanks"
 
-  root :to => "welcome#index"
+  root :to => "grants#index"
+
+  # root "grants#index"
+
 end

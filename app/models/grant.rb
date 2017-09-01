@@ -1,4 +1,8 @@
 class Grant < ActiveRecord::Base
+	has_one :admin_account
+	has_one :grant_setting
+	has_one :grant_snippet
+
 	validates :subdomain, exclusion: { in: %w(www admin), message: "%{value} is reserved"}
 	validates :subdomain, uniqueness: {:scope => :subdomain}
 	after_create :create_tenant
@@ -15,5 +19,6 @@ class Grant < ActiveRecord::Base
 	def destroy_tenant
 		Apartment::Tenant.drop(subdomain)
 	end
+	
 
 end

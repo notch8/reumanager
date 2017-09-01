@@ -3,6 +3,8 @@ class GrantsController < ApplicationController
 
   rescue_from Apartment::TenantNotFound, with: :tenant_not_found
 
+
+
   # GET /grants
   def index
     @grants = Grant.all
@@ -24,11 +26,13 @@ class GrantsController < ApplicationController
   # POST /grants
   def create
     @grant = Grant.new(grant_params)
-    @subdomain = @grant.subdomain
+
 
     if @grant.save
-      # flash[:notice] = 'successfully created'
-      redirect_to root_url(subdomain: @subdomain)
+
+      # redirect_to @grant, notice: 'Grant was successfully created.'
+      redirect_to new_grant_setting_path(grant_id: @grant.id), notice: 'Your program was successfully created.'
+
     else
       render :new
     end
@@ -57,6 +61,6 @@ class GrantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def grant_params
-      params.require(:grant).permit(:program_title, :institution, :department, :program_description, :subdomain)
+      params.require(:grant).permit(:program_title, :institution, :subdomain, :contact_email, :contact_password)
     end
 end

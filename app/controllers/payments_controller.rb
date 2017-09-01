@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    fail
+
     customer = Stripe::Customer.create(
     :email => "test@notch8.com", #TODO get login working here current_user.email,
     :source  => params[:stripeToken]
@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
       :description => 'Pay To Register A New Grant',
       :currency    => 'usd',
     )
-
+fail
     render text: "Success" # todo go to next page in sign up path
   rescue Stripe::CardError => e
     flash[:error] = e.message
