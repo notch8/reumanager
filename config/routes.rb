@@ -1,4 +1,6 @@
+
 Rails.application.routes.draw do
+
   resources :grant_settings
   resources :admin_accounts
   resources :grant_snippets
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
 
 
   # mount Rich::Engine => '/rich', :as => 'rich'
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   namespace :applicants do
@@ -41,5 +44,5 @@ Rails.application.routes.draw do
   root :to => "grants#index"
 
   # root "grants#index"
-  
+
 end

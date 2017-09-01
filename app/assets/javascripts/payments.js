@@ -1,6 +1,7 @@
-$(document).ready(function() {
 
-  if($("#payment-form").length > 0) {
+$(document).ready(function() {
+  //only run if payment-form is present
+  if($("#payment-form").length > 0){
 
     // Create a Stripe client
     var stripe = Stripe('pk_test_p7UXZiQWomIICnrBTZna13sH');
@@ -60,18 +61,17 @@ $(document).ready(function() {
       });
     });
 
-      function stripeTokenHandler(token) {
-        // Insert the token ID into the form so it gets submitted to the server
-        var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById('payment-form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
 
-        // Submit the form
-        form.submit();
-      }
-
+      // Submit the form
+      form.submit();
+    }
   };
 });

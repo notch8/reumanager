@@ -1,12 +1,10 @@
 source 'http://gems.github.com'
 source 'https://rubygems.org'
 
+
 gem 'rails', '5.1.3'
 
 gem 'activemodel-serializers-xml'
-
-gem 'stripe'
-
 gem 'addressable'
 gem 'carmen-rails', github: 'notch8/carmen-rails', :branch => 'master'
 # gem 'client_side_validations', github: "notch8/client_side_validations", :branch => "removed_repo"
@@ -20,6 +18,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'kaminari'
+gem 'mimemagic', '~> 0.3.2'
 gem 'pg'
 gem 'paperclip', '~> 5.1'
 gem 'paper_trail'
@@ -32,12 +31,12 @@ gem 'rich', :git => "https://github.com/notch8/rich.git"
 gem 'mimemagic', '~> 0.3.2'
 # gem 'rich'
 gem 'rvm-capistrano', require: false
-
 gem 'sqlite3'
 # gem 'state_machine'
 # gem 'state-machine', :git => "https://github.com/seuros/state_machine.git"
 # gem 'state_machine', '~> 1.2'
 gem 'state_machines-activerecord'
+gem 'stripe'
 gem 'whenever', :require => false
 gem 'validates_email_format_of'
 gem 'apartment'

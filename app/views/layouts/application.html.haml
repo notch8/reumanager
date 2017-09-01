@@ -17,7 +17,7 @@
     %link{:href => "#{image_path('icons/apple-touch-icon-120x120.png')}", :rel => "apple-touch-icon", :sizes => "120x120"}/
     %link{:href => "#{image_path('icons/apple-touch-icon-144x144.png')}", :rel => "apple-touch-icon", :sizes => "144x144"}/
     %link{:href => "#{image_path('icons/apple-touch-icon-152x152.png')}", :rel => "apple-touch-icon", :sizes => "152x152"}/
-  %body
+  %body(class="#{controller_name} #{controller_name}_#{action_name}")
     #flash
       = content_tag 'div', (flash[:alert]), :class => 'alert', :id => 'alert', :onclick => "$(this).slideUp();" if flash[:alert]
       = content_tag 'div', (flash[:error]), :class => 'alert alert-error', :id => 'error', :onclick => "$(this).slideUp();" if flash[:error]

@@ -3,7 +3,7 @@ class GrantsController < ApplicationController
   before_action :amount_to_be_charged
 
   rescue_from Apartment::TenantNotFound, with: :tenant_not_found
-
+  # validates :subdomain,  :presence => true
 
 
   # GET /grants
@@ -32,11 +32,14 @@ class GrantsController < ApplicationController
     if @grant.valid?
 
       customer = Stripe::Customer.create(
+
         :email => 'amy.dyson@mac.com',
+
         :source  => params[:stripeToken]
       )
 
       charge = Stripe::Charge.create(
+
 
         :customer    => customer.id,
         :amount      => @amount,
@@ -44,10 +47,12 @@ class GrantsController < ApplicationController
         :currency    => 'usd'
       )
 
-      @grant.save
+     @grant.save
+
 
       # redirect_to new_grant_setting_path(grant_id: @grant.id), notice: 'Your program was successfully created.'
       redirect_to new_grant_setting_path(grant_id: @grant.id), notice: 'Your program was successfully created.'
+
     else
       render :new
     end
@@ -56,6 +61,7 @@ class GrantsController < ApplicationController
     rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+
 
   end
 
@@ -80,10 +86,12 @@ class GrantsController < ApplicationController
       @grant = Grant.find(params[:id])
     end
 
+=
 
     def amount_to_be_charged
       @amount = 2500
     end
+
 
 
     # Only allow a trusted parameter "white list" through.

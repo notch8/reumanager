@@ -1,11 +1,12 @@
 class ChargesController < ApplicationController
+
 	before_action :amount_to_be_charged
 
 def new
 end
 
 def create
- 
+
 
   customer = Stripe::Customer.create(
     :email => 'amy.dyson@mac.com',
