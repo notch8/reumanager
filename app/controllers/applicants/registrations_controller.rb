@@ -2,6 +2,7 @@ class Applicants::RegistrationsController < Devise::RegistrationsController
   before_action :update_sanitized_params, if: :devise_controller?
   before_action :auth, :only => [:status, :update, :submit]
   before_action :check_deadline, :only => [:submit]
+  
 
   # GET /resource/edit
   def edit
@@ -53,7 +54,7 @@ class Applicants::RegistrationsController < Devise::RegistrationsController
   def submit
     if current_applicant && current_applicant.submit_application && current_applicant.errors.empty?
       flash[:success] = "Application submitted."
-      redirect_to current_applicant.redirect_url
+      redirect_to root_path
     else
       flash[:error] = "You cannot submit your application until it is complete."
       redirect_to current_applicant.redirect_url

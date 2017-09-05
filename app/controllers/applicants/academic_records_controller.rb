@@ -1,6 +1,7 @@
 class Applicants::AcademicRecordsController < ApplicationController
   before_action :authenticate_applicant!
   before_action :set_state
+  
 
   def edit
     current_applicant.records.build unless current_applicant.records.count > 0

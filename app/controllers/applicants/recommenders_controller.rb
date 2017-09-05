@@ -1,6 +1,7 @@
 class Applicants::RecommendersController < ApplicationController
   before_action :authenticate_applicant!
   before_action :instantiate_applicant
+  
 
   def edit
     if @applicant.recommenders.count == 0
