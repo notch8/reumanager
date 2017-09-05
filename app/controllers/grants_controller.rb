@@ -1,6 +1,7 @@
 class GrantsController < ApplicationController
   before_action :set_grant, only: [:show, :edit, :update, :destroy]
   before_action :amount_to_be_charged
+  
 
   # GET /grants
   def index
