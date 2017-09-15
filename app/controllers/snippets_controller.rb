@@ -1,12 +1,14 @@
 class SnippetsController < ApplicationController
+
   def index
     @grant = current_grant
     @snippets = Snippet.all
   end
 
   def create
+
     if current_grant.update_attributes(grant_params)
-      redirect_to admin_accounts_path, notice: 'You have successfully updated your snippets.'
+      redirect_to new_admin_account_path, notice: 'You have successfully updated your snippets.'
     else
       render :index
     end

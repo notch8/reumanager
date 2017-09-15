@@ -1,10 +1,14 @@
+<script>var getdata = document.getElementById('addPost');
+if(getdata){ getdata.addEventListener('submit', addPost)};
+</script>
+
+<div class="row">
+  <div class="span9">
+      <div class="span8">
 <h1>Set up your account</h1>
-<%= form_for(@grant, url: settings_path, method: :post) do |f| %>
-  <%= f.fields_for :settings do |settings_f| %>
-    <%= settings_f.label :value, settings_f.object.name %>
-    <div class='hint'><%= settings_f.object.description %></div>
-    <%= settings_f.text_area :value, :class => 'span10', :rows => 4 %>
-  <% end %>
-<br>
-  <%= f.submit :update %>
-<% end %>
+     </div>
+<div class ="inner" id="setting-form"></div>
+
+<%= javascript_pack_tag 'setting' %>
+  </div>
+</div>

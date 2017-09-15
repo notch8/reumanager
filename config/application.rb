@@ -56,6 +56,13 @@ module Reuman
     # Enable the asset pipeline
     config.assets.enabled = true
     config.load_defaults 5.1
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+       origins '*'
+       resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
    end
 
   class Apartment < ::Apartment::Elevators::Subdomain
