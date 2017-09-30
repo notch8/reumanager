@@ -27,7 +27,7 @@ class GrantsController < ApplicationController
 
     if @grant.valid?
       customer = Stripe::Customer.create(
-        :email => 'amy.dyson@mac.com',
+        :email => params[:email],
         :source  => params[:stripeToken]
       )
 
@@ -85,6 +85,6 @@ class GrantsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def grant_params
-      params.require(:grant).permit(:program_title, :institution, :subdomain, :contact_email, :contact_password, :users_attributes => [:id, :email, :password])
+      params.require(:grant).permit(:program_title, :institution, :subdomain, :contact_email, :contact_password, :coupon_code, :users_attributes => [:id, :email, :password])
     end
 end

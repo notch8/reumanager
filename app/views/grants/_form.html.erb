@@ -43,8 +43,8 @@
     </div>
     <br/>
     <div class="field">
-      <%= label_tag(:coupon_code, 'Coupon Code') %><br>
-      <%= text_field_tag(:coupon_code)  %>
+      <%= f.label :coupon_code %><br>
+      <%= f.text_field :coupon_code, :style => 'width: 100%;'  %>
     </div>
     <!-- Used to display Element errors -->
     <div id="card-errors" role="alert"></div>
