@@ -41,8 +41,27 @@ namespace :rake do
     end
   end
 end
-
 namespace :deploy do
+  #For troubleshooting only
+  task :update_code, :except => { :no_release => true } do
+    #on_rollback { run "rm -rf #{release_path}; true" }
+    strategy.deploy!
+    finalize_update
+  end
+  namespace :assets do
+    task :precompile, :roles => lambda { assets_role }, :except => { :no_release => true } do
+      run <<-CMD.compact
+        cd -- #{latest_release} && 
+        RAILS_ENV=#{rails_env.to_s.shellescape} #{asset_env} rake assets:precompile
+      CMD
+
+      if capture("ls -1 #{shared_path.shellescape}/#{shared_assets_prefix}/#{asset_manifest_prefix}* | wc -l").to_i > 1
+        raise "More than one asset manifest file was found in '#{shared_path.shellescape}/#{shared_assets_prefix}'.  If you are upgrading a Rails 3 application to Rails 4, follow these instructions: http://github.com/capistrano/capistrano/wiki/Upgrading-to-Rails-4#asset-pipeline"
+      end
+
+    end
+  end
+
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
@@ -51,7 +70,7 @@ namespace :deploy do
 
   desc "chown & chmod to www-data"
   task :chown do
-    sudo "chown -R jjg:www-data #{deploy_to}"
+    sudo "chown -R ubuntu:www-data #{deploy_to}"
     sudo "chmod -R 775 #{deploy_to}"
   end
 
@@ -65,6 +84,7 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/shared/config/*.yml #{release_path}/config/"
     run "mkdir -p #{release_path}/public/#{application}"
     run "ln -nfs #{release_path}/public/system #{release_path}/public/#{application}/system"
+    run "ln -nfs #{release_path}/public/assets #{release_path}/public/#{application}/assets"
   end
 end
 
