@@ -16,6 +16,8 @@
         - else
           %li
             =link_to "Welcome", root_path
+        %li
+          =link_to "REU Faculty", "http://sdni.ucsd.edu/reu.php#research-areas", :target => '_blank'
         %li{class: params[:controller] == 'applicants/registrations' && params[:action] !=  'status' ? 'active' : ''}
           - if applicant_signed_in?
             =link_to "Profile", edit_applicant_registration_path, :class => 'active' unless current_applicant.submitted_at
