@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/DavyJonesLocker/client_side_validations.git
+  revision: a0eed802b9c5bc689fd4cf14c32e6de83918aaf4
+  branch: 4-2-stable
+  specs:
+    client_side_validations (4.2.12)
+      jquery-rails (>= 3.1.2, < 5.0.0)
+      js_regex (~> 1.0, >= 1.0.19)
+      rails (>= 4.0.0, < 4.3.0)
+
+GIT
   remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
   revision: 9ffa3c6418d21394e05892506ca4931d1285373f
   specs:
@@ -13,13 +23,6 @@ GIT
     carmen-rails (1.0.0)
       carmen (~> 1.0.0)
       rails
-
-GIT
-  remote: git://github.com/tagliala/client_side_validations.git
-  revision: 0e3e8dcca005d409630ecd54ba8f1c590b72ecaa
-  branch: rails-4.2
-  specs:
-    client_side_validations (4.1.0)
 
 GIT
   remote: git://github.com/thoughtbot/cocaine.git
@@ -180,6 +183,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
+    js_regex (1.2.3)
+      regexp_parser (>= 0.3.6, <= 0.5.0)
     json (1.8.1)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -288,6 +293,7 @@ GEM
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
     redcarpet (3.0.0)
+    regexp_parser (0.4.9)
     remotipart (1.2.1)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -426,3 +432,6 @@ DEPENDENCIES
   what_methods
   whenever
   wirble
+
+BUNDLED WITH
+   1.11.2
