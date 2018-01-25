@@ -132,7 +132,7 @@
           <button id='mentor1_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
         </div>
       <%- else -%>
-        <%= f.select :mentor1, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase J.\ Tony\ Koslow Paul\ Jensen Lisa\ Levin Dan\ Lubin Deirdre\ Lyons Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor1), { :include_blank => false }, { :class => "form-control" } %>
+        <%= f.select :mentor1, options_for_select(MENTORS, @applicant.mentor1), { :include_blank => false }, { :class => "form-control" } %>
       <%- end -%>
 
       <br />
@@ -145,7 +145,7 @@
           <button id='mentor2_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
         </div>
       <%- else -%>
-        <%= f.select :mentor2, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase J.\ Tony\ Koslow Paul\ Jensen Lisa\ Levin Dan\ Lubin Deirdre\ Lyons Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor2), { :include_blank => false }, { :class => "form-control" } %>
+        <%= f.select :mentor2, options_for_select(MENTORS, @applicant.mentor2), { :include_blank => false }, { :class => "form-control" } %>
       <%- end -%>
 
       <br />
@@ -158,7 +158,7 @@
           <button id='mentor3_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
         </div>
       <%- else -%>
-        <%= f.select :mentor3, options_for_select(%w{ Jeff\ Bowman Dimitri\ Deheyn Falk\ Feddersen Sarah\ Gille Vicki\ Grassian Jennifer\ Haase J.\ Tony\ Koslow Paul\ Jensen Lisa\ Levin Dan\ Lubin Deirdre\ Lyons Richard\ Norris Brian\ Palenik Lynn\ Russell Brice\ Semmens Ana\ Sirovic Dave\ Stegman Lynne\ Talley Lisa\ Tauxe Jennifer\ Taylor Jane\ Willenbring Other}, @applicant.mentor3), { :include_blank => false }, { :class => "form-control" } %>
+        <%= f.select :mentor3, options_for_select(MENTORS, @applicant.mentor3), { :include_blank => false }, { :class => "form-control" } %>
       <%- end -%>
     </div>
 
