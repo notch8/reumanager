@@ -34,8 +34,6 @@ class Applicant < ActiveRecord::Base
   validates :citizenship, presence: true, on: :update
   validates :disability, presence: true, on: :update
   validates :military, presence: true, on: :update
-  validates :mentor1, presence: true, on: :update
-  validates :mentor2, presence: true, on: :update
 
 
 
