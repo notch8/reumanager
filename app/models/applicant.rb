@@ -138,7 +138,7 @@ class Applicant < ActiveRecord::Base
 
 
     event :complete_academic_info do
-      transition all => :completed_recommender_info, :if => lambda { |applicant| applicant.validates_application_completeness }
+      # transition all => :completed_recommender_info, :if => lambda { |applicant| applicant.validates_application_completeness }
       transition all => :completed_academic_info, :if => lambda { |applicant| applicant.validates_academic_info && applicant.validates_personal_info }
     end
     event :incomplete_academic_info do
@@ -307,7 +307,7 @@ class Applicant < ActiveRecord::Base
   def validates_personal_info
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
-    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentance long."
+    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentence long."
 
     return true if self.errors.empty?
   end

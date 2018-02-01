@@ -3,31 +3,30 @@ general_description:
   description: This is the text used as a general description for your program.
     It is displayed on the front page under the main image.
   value: |
-    The Jacobs school of Engineering (JSOE) at UC San Diego hosts a summer Research Experience for Undergraduates (REU) summer program in Biomaterials. The objectives of the program are to train undergraduates in basic research through challenging biomaterial-related engineering projects performed with research mentors from engineering departments across JSOE. Research areas include tissue engineering and 3D printing, bio-inspired biomaterials, biomaterial-stem cell interaction, nanoparticles and drug delivery.
-
+    The Constellation Undergraduate Summer Program (CUSP) is an REU program that provides undergraduate research opportunities to work in High Energy Density Physics (HEDP). The Constellation Fellows are paired with host mentors that are some of the world’s pioneers and leaders in HEDP that comprise a nationwide network including UC San Diego, UC Davis, UC Berkeley, UCLA, UC Santa Cruz, UC Irvine, the University of Chicago, and Florida A&amp;M University. Research projects are related to the experimental, theoretical and computational study of material properties and energy transport of matter under extreme conditions of temperature and pressure. This research provides a unique blend of Fusion Energy Sciences, Computational &amp; Experimental Plasma Physics, Nuclear Physics, Planetary Science and Astrophysics and employs some of the nation’s fastest supercomputers and cutting-edge facilities related to understanding matter under extreme conditions.
 highlights:
   name: highlights
   description: ''
   value: |
     <ul>
-      <li>$5,000 stipend</li>
-      <li>On-campus housing</li>
-      <li>Travel to and from San Diego</li>
-      <li>Presentations at UC San Diego Research Symposium and BMES National Meeting</li>
-      <li>Weekly research development workshops/li>
-      <li>GRE preparation course</li>
-      <li>Field trips and social events</li>
+      <li>Participants received a competitive $5,000 stipend</li>
+      <li>Tour of San Diego Supercomputer Center (SDSC)</li>
+      <li>Tutorials on high performance computing, numerical modeling, scientific visualization, and high performance computing</li>
+      <li>Travel support to orientation week in La Jolla, CA and accommodation provided</li>
+      <li>Travel support to host institution and an allowance for 9 weeks of housing</li>
+      <li>Travel support to home or home institution after completing 9 weeks of research</li>
+      <li>Possible travel support to attend APS Division of Plasma Physics conference meeting in Portland, OR (Nov 5-9)</li>
+      <li>Assistance securing housing at the host institution</li>
     </ul>
 eligibility_requirements:
   name: eligibility_requirements
   description: ''
   value: |
     <ul>
-      <li>Full-time undergraduate student</li>
-      <li>U.S. citizen or permanent resident</li>
-      <li>Full-time availability during the program.</li>
-      <li>Lower division students in bioengineering, material science, chemical engineering, life sciences, or other related field are especially encouraged to apply</li>
-      <li>Women and underrepresented minorities are especially encouraged to apply</li>
+      <li>Women and members from underrepresented groups are encouraged to apply</li>
+      <li>Completed junior year with major in physical science or engineering (or equivalent) with a 3.0 GPA Some exceptional sophomores will be considered</li>
+      <li>Background in astrophysics, plasma physics, or energy science is not required</li>
+      <li>Computer programming experience (Matlab, Python, C, Fortran, C++, etc) recommended but not essential</li>
     </ul>
 application_information:
   name: application_information

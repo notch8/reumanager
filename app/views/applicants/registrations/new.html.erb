@@ -1,4 +1,7 @@
-<div class="inner">
+<%- if expired?  %>
+  <h3>The deadline for applications has passed. Please sign in to see existing application status.</h3>
+<% else %>
+ <div class="inner">
   <div class="panel panel-primary">
     <div class="panel-heading">Sign up</div>
     <div class="panel-body">
