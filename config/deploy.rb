@@ -5,8 +5,8 @@ require "rvm/capistrano"
 #set :whenever_command, "bundle exec whenever"
 #require "whenever/capistrano"
 
-set :application, "biomaterials" #matches names used in smf_template.erb
-set :repository,  "https://github.com/notch8/reumanager.git"
+set :application, "cusp" #matches names used in smf_template.erb
+set :repository,  "git@gitlab.com:notch8/reumanager.git"
 set :branch, "#{application}"
 set :domain, 'indra'
 set :deploy_to, "/var/www/#{application}" # I like this location
