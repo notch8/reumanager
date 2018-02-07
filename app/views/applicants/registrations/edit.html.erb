@@ -51,22 +51,22 @@
 
       <div class="form-group">
 
-        <%= f.label :dob, "Date of Birth (YYYY-MM-DD)" %> *
+        <%= f.label :dob, "Date of Birth (YYYY-MM-DD) *" %>
         <%= f.text_field :dob, 'data-behaviour' => 'datepicker', :class => "form-control" %>
 
-        <%= f.label :gender %> *
+        <%= f.label :gender, "Gender *" %>
         <%= f.select :gender, options_for_select(["Male", "Female", "I define my gender differently", "Prefer to not respond"], @applicant.gender), { :include_blank => true }, { :class => "form-control" } %>
 
-        <%= f.label :ethnicity %> *
+        <%= f.label :ethnicity, "Ethnicity *" %>
         <%= f.select :ethnicity, options_for_select(["Hispanic  or  Latino", "Not Hispanic or Latino", "Prefer to not respond"], @applicant.ethnicity), { :include_blank => true }, { :class => "form-control" } %>
 
-        <%= f.label :race %> *
+        <%= f.label :race, "Race *" %>
         <%= f.select :race, options_for_select(["American Indian or Alaska Native", "Native Hawaiian or Pacific Islander", "Black or African American", "Asian", "White", "Mixed Race", "Prefer to not respond"], @applicant.race), { :include_blank => true }, { :class => "form-control" } %>
 
-        <%= f.label :citizenship %> *
+        <%= f.label :citizenship, "Citizenship *" %>
         <%= f.select :citizenship, options_for_select(['United States', 'Permanent Resident'], @applicant.citizenship), { :include_blank => true }, { :class => "form-control" } %>
 
-        <%= f.label :disability %> *
+        <%= f.label :disability, "Disability *" %>
         <%- if show_disability_input? -%>
           <div id='disability_container' class='input-append'>
             <%= f.text_field :disability, :class => "form-control" %>
@@ -77,7 +77,7 @@
           <%= f.select :disability, options_for_select(["No", "Yes", "Prefer to not respond"], @applicant.disability), { :include_blank => true }, { :class => "form-control" } %>
         <%- end -%>
 
-        <%= f.label(:military, 'Are you a veteran of the USA Military') %> *
+        <%= f.label(:military, 'Are you a veteran of the USA Military *') %>
         <%= f.select :military, options_for_select(["No", "Yes", "Prefer to not respond"], @applicant.military), { :include_blank => true }, { :class => "form-control" } %>
       </div>
     </div>
@@ -94,21 +94,24 @@
     <div class="panel-heading">Personal Statement</div>
     <div class="panel-body">
 
-      <div class="form-group"> *
+      <div class="form-group">
+        <%= f.label :statement, "Why are you applying to the Scripps Undergraduate Research Fellowship (SURF) REU program? *" %>
         <%= f.text_area :statement, :class => 'form-control', :rows => 6, :placeholder => "Why are you applying to the Scripps Undergraduate Research Fellowship (SURF) REU program? (please limit your response to 250 words)"  %>
       </div>
     </div>
 
     <div class="panel-heading">Research Experience</div>
     <div class="panel-body">
-      <div class="form-group"> *
+      <div class="form-group">
+        <%= f.label :research_experience, "What, if any, research experience do you have?  What type(s) of research experience would you like to experience and develop? (note: previous research experience is not required for participation in the program) (please limit your response to 250 words) *" %>
         <%= f.text_area :research_experience, :class => 'form-control', :rows => 6, :placeholder => "What, if any, research experience do you have?  What type(s) of research experience would you like to experience and develop? (note: previous research experience is not required for participation in the program) (please limit your response to 250 words)"  %>
       </div>
     </div>
 
     <div class="panel-heading">Recent Achievement</div>
     <div class="panel-body">
-      <div class="form-group"> *
+      <div class="form-group">
+        <%= f.label :recent_achievement, "Please tell us about a recent achievement that you are proud of. This achievement can be in any realm of your personal or professional life.  Examples include an academic achievement, employment, an award or honor in an extra-curricular activity (i.e. sports, music, hobbies), community service, family responsibility etc. (please limit your response to 250 words) *" %>
         <%= f.text_area :recent_achievement, :class => 'form-control', :rows => 6, :placeholder => "Please tell us about a recent achievement that you are proud of. This achievement can be in any realm of your personal or professional life.  Examples include an academic achievement, employment, an award or honor in an extra-curricular activity (i.e. sports, music, hobbies), community service, family responsibility etc. (please limit your response to 250 words)"  %>
       </div>
     </div>
@@ -124,6 +127,7 @@
 
     <div class="panel-heading">Preferred Mentor</div>
     <div class="panel-body">
+
       <%= f.label :mentor_choice_1 %> *
       <%- if mentor1_input? -%>
         <div id='mentor1_container' class='input-append'>

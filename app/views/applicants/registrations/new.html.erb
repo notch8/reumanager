@@ -14,22 +14,22 @@
 
           <div class="form-group">
 
-            <%= f.label :first_name, "First Name" %>
+            <%= f.label :first_name, "First Name (George)" %>
             <%= f.text_field :first_name, :class => "form-control", :placeholder => "George" %>
 
-            <%= f.label :last_name, "Last Name" %>
+            <%= f.label :last_name, "Last Name (Washington)" %>
             <%= f.text_field :last_name, :class => "form-control", :placeholder => "Washington" %>
 
-            <%= f.label :email %>
+            <%= f.label :email, "Email (george@whitehouse.gov)" %>
             <%= f.email_field :email, :class => "form-control", :placeholder => "george@whitehouse.gov" %>
 
-            <%= f.label :phone, "Phone" %>
+            <%= f.label :phone, "Phone (555-555-5555)" %>
             <%= f.text_field :phone, :class => "form-control", :placeholder => "555-555-5555" %>
 
-            <%= f.label :password %>
+            <%= f.label :password, "Password (8 or more characters please)" %>
             <%= f.password_field :password, :class => "form-control", :placeholder => "8 or more characters please" %>
 
-            <%= f.label :password_confirmation %>
+            <%= f.label :password_confirmation, "Password Confirmation (Same as in password)" %>
             <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Same as in password" %>
 
             <hr class='inner clear'>
