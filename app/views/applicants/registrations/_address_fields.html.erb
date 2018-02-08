@@ -6,20 +6,20 @@
   <%= f.label :permanent, "Permanent Address?" %> *
   <%= f.select :permanent, options_for_select(["Yes", "No"], f.object.permanent), { :prompt => 'Permanent Address?' }, { :class => "form-control" } %>
 
-  <%= f.label :address, "Address (1600 Pennsylvania Ave)" %> *
-  <%= f.text_field :address, :class => "form-control", :placeholder => '1600 Pennsylvania Ave' %>
+  <%= f.label :address, "Address (example: 1600 Pennsylvania Ave)" %> *
+  <%= f.text_field :address, :class => "form-control" %>
 
-  <%= f.label :address2, 'Apartment Number / Suite (Apt # 5)' %>
-  <%= f.text_field :address2, :class => "form-control", :placeholder => 'Apt # 5' %>
+  <%= f.label :address2, 'Apartment Number / Suite (example: Apt # 5)' %>
+  <%= f.text_field :address2, :class => "form-control" %>
 
-  <%= f.label :city, "City (Washington)" %> *
-  <%= f.text_field :city, :class => "form-control", :placeholder => 'Washington' %>
+  <%= f.label :city, "City (example: Washington)" %> *
+  <%= f.text_field :city, :class => "form-control" %>
 
-  <%= f.label :state, "State or Territory (DC)" %> *
+  <%= f.label :state, "State or Territory (example: DC)" %> *
   <%= subregion_select f.object_name, :state, 'US', {selected: f.object.state ,  :prompt => 'State or Territoriy' }, :class => "form-control"  %>
 
-  <%= f.label :zip, "Zip (20500)" %> *
-  <%= f.text_field :zip, :class => "form-control", :placeholder => "20500" %>
+  <%= f.label :zip, "Zip (example: 20500)" %> *
+  <%= f.text_field :zip, :class => "form-control" %>
 
   <br />
   <%= f.hidden_field :_destroy %>
