@@ -5,10 +5,10 @@
   <%= f.select :finish_month, (1..12)%>
   <%= f.select :finish_year, (Time.zone.now.year - 10)..(Time.zone.now.year + 10) %><br />
   <!-- <#%= f.text_field :finish, 'data-behaviour' => 'datepicker', :placeholder => 'Finish or Expected Finish (YYYY-MM-DD)', :class => 'form-control' %> -->
-  <%= f.label :major %>
-  <%= f.text_field :major, :placeholder => 'Computer Science', :class => 'form-control' %>
-  <%= f.label :minor %>
-  <%= f.text_field :minor, :placeholder => 'Literature', :class => 'form-control' %>
+  <%= f.label :major, "Major (example: Computer Science)" %>
+  <%= f.text_field :major, :class => 'form-control' %>
+  <%= f.label :minor, "Minor (example: Literature)"%>
+  <%= f.text_field :minor, :class => 'form-control' %>
 
   <%= f.label :gpa, 'GPA' %>
   <div class="inner control-group">

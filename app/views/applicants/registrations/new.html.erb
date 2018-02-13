@@ -14,23 +14,23 @@
 
           <div class="form-group">
 
-            <%= f.label :first_name, "First Name" %>
-            <%= f.text_field :first_name, :class => "form-control", :placeholder => "George" %>
+            <%= f.label :first_name, "First Name (example: George) " %>
+            <%= f.text_field :first_name, :class => "form-control" %>
 
-            <%= f.label :last_name, "Last Name" %>
-            <%= f.text_field :last_name, :class => "form-control", :placeholder => "Washington" %>
+            <%= f.label :last_name, "Last Name (example: Washington)" %>
+            <%= f.text_field :last_name, :class => "form-control" %>
 
-            <%= f.label :email %>
-            <%= f.email_field :email, :class => "form-control", :placeholder => "george@whitehouse.gov" %>
+            <%= f.label :email, "Email (example: george@whitehouse.gov)" %>
+            <%= f.email_field :email, :class => "form-control" %>
 
-            <%= f.label :phone, "Phone" %>
-            <%= f.text_field :phone, :class => "form-control", :placeholder => "555-555-5555" %>
+            <%= f.label :phone, "Phone (example: 555-555-5555)" %>
+            <%= f.text_field :phone, :class => "form-control" %>
 
-            <%= f.label :password %>
-            <%= f.password_field :password, :class => "form-control", :placeholder => "8 or more characters please" %>
+            <%= f.label :password, "Password (8 or more characters please)" %>
+            <%= f.password_field :password, :class => "form-control" %>
 
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Same as in password" %>
+            <%= f.label :password_confirmation, "Password Confirmation (Same as in password)" %>
+            <%= f.password_field :password_confirmation, :class => "form-control" %>
 
             <hr class='inner clear'>
 

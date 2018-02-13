@@ -1,9 +1,9 @@
 <fieldset>
-  <%= f.label :title %>
-  <%= f.text_field :title, :placeholder => 'National medal of science', :class => 'form-control' %>
+  <%= f.label :title, "Title (example: National Medal of Science)" %>
+  <%= f.text_field :title, :class => 'form-control' %>
   <%= f.label :date %>
   <%= f.text_field :date, 'data-behaviour' => 'datepicker', :placeholder => "Date (YYYY-MM-DD)", :class => 'form-control' %>
-  <%= f.label :description %>
+  <%= f.label :description, "Award Description (Optional)" %>
   <%= f.text_area :description, :class => 'span8', :rows => 2, :placeholder => "Award Description (Optional)", :class => 'form-control' %>
 
   <div class="inner">

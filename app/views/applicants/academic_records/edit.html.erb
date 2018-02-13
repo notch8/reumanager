@@ -1,5 +1,7 @@
 <div class="panel panel-primary">
   <%= form_for(current_applicant, :url => applicants_records_url, :html => { :method => :put, :multipart => true }) do |f| %>
+    <h2 class="save-notice">You must enter all information, attach your transcript file, and click the Save Academic Info button before moving to the Recommendation Section. If your information is not complete, the data will not save. You will be able to edit this information after saving.</h2>
+
     <div class="panel-heading">Academic Info</div>
     <div class="panel-body">
       <%= errors_for current_applicant %>
@@ -17,7 +19,8 @@
 
     <div class="panel-heading">GPA Comments</div>
     <div class="panel-body">
-      <%= f.text_area :gpa_comment, :class => 'form-control', :rows => 2, :placeholder => "Do you feel that your academic record accurately reflects your abilities as a student?  Please explain. (please limit your response to 250 words)"  %>
+      <%= f.label :gpa_comment, "Do you feel that your academic record accurately reflects your abilities as a student?  Please explain. (please limit your response to 250 words)" %>
+      <%= f.text_area :gpa_comment, :class => 'form-control', :rows => 2  %>
     </div>
 
     <div class="panel-heading">Awards</div>
@@ -30,12 +33,14 @@
 
     <div class="panel-heading">Computer Skills</div>
     <div class="panel-body">
-      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. application experience, programming ability, etc.) you currently possess.  Which existing skills would you like to improve, or new skills would you like to develop?  (please limit your response to 250 words)"  %>
+      <%= f.label :cpu_skills, "Please list any computer related skills (e.g. application experience, programming ability, etc.) you currently possess.  Which existing skills would you like to improve, or new skills would you like to develop?  (please limit your response to 250 words)"%>
+      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2  %>
     </div>
-
+    
     <div class="panel-heading">Laboratory Skills</div>
     <div class="panel-body">
-      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills you currently possess.  Which existing skills would you like to improve, or new skills would you like to develop? (please limit your response to 250 words)"  %>
+      <%= f.label :lab_skills, "Please list any laboratory related skills you currently possess.  Which existing skills would you like to improve, or new skills would you like to develop? (please limit your response to 250 words)" %>
+      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2  %>
     </div>
 
     <%= render "applicants/shared/nav" %>

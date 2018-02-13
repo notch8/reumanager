@@ -50,6 +50,6 @@ module Reuman
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    MENTORS = ["Doug Bartlett", "Simone Baumann-Pickering", "Jeff Bowman", "James Day", "Dimitri Deheyn", "Jeff Gee", "Sarah Gille", "Vicki H. Grassian", "Jennifer Haase", "Ryan Hechinger", "Paul Jensen", "Lisa Levin", "Dan Lubin", "Deirdre Lyons", "Brian Palenik", "Sarah Purkey", "Lynn Russell", "Brice Semmens", "Dave Stegman", "Lynne Talley", "Lisa Tauxe", "Jennifer Taylor", "Jane Willenbring", "Other"]
+    MENTORS = ["Simone Baumann-Pickering", "Jeff Bowman", "Jade d’Alpoim Guedes", "James Day", "Dimitri Deheyn", "Jeff Gee", "Sarah Gille", "Vicki H. Grassian", "Jennifer Haase", "Ryan Hechinger", "Paul Jensen", "Lisa Levin", "Dan Lubin", "Deirdre Lyons", "Brian Palenik", "Sarah Purkey", "Lynn Russell", "Brice Semmens", "Dave Stegman", "Lynne Talley", "Lisa Tauxe", "Jennifer Taylor", "Jane Willenbring", "Other"]
   end
 end
