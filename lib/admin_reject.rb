@@ -18,7 +18,7 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             @object.state = 'rejected'
-            @object.save!
+            @object.save!(validate: false)
             respond_to do |format|
               format.html { redirect_to_on_success }
               format.js { render :json => { :id => @object.id.to_s, :label => @model_config.with(:object => @object).object_label } }
