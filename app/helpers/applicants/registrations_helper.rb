@@ -85,6 +85,12 @@ module Applicants::RegistrationsHelper
     when 'complete'
       status = "Complete"
       message = "<p>Congratulations, your application is complete. Please check your email for further updates.</p>"
+    when 'accepted'
+      status = "Complete"
+      message = "<p>Congratulations, your application is complete. Please check your email for further updates.</p>"
+    when 'rejected'
+      status = "Complete"
+      message = "<p>Congratulations, your application is complete. Please check your email for further updates.</p>"
     else
       status = "Incomplete"
       message = "<p><strong>Your application is incomplete due to the errors mentioned above.  It will not be accepted until all of the necessary data has been added."
