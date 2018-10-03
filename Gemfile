@@ -5,7 +5,7 @@ gem 'rails', '4.1.8'
 gem 'airbrake'
 gem 'addressable'
 gem 'carmen-rails', :github => 'jim/carmen-rails', :branch => 'master'
-gem 'client_side_validations', :github => "tagliala/client_side_validations", :branch => "rails-4.2"
+gem 'client_side_validations', :github => "DavyJonesLocker/client_side_validations", :branch => "4-2-stable"
 gem 'cocaine', :git => 'git://github.com/thoughtbot/cocaine.git'
 gem 'capistrano'
 gem 'devise'
