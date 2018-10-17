@@ -6,7 +6,7 @@ require "rvm/capistrano"
 #require "whenever/capistrano"
 
 set :application, "mstp-surf" #matches names used in smf_template.erb
-set :repository,  "https://gitlab.com/notch8/reumanager.git"
+set :repository,  "git@gitlab.com:notch8/reumanager.git"
 set :branch, "new_mstp_surf"
 set :domain, 'indra'
 set :deploy_to, "/var/www/#{application}" # I like this location
