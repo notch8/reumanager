@@ -10,6 +10,9 @@
       - if expired?
         %h3.deadline
           The deadline for applications has passed. Please sign in to see existing application status.
+      - elsif !started?
+        %h3.deadline
+          Applications will open #{Setting[:application_start].to_date.strftime("%A, %b %d") if Setting[:application_start]}
       - else
         %h3.deadline
           Application Deadline #{Setting[:application_deadline].to_date.strftime("%A, %b %d") if Setting[:application_deadline]}
