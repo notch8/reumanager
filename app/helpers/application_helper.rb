@@ -11,7 +11,7 @@ module ApplicationHelper
   def started?
     if Setting[:application_start].present?
       start_at = Time.parse("#{Setting[:application_start]} 00:00:00 PST")
-      Time.now > expire_at
+      Time.now > start_at
     end
   end
 
