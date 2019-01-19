@@ -76,9 +76,12 @@
         <%- else -%>
           <%= f.select :disability, options_for_select(["No", "Yes", "Prefer to not respond"], @applicant.disability), { :include_blank => true }, { :class => "form-control" } %>
         <%- end -%>
-
+        <br />
         <%= f.label(:military, 'Are you a veteran of the USA Military *') %>
         <%= f.select :military, options_for_select(["No", "Yes", "Prefer to not respond"], @applicant.military), { :include_blank => true }, { :class => "form-control" } %>
+
+        <%= f.label :student, "Are you a first-generation college student? *" %>
+        <%= f.select :student, options_for_select(['Yes', 'No', 'Not Sure'], @applicant.student), { :include_blank => true }, { :class => "form-control" } %>
       </div>
     </div>
 
