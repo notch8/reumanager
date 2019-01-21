@@ -3,8 +3,10 @@
 
 # Admins
 admins = [
-  { email: 'matt@seti.org', first_name: 'Matthew', last_name: 'Tiscareno', password: 'REUappSETI'},
-  { email: 'kelly@notch8.com', first_name: 'Kelly', last_name: 'Chess', password: 'REUappSETI' },
+  { email: 'audrey.pope@bios.edu', first_name: 'Audrey', last_name: 'Pope', password: 'REUappBIOS'},
+  { email: 'andrew.peters@bios.edu', first_name: 'Andrew', last_name: 'Peters', password: 'REUappBIOS'},
+  { email: 'samantha.deputron@bios.edu', first_name: 'Samantha', last_name: 'de Putron', password: 'REUappBIOS'},
+  { email: 'kelly@notch8.com', first_name: 'Kelly', last_name: 'Chess', password: 'testing123' },
   { email: 'rob@notch8.com', first_name: 'Rob', last_name: 'Kaufman', password: 'testing123' }
 ]
 
@@ -16,11 +18,11 @@ admins.each do |user|
 end
 
 # Demo Applicants
-10.times do
-  FactoryGirl.create(:applicant)
-  FactoryGirl.create(:applicant_with_address)
-  FactoryGirl.create(:applicant_with_address_and_record)
-  FactoryGirl.create(:applicant_with_address_record_and_recommender)
-  FactoryGirl.create(:applicant_with_recommender_and_recommendation)
-  FactoryGirl.create(:applicant_with_address_record_recommender_and_recommendation)
-end
+# 10.times do
+#   FactoryGirl.create(:applicant)
+#   FactoryGirl.create(:applicant_with_address)
+#   FactoryGirl.create(:applicant_with_address_and_record)
+#   FactoryGirl.create(:applicant_with_address_record_and_recommender)
+#   FactoryGirl.create(:applicant_with_recommender_and_recommendation)
+#   FactoryGirl.create(:applicant_with_address_record_recommender_and_recommendation)
+# end
