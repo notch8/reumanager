@@ -3,8 +3,9 @@ general_description:
   description: This is the text used as a general description for your program.
     It is displayed on the front page under the main image.
   value: |
-    <p>Interested in pursuing a graduate study or career in Ocean Science? Our National Science Foundation funded Fall Research Experiences for Undergraduates (NSF-REU) Program is an ideal start to your journey. This internship will provide you with an essential experience of research in oceanography, marine science, and atmospheric sciences, along with access to a state-of-the-art ocean science research facility with well-equipped lab spaces.
-    You will carry out an independent research project under the expert supervision of BIOS scientists and  undertake training in scientific communication, research methods and ethics, and career development. You  will give presentations about your research to your peers and colleagues at BIOS. Our program offers the  opportunity to take part in various field excursions to learn about Bermuda’s natural history, and all  students will have the opportunity to participate in an oceanographic research cruise aboard our research   vessel the R/V Atlantic Explorer.</p>
+    <p>Interested in pursuing a graduate study or career in Ocean Science? Our National Science Foundation funded Fall Research Experiences for Undergraduates (NSF-REU) Program is an ideal start to your journey. This internship will provide you with an essential experience of research in oceanography, marine science, and atmospheric sciences, along with access to a state-of-the-art ocean science research facility with well-equipped lab spaces.</p>
+
+    <p>You will carry out an independent research project under the expert supervision of BIOS scientists and  undertake training in scientific communication, research methods and ethics, and career development. You  will give presentations about your research to your peers and colleagues at BIOS. Our program offers the  opportunity to take part in various field excursions to learn about Bermuda’s natural history, and all  students will have the opportunity to participate in an oceanographic research cruise aboard our research   vessel the R/V Atlantic Explorer.</p>
 highlights:
   name: highlights
   description: ''
