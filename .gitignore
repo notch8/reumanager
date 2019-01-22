@@ -4,7 +4,7 @@
 .sass-cache
 capybara-*.html
 .rspec
-.env
+.env.development
 .DS_Store
 
 /.bundle
