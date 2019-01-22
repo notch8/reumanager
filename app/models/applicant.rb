@@ -8,7 +8,7 @@ class Applicant < ActiveRecord::Base
                   :remember_me, :first_name, :last_name, :phone, :dob, :citizenship, :disability,
                   :gender, :ethnicity, :race, :cpu_skills, :gpa_comment, :lab_skills, :addresses_attributes,
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes,
-                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military,
+                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :student,
                   :mentor1, :mentor2, :mentor3, :permission_to_share, :research_experience, :recent_achievement,
                   :open
 
@@ -325,9 +325,10 @@ class Applicant < ActiveRecord::Base
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
     validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentence long."
+    validates_presence_of :student, :message => "can't be blank. Please specify if you are a first-generation college student."
     address = self.addresses.detect { |address| address.valid? }
     self.errors.add(:addresses, "can't be blank.  Please add at least one address to your profile.") unless address
-    
+
     return true if self.errors.empty?
   end
 
