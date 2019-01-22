@@ -14,11 +14,11 @@ class Applicant < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable, :lockable, :timeoutable, :confirmable
-  attr_accessible :academic_level, :email, :green_card_holder, :password, :password_confirmation, :confirmed_at,
+  attr_accessible :native, :hispanic, :pacific, :asian, :caucasian, :other, :non_disclosed, :academic_level, :email, :green_card_holder, :password, :password_confirmation, :confirmed_at,
                   :remember_me, :first_name, :last_name, :phone, :dob, :citizenship, :disability,
                   :gender, :ethnicity, :race, :gpa_comment, :lab_skills, :addresses_attributes,
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes, :interest_attributes,
-                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :statement_of_purpose,
+                  :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :statement_of_purpose,
                   :cell_phone, :member_of_lgbt_community, :veteran_information, :fathers_highest_education, :mothers_highest_education,
                   :i_will_be_18
 
@@ -44,8 +44,11 @@ class Applicant < ActiveRecord::Base
   validates :phone, presence: true, on: :update
   validates :dob, presence: true, on: :update
   validates :gender, presence: true, on: :update
-  validates :ethnicity, presence: true, on: :update
-  validates :race, presence: true, on: :update
+  validates :native, presence: true, on: :update
+  validates :hispanic, presence: true, on: :update
+  validates :pacific, presence: true, on: :update
+  validates :asian, presence: true, on: :update
+  validates :caucasian, presence: true, on: :update
   validates :citizenship, presence: true, on: :update
   validates :disability, presence: true, on: :update
   validates :military, presence: true, on: :update
@@ -320,7 +323,6 @@ class Applicant < ActiveRecord::Base
   def validates_personal_info
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
-    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentence long."
     address = self.addresses.detect { |address| address.valid? }
     self.errors.add(:addresses, "can't be blank.  Please add at least one address to your profile.") unless address
 

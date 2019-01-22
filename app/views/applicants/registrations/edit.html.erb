@@ -26,8 +26,8 @@
         <%= f.label :cell_phone, '* Cell Phone' %>
         <%= f.text_field :cell_phone, :class => "form-control", :placeholder => '555-555-5555' %>
 
-        <%= f.label :citizenship, '* Citizenship' %>
-        <%= f.select :citizenship, options_for_select(['United States'] + Carmen::Country.all.map(&:name) + ["Prefer to not respond"], @applicant.citizenship), { :include_blank => true }, { :class => "form-control" } %>
+        <%= f.label :citizenship, '* U.S. Citizen/PRC' %>
+        <%= f.select :citizenship, options_for_select(["Yes", "No"], @applicant.citizenship), { :include_blank => true }, { :class => "form-control" } %>
 
         <div class="checkbox">
           <%= f.check_box :green_card_holder %>
@@ -57,7 +57,7 @@
 
     </div>
 
-    <div class="panel-heading">Personal Information</div>
+    <div class="panel-heading">Personal & Demographic Info.</div>
     <div class="panel-body">
 
       <div class="form-group">
@@ -73,11 +73,26 @@
           <%= f.label :member_of_lgbt_community, 'Do you consider yourself a member of the LGBT+(lesbian, gay, bisexual, transgender) community?' %>
         </div>
 
-        <%= f.label :ethnicity, '* Ethnicity' %>
-        <%= f.select :ethnicity, options_for_select( ["Hispanic or Latino", "Not Hispanic or Latino", "Prefer to not respond"], @applicant.ethnicity), { :include_blank => true }, { :class => "form-control" } %>
+        <%= f.label :hispanic, '* Hispanic/Latino' %>
+        <%= f.select :hispanic, options_for_select(["Yes", "No"], @applicant.hispanic), { :include_blank => true }, { :class => "form-control" } %>
 
-        <%= f.label :race, '* Race' %>
-        <%= f.select :race, options_for_select(["American Indian or Alaskan Native", "White", "Asian", "Black or African American", "Native Hawaiian or Pacific Islander", "Prefer to not respond"], @applicant.race), { :include_blank => true }, { :class => "form-control" } %>
+        <%= f.label :native, '* Native' %>
+        <%= f.select :native, options_for_select(["Yes", "No"], @applicant.native), { :include_blank => true }, { :class => "form-control" } %>
+
+        <%= f.label :pacific, '* Pacific' %>
+        <%= f.select :pacific, options_for_select(["Yes", "No"], @applicant.pacific), { :include_blank => true }, { :class => "form-control" } %>
+
+        <%= f.label :asian, '* Asian' %>
+        <%= f.select :asian, options_for_select(["Yes", "No"], @applicant.asian), { :include_blank => true }, { :class => "form-control" } %>
+
+        <%= f.label :caucasian, '* Caucasian' %>
+        <%= f.select :caucasian, options_for_select(["Yes", "No"], @applicant.caucasian), { :include_blank => true }, { :class => "form-control" } %>
+
+        <%= f.label :other, 'Other' %>
+        <%= f.select :other, options_for_select(["Yes", "No"], @applicant.other), { :include_blank => true }, { :class => "form-control" } %>
+
+        <%= f.label :non_disclosed, 'Non-Disclosed' %>
+        <%= f.select :non_disclosed, options_for_select(["Yes", "No"], @applicant.non_disclosed), { :include_blank => true }, { :class => "form-control" } %>
 
         <%= f.label :fathers_highest_education, "Father's Highest Education" %>
         <%= f.select :fathers_highest_education, options_for_select(Applicant::EDUCATION_LEVELS, @applicant.fathers_highest_education), { :include_blank => true }, { :class => "form-control" } %>
@@ -101,15 +116,6 @@
 
         <%= f.label :veteran_information %>
         <%= f.select :veteran_information, options_for_select(['VETS-100', 'VETS-100a'], @applicant.military), { :include_blank => true }, { :class => "form-control" } %>
-      </div>
-    </div>
-
-
-    <div class="panel-heading">* Personal Statement</div>
-    <div class="panel-body">
-
-      <div class="form-group">
-        <%= f.text_area :statement, :class => 'form-control', :rows => 6, :placeholder => "Statement describing your research interests and personal goals for the internship"  %>
       </div>
     </div>
 
