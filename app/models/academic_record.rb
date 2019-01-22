@@ -1,5 +1,5 @@
 class AcademicRecord < ActiveRecord::Base
-  attr_accessible :academic_level, :degree, :finish, :gpa, :gpa_comment, :gpa_range, :start, :university, :major, :minor
+  attr_accessible :community, :phd, :historic, :tribal, :academic_level, :degree, :finish, :gpa, :gpa_comment, :gpa_range, :start, :university, :major, :minor
   belongs_to :applicant, :class_name => "Applicant", :foreign_key => "applicant_id"
   attr_accessible :transcript
   has_attached_file :transcript, :url => ":rails_relative_url_root/system/:class/:attachment/:id_partition/:style/:filename"
@@ -13,6 +13,10 @@ class AcademicRecord < ActiveRecord::Base
   validates :major, presence: true
   validates :start, presence: true
   validates :university, presence: true
+  validates :community, presence: true
+  validates :phd, presence: true
+  validates :historic, presence: true
+  validates :tribal, presence: true
 
   def to_s
     record = "#{self.start.strftime("%Y.%m")} - #{self.finish.strftime("%Y.%m")} studying #{self.degree} at #{self.university}"
