@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181130153330) do
+ActiveRecord::Schema.define(version: 20190122184915) do
 
   create_table "academic_records", force: true do |t|
     t.string   "university"
@@ -95,6 +95,13 @@ ActiveRecord::Schema.define(version: 20181130153330) do
     t.string   "mothers_highest_education"
     t.string   "veteran_information"
     t.boolean  "green_card_holder"
+    t.string   "native"
+    t.string   "hispanic"
+    t.string   "pacific"
+    t.string   "asian"
+    t.string   "caucasian"
+    t.string   "other"
+    t.string   "non_disclosed"
   end
 
   add_index "applicants", ["authentication_token"], name: "index_applicants_on_authentication_token", unique: true, using: :btree
