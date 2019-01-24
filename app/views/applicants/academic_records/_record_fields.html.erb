@@ -11,8 +11,9 @@
     <%= f.text_field :major, :placeholder => 'Computer Science', :class => 'form-control' %>
     <%= f.label :minor %>
     <%= f.text_field :minor, :placeholder => 'Literature', :class => 'form-control' %>
-    <%= f.label :community, 'Is this a community collection?' %>
+    <%= f.label :community, 'Is this a PhD granting institution?' %>
     <%= f.select :community, options_for_select( ["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+
     <%= f.label :phd, 'Is this a PhD granting institution?' %>
     <%= f.select :phd, options_for_select( ["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
     <%= f.label :historic, 'Is this a Historically Black College or University?' %>
