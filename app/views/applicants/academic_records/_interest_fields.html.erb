@@ -56,17 +56,28 @@
     <br />
     <%= f.label :extra, 'Please add anything else that you would like us to be aware of prior to considering your application. For example, if your undergraduate record is inconsistent, there may be valid reasons for this and you could state these here. (100-300 words)' %>
     <%= f.text_area :extra, :class => 'form-control', :rows => 2  %>
-    <br />
-    <%= f.label :reu_experience, 'Have you had a prior NSF-REU experience?' %>
-    <%= f.select :reu_experience, options_for_select(["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
-    <%= f.label :reu_experience, 'How did you hear about the BIOs NSF REU Program?' %>
-    <%= f.text_area :reu_experience, :class => 'form-control', :rows => 2, :placeholder => "If yes, please specify when and where"  %>
+
     <br />
     <%= f.label :hear_about_reu, 'How did you hear about the BIOs NSF REU Program?' %>
     <%= f.text_area :hear_about_reu, :class => 'form-control', :rows => 2  %>
     <br />
     <%= f.label :email_permission, 'I give permission for my email address to be shared with other REU ocean science sites for consideration' %>
     <%= f.select :email_permission, options_for_select(["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+    <br />
+
+    <%= f.label :reu_experience, '* Have you had a prior NSF-REU experience?' %>
+    <%- if show_reu_experience_input? -%>
+      <div id='reu_container' class='input-append'>
+        <%= f.text_field :reu_experience_content, :class => "form-control" %>
+        <span class='add-on'>If you answered yes, please provide a brief description of your disability</span>
+        <button id='reu_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
+      </div>
+      <%- else -%>
+      <%= f.select :reu_experience, options_for_select(["No", "Yes"],
+      current_applicant.interest.reu_experience), { :include_blank => true }, { :class => "form-control" } %>
+      <%- end -%>
+
+
   </div>
 
 </fieldset>

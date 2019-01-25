@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190124010651) do
+ActiveRecord::Schema.define(version: 20190124174146) do
 
   create_table "academic_records", force: true do |t|
     t.string   "university"
@@ -139,6 +139,10 @@ ActiveRecord::Schema.define(version: 20190124010651) do
     t.text     "education_background"
     t.text     "career_goals"
     t.text     "extra"
+    t.boolean  "reu_experience"
+    t.text     "reu_experience_content"
+    t.text     "hear_about_reu"
+    t.boolean  "email_permission"
   end
 
   create_table "rails_admin_histories", force: true do |t|

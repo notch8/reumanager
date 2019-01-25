@@ -22,7 +22,7 @@
 //= require js/index
 //= require bootstrap
 //= require bootstrap-datepicker
-//= require academic_records
+//= require interest
 //= require recommendations
 //= require registrations
 //= require rich

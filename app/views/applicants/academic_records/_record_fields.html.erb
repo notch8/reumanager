@@ -1,5 +1,6 @@
 <fieldset>
   <div class="panel-heading">Academic Information</div>
+  <div class="panel-body">
     <p>Complete one of these for each college or university you have attended</p>
     <%= f.label :university %>
     <%= f.text_field :university, :class => 'form-control'%>
@@ -40,7 +41,7 @@
   <br />
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove this record", '#', class: "remove_fields btn btn-mini btn-danger" %>
-
+  </div>
   <hr class="inner clear" />
 
 </fieldset>

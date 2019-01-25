@@ -104,4 +104,8 @@ module Applicants::RegistrationsHelper
   def show_disability_input?
     current_applicant.disability && current_applicant.disability != 'No' && current_applicant.disability != ''
   end
+
+  def show_reu_experience_input?
+    current_applicant.interest.reu_experience && current_applicant.interest.reu_experience != 'No' && current_applicant.interest.reu_experience != ''
+  end
 end
