@@ -15,30 +15,30 @@
     </div>
     <br>
     <%= f.label :research_interest_1, 'First Choice' %>
-    <%= f.select :research_interest_1, options_for_select(Interest::RESEARCH_INTERESTS, f.object.research_interest_1), { :include_blank => true }, { :class => "form-control" } %>
+    <%= f.select :research_interest_1, options_for_select(Interest::RESEARCH_INTERESTS, f.object.research_interest_1), { :include_blank => true }, { class: "form-control" } %>
     <%= f.label :research_interest_2, 'Second Choice' %>
-    <%= f.select :research_interest_2, options_for_select(Interest::RESEARCH_INTERESTS, f.object.research_interest_2), { :include_blank => true }, { :class => "form-control" } %>
+    <%= f.select :research_interest_2, options_for_select(Interest::RESEARCH_INTERESTS, f.object.research_interest_2), { :include_blank => true }, { class: "form-control" } %>
     <%= f.label :research_interest_3, 'Third Choice' %>
-    <%= f.select :research_interest_3, options_for_select(Interest::RESEARCH_INTERESTS, f.object.research_interest_3), { :include_blank => true }, { :class => "form-control" } %>
+    <%= f.select :research_interest_3, options_for_select(Interest::RESEARCH_INTERESTS, f.object.research_interest_3), { :include_blank => true }, { class: "form-control" } %>
     <br>
   </div>
 
   <div class="panel-heading">Experience</div>
   <div class="panel-body">
     <%= f.label :research_experience %>
-    <%= f.text_area :research_experience, :class => 'form-control', :rows => 2, :placeholder => "Please list any research related experience."  %>
+    <%= f.text_area :research_experience, class: 'form-control', :rows => 2, :placeholder => "Please list any research related experience."  %>
     <br />
     <%= f.label :leadership_experience %>
-    <%= f.text_area :leadership_experience, :class => 'form-control', :rows => 2, :placeholder => "Please list any leadership related experience (it does not need to be academic)."  %>
+    <%= f.text_area :leadership_experience, class: 'form-control', :rows => 2, :placeholder => "Please list any leadership related experience (it does not need to be academic)."  %>
     <br />
     <%= f.label :programming_experience %>
-    <%= f.text_area :programming_experience, :class => 'form-control', :rows => 2, :placeholder => "Please list any programming related experience, with mention of specific programming languages as appropriate (C / C++, Fortran, HTML, IDL, Java, Javascript, MATLAB, Python, Etc.)"  %>
+    <%= f.text_area :programming_experience, class: 'form-control', :rows => 2, :placeholder => "Please list any programming related experience, with mention of specific programming languages as appropriate (C / C++, Fortran, HTML, IDL, Java, Javascript, MATLAB, Python, Etc.)"  %>
     <br />
     <%= f.label :cpu_skills, 'Computer Skills' %>
-    <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (Windows, Unix/Linux, Macintosh, Microsoft Office (or equivalent), Photoshop (or equivalent))"  %>
+    <%= f.text_area :cpu_skills, class: 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (Windows, Unix/Linux, Macintosh, Microsoft Office (or equivalent), Photoshop (or equivalent))"  %>
     <br />
     <%= f.label :laboratory, 'Laboratory and Field Work Skills' %>
-    <%= f.text_area :laboratory, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills and practical field work experience"  %>
+    <%= f.text_area :laboratory, class: 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills and practical field work experience"  %>
     <br />
   </div>
 
@@ -46,35 +46,35 @@
   <div class="panel-body">
 
     <%= f.label :bios_interest, 'Which scientific research areas, and aspects of scientific research, interest you? Which of the current research programs at BIOS would you like to participate in, given the opportunity, and why?' %>
-    <%= f.text_area :bios_interest, :class => 'form-control', :rows => 2, :placeholder => "This response will be used to help match your interests with those of BIOS scientists and so, please take time to review faculty research descriptions and the potential REU mentors."  %>
+    <%= f.text_area :bios_interest, class: 'form-control', :rows => 2, :placeholder => "This response will be used to help match your interests with those of BIOS scientists and so, please take time to review faculty research descriptions and the potential REU mentors."  %>
     <br />
     <%= f.label :education_background, 'Summarize your education background including courses relevant to the scientific research areas of interest indicated above. (100-300 words)' %>
-    <%= f.text_area :education_background, :class => 'form-control', :rows => 2  %>
+    <%= f.text_area :education_background, class: 'form-control', :rows => 2  %>
     <br />
     <%= f.label :career_goals, 'Discuss your future education and career goals, ensuring that you identify the potential role of this REU program in achieving these goals. (100-300 words)' %>
-    <%= f.text_area :career_goals, :class => 'form-control', :rows => 2  %>
+    <%= f.text_area :career_goals, class: 'form-control', :rows => 2  %>
     <br />
     <%= f.label :extra, 'Please add anything else that you would like us to be aware of prior to considering your application. For example, if your undergraduate record is inconsistent, there may be valid reasons for this and you could state these here. (100-300 words)' %>
-    <%= f.text_area :extra, :class => 'form-control', :rows => 2  %>
+    <%= f.text_area :extra, class: 'form-control', :rows => 2  %>
 
     <br />
     <%= f.label :hear_about_reu, 'How did you hear about the BIOs NSF REU Program?' %>
-    <%= f.text_area :hear_about_reu, :class => 'form-control', :rows => 2  %>
+    <%= f.text_area :hear_about_reu, class: 'form-control', :rows => 2  %>
     <br />
     <%= f.label :email_permission, 'I give permission for my email address to be shared with other REU ocean science sites for consideration' %>
-    <%= f.select :email_permission, options_for_select(["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+    <%= f.select :email_permission, options_for_select(["Yes", "No"]), { :include_blank => true }, { class: "form-control" } %>
     <br />
 
     <%= f.label :reu_experience, '* Have you had a prior NSF-REU experience?' %>
     <%- if show_reu_experience_input? -%>
       <div id='reu_container' class='input-append'>
-        <%= f.text_field :reu_experience_content, :class => "form-control" %>
+        <%= f.text_field :reu_experience_content, class: "form-control" %>
         <span class='add-on'>If you answered yes, please provide a brief description of your disability</span>
         <button id='reu_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
       </div>
       <%- else -%>
       <%= f.select :reu_experience, options_for_select(["No", "Yes"],
-      current_applicant.interest.reu_experience), { :include_blank => true }, { :class => "form-control" } %>
+      current_applicant.interest.reu_experience), { :include_blank => true }, { class: "form-control" } %>
       <%- end -%>
 
 
