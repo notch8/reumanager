@@ -33,3 +33,5 @@ jQuery ->
 
   observe_select('#applicant_disability');
   observe_input('#disability_cancel');
+
+  

@@ -1,5 +1,6 @@
 <fieldset>
   <div class="panel-heading">Academic Information</div>
+  <div class="panel-body">
     <p>Complete one of these for each college or university you have attended</p>
     <%= f.label :university %>
     <%= f.text_field :university, :class => 'form-control'%>
@@ -11,6 +12,18 @@
     <%= f.text_field :major, :placeholder => 'Computer Science', :class => 'form-control' %>
     <%= f.label :minor %>
     <%= f.text_field :minor, :placeholder => 'Literature', :class => 'form-control' %>
+    <%= f.label :community, 'Is this a PhD granting institution?' %>
+    <%= f.select :community, options_for_select( ["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+
+    <%= f.label :phd, 'Is this a PhD granting institution?' %>
+    <%= f.select :phd, options_for_select( ["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+    <%= f.label :historic, 'Is this a Historically Black College or University?' %>
+    <%= f.select :historic, options_for_select( ["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+    <%= f.label :tribal, 'Is this a tribal college?' %>
+    <%= f.select :tribal, options_for_select( ["Yes", "No"]), { :include_blank => true }, { :class => "form-control" } %>
+
+
+
 
     <%= f.label :gpa, 'GPA' %>
     <div class="inner control-group">
@@ -28,7 +41,7 @@
   <br />
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove this record", '#', class: "remove_fields btn btn-mini btn-danger" %>
-
+  </div>
   <hr class="inner clear" />
 
 </fieldset>
