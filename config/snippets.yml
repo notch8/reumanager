@@ -38,19 +38,19 @@ application_information:
   name: application_information
   description: ''
   value: |
-<ol>
-  <li>Current resume.</li>
-  <li>Copies of current university or college transcripts.</li>
-  <li>Two letters of recommendation. Your letters should be from people competent to judge your potential for research, such as college/university professors or research project advisors, who are familiar with your academic and research accomplishments.</li>
-</ol>
+    <ol>
+      <li>Current resume.</li>
+      <li>Copies of current university or college transcripts.</li>
+      <li>Two letters of recommendation. Your letters should be from people competent to judge your potential for research, such as college/university professors or research project advisors, who are familiar with your academic and research accomplishments.</li>
+    </ol>
 
-<ul>
-  <li>You will be asked to complete four long-answer questions.</li>
-  <li>You will be asked to list the top three BIOS mentors with whom you would like to work.<br />
-  Please take time to review the faculty research descriptions and the list of Mentors and Potential Research Projects on the BIOS website.</li>
-  <li>Once you begin an application, you can check the status at any time by logging into this website.</li>
-  <li>Only applications completed by the deadline will be reviewed.</li>
-</ul>
+    <ul>
+      <li>You will be asked to complete four long-answer questions.</li>
+      <li>You will be asked to list the top three BIOS mentors with whom you would like to work.<br />
+      Please take time to review the faculty research descriptions and the list of Mentors and Potential Research Projects on the BIOS website.</li>
+      <li>Once you begin an application, you can check the status at any time by logging into this website.</li>
+      <li>Only applications completed by the deadline will be reviewed.</li>
+    </ul>
 acknowledgment_of_funding_soruces:
   name: acknowledgment_of_funding_soruces
   description: Please provide text to be included on the site as acknowledgment of program funding. In addition (or instead) you may send an image of the funding agency logo.
