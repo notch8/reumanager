@@ -10,29 +10,26 @@ highlights:
   name: highlights
   description: ''
   value: |
-    <p>Astronomy and the Search for Extraterrestrial Intelligence (SETI), including but not limited to</p>
     <ul>
-      <li>Planetary formation</li>
-      <li>SETI and radio astronomy</li>
-      <li>Extrasolar planets</li>
-    </ul>
-    <p>Planetary Science and the Search for Life in the Solar System, including but not limited to</p>
-    <ul>
-      <li>Saturn’s rings</li>
-      <li>Mars geomorphology and spectroscopy</li>
-      <li>Survival of microbes under extreme conditions</li>
+      <li>$500 weekly stipend and return airfare</li>
+      <li>On-campus housing and all meals</li>
+      <li>Weekly seminars and workshops</li>
+      <li>Gain invaluable research experience and knowledge in field and laboratory techniques from world-renowned BIOS scientists</li>
+      <li>Field and boat excursions to explore the local flora, fauna, and waters of Bermuda</li>
     </ul>
 eligibility_requirements:
   name: eligibility_requirements
   description: ''
   value: |
     <ul>
-      <li>U.S. citizen or U.S. permanent resident (i.e., green card)</li>
-      <li>Full-time undergraduate student</li>
-      <ul>
-        <li> Has completed sophomore year before the summer of the internship</li>
-        <li> Will still be an undergraduate during the fall term following the summer of the internship</li>
-      </ul>
+      <li> This internship program is funded by the U.S. National Science Foundation (NSF) and is open only to United States Citizens or U.S. Permanent Residents</li>
+      <li> Students who have completed at least one year of undergraduate study and have not graduated at the time of the program are eligible</li>
+      <li> Underrepresented groups and students attending colleges or universities with limited STEM research opportunities are particularly encouraged to apply</li>
+      <li> Applicants are ineligible if they have participated in a prior NSF-REU in Ocean Sciences</li>
+      <li> This is a 12-week program offered in the Fall (Aug-Nov)</li>
+      <li> Return airfare, campus accommodation, meals and a competitive stipend are covered by the BIOS REU program; medical/travel insurance is the responsibility of the student</li>
+      <li> Students must commit to the entire program (no late arrivals or early departures)</li>
+      <li> Successful candidates are encouraged to arrange for independent study credit through their home institutions</li>
     </ul>
 application_information:
   name: application_information
