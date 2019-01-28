@@ -35,10 +35,17 @@ application_information:
   name: application_information
   description: ''
   value: |
+    <ol>
+      <li>Current resume.</li>
+      <li>Copies of current university or college transcripts.</li>
+      <li>Two letters of recommendation. Your letters should be from people competent to judge your potential for research, such as college/university professors or research project advisors, who are familiar with your academic and research accomplishments.</li>
+    </ol>
+
     <ul>
-      <li>Fill out the application questions, including personal statement descriptions of your experience, contact information for two people who will provide recommendations, and indication of the mentors and projects within our program that are of interest to you.</li>
-      <li>Upload your academic transcript(s) from all undergraduate institutions you have attended. Please do not upload password-protected documents.</li>
-      <li>Those providing recommendations for you must upload their letters themselves.</li>
+      <li>You will be asked to complete four long-answer questions.</li>
+      <li>You will be asked to list the top three BIOS mentors with whom you would like to work. Please take time to review the faculty research descriptions and the list of Mentors and Potential Research Projects on the BIOS website.</li>
+      <li>Once you begin an application, you can check the status at any time by logging into this website.</li>
+      <li>Only applications completed by the deadline will be reviewed.</li>
     </ul>
 acknowledgment_of_funding_soruces:
   name: acknowledgment_of_funding_soruces
