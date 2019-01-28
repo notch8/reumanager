@@ -335,7 +335,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def validates_recommender_info
-    validates_presence_of :recommenders, :message => "can't be blank.  Please add one recommender."
+    validates_presence_of :recommenders, :message => "can't be blank.  Please add at least 2 recommenders."
     if self.recommenders.size < 2
       self.errors.add(:base, 'Please have at least 2 recommenders')
     end
