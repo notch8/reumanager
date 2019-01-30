@@ -5,7 +5,7 @@ require "rvm/capistrano"
 #set :whenever_command, "bundle exec whenever"
 #require "whenever/capistrano"
 
-set :application, "seti" #matches names used in smf_template.erb
+set :application, "bios" #matches names used in smf_template.erb
 set :repository,  "git@gitlab.com:notch8/reumanager.git"
 set :branch, "#{application}"
 set :domain, 'indra'
@@ -18,7 +18,7 @@ set :rvm_type, :system
 set :server_name, domain
 set :scm, :git
 set :default_env, {
-  "RAILS_RELATIVE_URL_ROOT" => "/seti"
+  "RAILS_RELATIVE_URL_ROOT" => "/bios"
 }
 
 set :asset_env, "#{asset_env} RAILS_RELATIVE_URL_ROOT=/#{application}"
