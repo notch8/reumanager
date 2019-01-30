@@ -51,29 +51,18 @@
           <li><b>LGBT Community:</b> No</li>
       <%- end -%>
 
-      <li><b>Ethnicity:</b> <%= current_applicant.ethnicity %></li>
-      <li><b>Race:</b>  <%= current_applicant.race %></li>
+      <li><b>Hispanic/Latino:</b> <%= current_applicant.hispanic %></li>
+      <li><b>Native:</b>  <%= current_applicant.native %></li>
+      <li><b>Pacific:</b>  <%= current_applicant.pacific %></li>
+      <li><b>Asian:</b>  <%= current_applicant.asian %></li>
+      <li><b>Caucasian:</b>  <%= current_applicant.caucasian %></li>
+      <li><b>Other:</b>  <%= current_applicant.other %></li>
+      <li><b>Non-Disclosed:</b>  <%= current_applicant.non_disclosed %></li>
       <li><b>Father's Highest Education:</b>  <%= current_applicant.fathers_highest_education %></li>
       <li><b>Mother's Highest Education:</b>  <%= current_applicant.mothers_highest_education %></li>
       <li><b>Disability:</b>  <%= current_applicant.disability %></li>
       <li><b>Are you a veteran of the USA military?</b>  <%= current_applicant.military %></li>
       <li><b>Veteran Information:</b>  <%= current_applicant.veteran_information %></li>
-    </ul>
-  </div>
-
-  <div class="panel-heading">Personal Statement</div>
-    <div class="panel-body">
-
-    <ul class="form-group">
-      <li><%= current_applicant.statement if current_applicant.statement %></li>
-    </ul>
-  </div>
-
-  <div class="panel-heading">How did you hear about us?</div>
-    <div class="panel-body">
-
-    <ul class="form-group">
-      <li><%= current_applicant.found_us %></li>
     </ul>
   </div>
 
@@ -110,6 +99,10 @@
           <li><%= raw record.to_s %></li>
           <li><b>Major:</b> <%= record.major %></li>
           <li><b>Minor:</b> <%= record.minor %></li>
+          <li><b>Is this a community collection?</b> <%= record.community %></li>
+          <li><b>Is this a PhD granting institution?</b> <%= record.phd %></li>
+          <li><b>is this a Historically Black College or University?</b> <%= record.historic %></li>
+          <li><b>Is this a tribal college?</b> <%= record.tribal %></li>
           <li><b>GPA:</b> <%= record.gpa %> out of <%= record.gpa_range %></li><br />
         <%- end -%>
       <%- end -%>
@@ -130,6 +123,13 @@
       <li><b>Leadership Experience:</b> <%=raw(Markdown.render(current_applicant.interest.leadership_experience)) if current_applicant.interest %></li>
       <li><b>Programming Experience:</b> <%= raw(Markdown.render(current_applicant.interest.programming_experience)) if current_applicant.interest %>
       <li><b>Computer Skills:</b> <%= raw(Markdown.render(current_applicant.interest.cpu_skills)) if current_applicant.interest %>
+      <li><b>Laboratory Skills:</b> <%= raw(Markdown.render(current_applicant.interest.laboratory)) if current_applicant.interest.laboratory %>
+      <li><b>Which scientific research areas, and aspects of scientific research, interest you? Which of the current research programs at BIOS would you like to participate in, given the opportunity, and why?</b> <%= raw(Markdown.render(current_applicant.interest.bios_interest)) if current_applicant.interest.bios_interest %>
+      <li><b>Summarize your education background including courses relevant to the scientific research areas of interest:</b> <%= raw(Markdown.render(current_applicant.interest.education_background)) if current_applicant.interest.education_background %>
+      <li><b>Discuss your future education and career goals, ensuring that you identify the potential role of this REU program in achieving these goals:</b> <%= raw(Markdown.render(current_applicant.interest.career_goals)) if current_applicant.interest.career_goals %>
+      <li><b>Please add anything else that you would like us to be aware of prior to considering your application. For example, if your undergraduate record is inconsistent, there may be valid reasons for this and you could state these here:</b> <%= raw(Markdown.render(current_applicant.interest.extra)) if current_applicant.interest.extra %>
+      <li><b>I give permission for my email address to be shared with other REU ocean science sites for consideration:</b> <%= current_applicant.interest.email_permission %></li>
+      <li><b>REU Experience:</b>  <%= current_applicant.interest.reu_experience %></li>
     </ul>
   </div>
 </div>
