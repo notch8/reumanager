@@ -11,21 +11,50 @@
     <div class="panel-body">
 
     <ul class="form-group">
-      <li><b>Name</b>  <%= current_applicant.name if current_applicant.name %></li>
-      <li><b>Email</b> <%= current_applicant.email %></li>
-      <li><b>Phone</b> <%= current_applicant.phone if current_applicant.phone %></li>
-      <li><b>Address</b>  <%= current_applicant.address %></li>
+      <li><b>Name:</b>  <%= current_applicant.name if current_applicant.name %></li>
+      <li><b>Email:</b> <%= current_applicant.email %></li>
+      <li><b>Phone:</b> <%= current_applicant.phone if current_applicant.phone %></li>
+      <br />
+      <%- current_applicant.addresses.each do |address| -%>
+       <%- if address.to_s.present? -%>
+         <li><b>Label:</b> <%= address.label %></li>
+         <li><b>Is this address permanent?</b> <%= address.permanent %></li>
+         <li><b>Street Address:</b> <%= address.address %></li>
+         <li><b>Apartment:</b> <%= address.address2 %></li>
+         <li><b>City:</b> <%= address.city %></li>
+         <li><b>State:</b> <%= address.state %></li>
+         <li><b>Zip:</b> <%= address.zip %></li><br />
+       <%- end -%>
+     <%- end -%>
     </ul>
   </div>
 
-  <hr class='clear inner' />
+  <div class="panel-heading">Personal Info</div>
+  <div class="panel-body">
+    <li><b>DOB:</b> <%= current_applicant.dob if current_applicant.dob %></li>
+    <li><b>Gender:</b> <%= current_applicant.gender if current_applicant.gender %></li>
+    <li><b>Ethnicity:</b> <%= current_applicant.ethnicity if current_applicant.ethnicity %></li>
+    <li><b>Race:</b> <%= current_applicant.race if current_applicant.race %></li>
+    <li><b>Citizenship:</b> <%= current_applicant.citizenship if current_applicant.citizenship %></li>
+    <li><b>Disability:</b> <%= current_applicant.disability if current_applicant.disability %></li>
+  </div>
 
   <div class="panel-heading">Personal Statement</div>
   <div class="panel-body">
     <%= raw Markdown.render(current_applicant.statement) if current_applicant.statement %>
   </div>
 
-  <hr class='clear inner' />
+  <div class="panel-heading">Additional Information</div>
+  <div class="panel-body">
+    <%= raw Markdown.render(current_applicant.additional_info) if current_applicant.additional_info %>
+  </div>
+
+  <div class="panel-heading">How did you hear about us?</div>
+  <div class="panel-body">
+    <ul class="form-group">
+      <li><%= current_applicant.found_us if current_applicant.found_us %></li>
+    </ul>
+  </div>
 
   <div class="panel-heading">Recommenders</div>
   <div class="panel-body">
@@ -38,29 +67,39 @@
       <%- end -%>
     </ul>
     <%=link_to "Add a Recommender", applicants_recommenders_url, :class => 'btn btn-default' %>
-
   </div>
-
-  <hr class='clear inner' />
 
   <div class="panel-heading">Academic Info</div>
   <div class="panel-body">
 
-    <ul>
-      <%- current_applicant.records.each do |record| -%>
-        <%- if record.to_s.present? -%>
-          <li><%= raw record.to_s %></li>
+    <ul class="form-group">
+        <%- current_applicant.records.each do |record| -%>
+          <%- if record.to_s.present? -%>
+            <li><%= raw record.to_s %></li>
+            <li><b>Academic Level:</b> <%= current_applicant.academic_level %></li>
+            <li><b>Start:</b> <%= record.start %></li>
+            <li><b>Finish:</b> <%= record.finish %></li>
+            <li><b>Degree:</b> <%= record.degree %></li>
+            <li><b>Major:</b> <%= record.major %></li>
+            <li><b>Minor:</b> <%= record.minor %></li>
+            <li><b>GPA:</b> <%= record.gpa %> out of <%= record.gpa_range %></li><br />
+          <%- end -%>
         <%- end -%>
-      <%- end -%>
 
-      <%- current_applicant.awards.each do |award| -%>
-        <li><b>Award</b> <%= award %></li>
-      <%- end -%>
+        <li><b>GPA Comments:</b> <%= raw(Markdown.render(current_applicant.gpa_comment)) if current_applicant.gpa_comment %></li>
 
+        <%- current_applicant.awards.each do |award| -%>
+          <li><b>Award:</b> <%= award %></li>
+        <%- end -%>
+      <br />
       <li><b>Computer Skills</b> <%=raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %></li>
       <li><b>Laboratory Skills</b> <%=raw(Markdown.render(current_applicant.lab_skills)) if current_applicant.lab_skills %></li>
+      <li><b>Please explain why you consider yourself eligible for this program as an individual from an ethnicity, background or other group that is disadvantaged and underrepresented. Please provide as much detail as possible</b> <%=raw(Markdown.render(current_applicant.underrepresented_eligibility)) if current_applicant.underrepresented_eligibility %></li>
+      <li><b>Discuss your past research experiences. If you have not done any research yet, please list any relevant courses or other experiences you feel are relevant</b> <%=raw(Markdown.render(current_applicant.past_experience)) if current_applicant.past_experience %></li>
+      <li><b>Will you receive funding from any other program throughout the summer? If "yes", please name funding source</b> <%=raw(Markdown.render(current_applicant.other_funds)) if current_applicant.other_funds %></li>
     </ul>
   </div>
+
 </div>
 
 <% if current_applicant.state == 'completed_recommender_info' %>
