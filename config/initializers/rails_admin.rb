@@ -93,7 +93,18 @@ RailsAdmin.config do |config|
             <b>Address</b>  #{applicant.address}
 
           <h4>Statement</h4>
-          #{Markdown.render applicant.statement if applicant.statement}}
+          #{Markdown.render applicant.statement if applicant.statement}
+          <h4>Additional Info</h4>
+          #{Markdown.render applicant.additional_info if applicant.additional_info}
+          <h4>How did you her about us?</h4>
+          #{Markdown.render applicant.found_us if applicant.found_us}}
+        end
+      end
+
+      field :demographic_info do
+        formatted_value do
+          applicant = bindings[:object]
+          bindings[:view].render(:partial => 'applicant_demographics', :locals => {:applicant => applicant, :view_bindings => bindings})
         end
       end
 
@@ -118,19 +129,30 @@ RailsAdmin.config do |config|
         end
       end
 
+      field :recommender do
+       label "Recommenders"
+       formatted_value do
+         applicant = bindings[:object]
+         applicant.recommenders.map do |recommender|
+           "<b>First Name:</b> #{recommender.first_name}<br />
+           <b>Last Name:</b> #{recommender.last_name}<br />
+           <b>Title:</b> #{recommender.title}<br />
+           <b>Department:</b> #{recommender.department}<br />
+           <b>Organization:</b> #{recommender.organization}<br />
+           <b>URL:</b> #{recommender.url}<br />
+           <b>Email:</b> #{recommender.email}<br />
+           <b>Phone:</b> #{recommender.phone}<br />"
+          end.join('</br>').html_safe
+        end
+      end
+
+
       field :recommendation_info do
         formatted_value do
           applicant = bindings[:object]
           recommendations = applicant.recommendations
 
           bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
-        end
-      end
-
-      field :demographic_info do
-        formatted_value do
-          applicant = bindings[:object]
-          bindings[:view].render(:partial => 'applicant_demographics', :locals => {:applicant => applicant, :view_bindings => bindings})
         end
       end
     end
