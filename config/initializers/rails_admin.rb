@@ -135,7 +135,7 @@ RailsAdmin.config do |config|
       end
 
       field :academic_info do
-        label "Acedemic Information"
+        label "Academic Information and Awards"
         formatted_value do
           applicant = bindings[:object]
           academic_information = applicant.records.map do |record|
@@ -149,7 +149,7 @@ RailsAdmin.config do |config|
             <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />
             <b>Transcript:</b> <a href='#{record.transcript.url}'>Download Transcript</a><br />"
           end.join('<br />')
-          academic_information += "<br /><b>GPA Comments:</b> #{Markdown.render applicant.gpa_comment}"
+          academic_information += "<br /><b>GPA Comments:</b> #{Markdown.render applicant.gpa_comment}<br />"
 
           academic_information += applicant.awards.map do |award|
             "<b>Title:</b> #{award.title}<br />
