@@ -90,24 +90,24 @@ RailsAdmin.config do |config|
           applicant = bindings[:object]
           bindings[:view].raw %{<b>Name:</b> #{applicant.name}<br />
             <b>Email:</b> #{applicant.email}<br />
-            <b>Phone:</b> #{applicant.phone if applicant.phone}<br />
+            <b>Phone:</b> #{applicant.phone}<br />
 
           <h4>Statement</h4>
-          #{Markdown.render applicant.statement if applicant.statement}
+          #{Markdown.render applicant.statement}
           <h4>Additional Info</h4>
-          #{Markdown.render applicant.additional_info if applicant.additional_info}
+          #{Markdown.render applicant.additional_info}
           <h4>How did you her about us?</h4>
-          #{Markdown.render applicant.found_us if applicant.found_us}
+          #{Markdown.render applicant.found_us}
           <h4>Computer Skills</h4>
-          #{Markdown.render applicant.cpu_skills if applicant.cpu_skills}
+          #{Markdown.render applicant.cpu_skills}
           <h4>Lab Skills</h4>
-          #{Markdown.render applicant.lab_skills if applicant.lab_skills}
+          #{Markdown.render applicant.lab_skills}
           <h4>Please explain why you consider yourself eligible for this program as an individual from an ethnicity, background or other group that is disadvantaged and underrepresented. Please provide as much detail as possible:</h4>
-          #{Markdown.render applicant.underrepresented_eligibility if applicant.underrepresented_eligibility}
+          #{Markdown.render applicant.underrepresented_eligibility}
           <h4>Discuss your past research experiences. If you have not done any research yet, please list any relevant courses or other experiences you feel are relevant:</h4>
-          #{Markdown.render applicant.past_experience if applicant.past_experience}
+          #{Markdown.render applicant.past_experience}
           <h4>Will you receive funding from any other program throughout the summer? If "yes", please name funding source:</h4>
-          #{Markdown.render applicant.other_funds if applicant.other_funds}}
+          #{Markdown.render applicant.other_funds}}
         end
       end
 
