@@ -88,42 +88,42 @@ RailsAdmin.config do |config|
         label "Personal Info"
         formatted_value do
           applicant = bindings[:object]
-          bindings[:view].raw %{<b>Email</b> #{applicant.email}<br />
-            <b>Phone</b> #{applicant.phone if applicant.phone}<br />
-            <b>Address</b>  #{applicant.address}
+          bindings[:view].raw %{<b>Name:</b> #{applicant.name}<br />
+            <b>Email:</b> #{applicant.email}<br />
+            <b>Phone:</b> #{applicant.phone}<br />
 
           <h4>Statement</h4>
-          #{Markdown.render applicant.statement if applicant.statement}}
+          #{Markdown.render applicant.statement}
+          <h4>Additional Info</h4>
+          #{Markdown.render applicant.additional_info}
+          <h4>How did you her about us?</h4>
+          #{Markdown.render applicant.found_us}
+          <h4>Computer Skills</h4>
+          #{Markdown.render applicant.cpu_skills}
+          <h4>Lab Skills</h4>
+          #{Markdown.render applicant.lab_skills}
+          <h4>Please explain why you consider yourself eligible for this program as an individual from an ethnicity, background or other group that is disadvantaged and underrepresented. Please provide as much detail as possible:</h4>
+          #{Markdown.render applicant.underrepresented_eligibility}
+          <h4>Discuss your past research experiences. If you have not done any research yet, please list any relevant courses or other experiences you feel are relevant:</h4>
+          #{Markdown.render applicant.past_experience}
+          <h4>Will you receive funding from any other program throughout the summer? If "yes", please name funding source:</h4>
+          #{Markdown.render applicant.other_funds}}
         end
       end
 
-      field :academic_info do
+      field :address do
+        label "Address"
         formatted_value do
           applicant = bindings[:object]
-          records = applicant.records
-          awards = applicant.awards
-          if(applicant.records.present?)
-            link_item = bindings[:view].link_to(applicant.records.last.transcript_file_name, applicant.transcript.url)
-          else
-            link_item = false
-          end
-          bindings[:view].render(:partial => 'applicant_academic_records',
-                                 :locals => {:link => link_item,
-                                             :applicant => applicant,
-                                             :records => records,
-                                             :awards => awards,
-                                             :view_bindings => bindings[:view]
-                                            }
-                                )
-        end
-      end
-
-      field :recommendation_info do
-        formatted_value do
-          applicant = bindings[:object]
-          recommendations = applicant.recommendations
-
-          bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
+          applicant.addresses.map do |address|
+          "<b>Label:</b> #{address.label}<br />
+          <b>Is this address permanent?</b> #{address.permanent}<br />
+          <b>Street Address:</b> #{address.address}<br />
+          <b>Apartment:</b> #{address.address2}<br />
+          <b>City:</b> #{address.city}<br />
+          <b>State:</b> #{address.state}<br />
+          <b>Zip:</b> #{address.zip}<br />"
+          end.join('</br>').html_safe
         end
       end
 
@@ -131,6 +131,59 @@ RailsAdmin.config do |config|
         formatted_value do
           applicant = bindings[:object]
           bindings[:view].render(:partial => 'applicant_demographics', :locals => {:applicant => applicant, :view_bindings => bindings})
+        end
+      end
+
+      field :academic_info do
+        label "Academic Information and Awards"
+        formatted_value do
+          applicant = bindings[:object]
+          academic_information = applicant.records.map do |record|
+            "<b>Academic Level:</b> #{applicant.academic_level}<br />
+            <b>University:</b> #{record.university}<br />
+            <b>Start:</b> #{record.start}<br />
+            <b>Finish:</b> #{record.finish}<br />
+            <b>Degree:</b> #{record.degree}<br />
+            <b>Major:</b> #{record.major}<br />
+            <b>Minor:</b> #{record.minor}<br />
+            <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />
+            <b>Transcript:</b> <a href='#{record.transcript.url}'>Download Transcript</a><br />"
+          end.join('<br />')
+          academic_information += "<br /><b>GPA Comments:</b> #{Markdown.render applicant.gpa_comment}<br />"
+
+          academic_information += applicant.awards.map do |award|
+            "<b>Title:</b> #{award.title}<br />
+            <b>Date:</b> #{award.date}<br />
+            <b>Description:</b> #{award.description}<br />"
+          end.join('<br />')
+          academic_information.html_safe
+        end
+      end
+
+      field :recommender do
+       label "Recommenders"
+       formatted_value do
+         applicant = bindings[:object]
+         applicant.recommenders.map do |recommender|
+           "<b>First Name:</b> #{recommender.first_name}<br />
+           <b>Last Name:</b> #{recommender.last_name}<br />
+           <b>Title:</b> #{recommender.title}<br />
+           <b>Department:</b> #{recommender.department}<br />
+           <b>Organization:</b> #{recommender.organization}<br />
+           <b>URL:</b> #{recommender.url}<br />
+           <b>Email:</b> #{recommender.email}<br />
+           <b>Phone:</b> #{recommender.phone}<br />"
+          end.join('</br>').html_safe
+        end
+      end
+
+
+      field :recommendation_info do
+        formatted_value do
+          applicant = bindings[:object]
+          recommendations = applicant.recommendations
+
+          bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
         end
       end
     end
