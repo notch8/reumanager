@@ -95,8 +95,13 @@ RailsAdmin.config do |config|
             <b>DOB:</b>  #{applicant.dob if applicant.dob}<br />
             <b>Gender:</b>  #{applicant.gender if applicant.gender}<br />
             <b>LGBT Community:</b>  #{applicant.member_of_lgbt_community if applicant.member_of_lgbt_community}<br />
-            <b>Ethnicity:</b>  #{applicant.ethnicity if applicant.ethnicity}<br />
-            <b>Race:</b>  #{applicant.race if applicant.race}<br />
+            <b>Hispanic/Latino:</b>  #{applicant.hispanic if applicant.hispanic}<br />
+            <b>Native:</b>  #{applicant.native if applicant.native}<br />
+            <b>Pacific:</b>  #{applicant.pacific if applicant.pacific}<br />
+            <b>Asian:</b>  #{applicant.asian if applicant.asian}<br />
+            <b>Caucasian:</b>  #{applicant.caucasian if applicant.caucasian}<br />
+            <b>Other:</b>  #{applicant.other if applicant.other}<br />
+            <b>Non-Disclosed:</b>  #{applicant.non_disclosed if applicant.non_disclosed}<br />
             <b>Father's Highest Education:</b>  #{applicant.fathers_highest_education if applicant.fathers_highest_education}<br />
             <b>Mother's Highest Education:</b>  #{applicant.mothers_highest_education if applicant.mothers_highest_education}<br />
             <b>Disability:</b>  #{applicant.disability if applicant.disability}<br />
@@ -104,19 +109,22 @@ RailsAdmin.config do |config|
             <b>Green Card:</b>  #{applicant.green_card_holder if applicant.green_card_holder}<br />
             <b>Military:</b>  #{applicant.military if applicant.military}<br />
             <b>Veteran Info:</b>  #{applicant.veteran_information if applicant.veteran_information}<br />
-            <h4>Personal Statement</h4>
-            #{Markdown.render applicant.statement if applicant.statement}
-            <h4>How did you hear about us?</h4>
-            #{Markdown.render applicant.found_us if applicant.found_us}
             <h4>Research Interest:</h4>
             <b>Research Interest 1:</b> #{applicant.interest.research_interest_1}<br />
             <b>Research Interest 2:</b> #{applicant.interest.research_interest_2}<br />
             <b>Research Interest 3:</b> #{applicant.interest.research_interest_3}<br />
             <h4>Skills and Experience:</h4>
-            <b>CPU Skills:</b> #{applicant.interest.cpu_skills}<br />
-            <b>Research Experience:</b> #{applicant.interest.research_experience}<br />
-            <b>Leadership Experience:</b> #{applicant.interest.leadership_experience}<br />
-            <b>Programming Experience:</b> #{applicant.interest.programming_experience}<br />".html_safe
+            <b>CPU Skills:</b><br /> #{applicant.interest.cpu_skills}<br /><br />
+            <b>Research Experience:</b><br /> #{applicant.interest.research_experience}<br /><br />
+            <b>Leadership Experience:</b><br /> #{applicant.interest.leadership_experience}<br /><br />
+            <b>Programming Experience:</b><br /> #{applicant.interest.programming_experience}<br /><br />
+            <b>Lab Skills:</b><br /> #{applicant.interest.laboratory}<br /><br />
+            <b>Which scientific research areas, and aspects of scientific research, interest you? Which of the current research programs at BIOS would you like to participate in, given the opportunity, and why?</b><br /> #{applicant.interest.bios_interest}<br /><br />
+            <b>Summarize your education background including courses relevant to the scientific research areas of interest:</b><br /> #{applicant.interest.education_background}<br /><br />
+            <b>Discuss your future education and career goals, ensuring that you identify the potential role of this REU program in achieving these goals:</b><br /> #{applicant.interest.career_goals}<br /><br />
+            <b>Please add anything else that you would like us to be aware of prior to considering your application. For example, if your undergraduate record is inconsistent, there may be valid reasons for this and you could state these here:</b><br /> #{applicant.interest.extra}<br /><br />
+            <b>I give permission for my email address to be shared with other REU ocean science sites for consideration:</b><br /> #{applicant.interest.email_permission}<br /><br />
+            <b>REU Experience:</b><br /> #{applicant.interest.reu_experience}".html_safe
         end
       end
 
