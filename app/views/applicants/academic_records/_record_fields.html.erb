@@ -13,7 +13,7 @@
     <%= f.label :minor %>
     <%= f.text_field :minor, :placeholder => 'Literature', :class => 'form-control' %>
 
-    <%= f.label :community, 'Is this a community collection?' %>
+    <%= f.label :community, 'Is this a community college?' %>
     <%= f.select :community, options_for_select( ["Yes", "No"], current_applicant.record.community), { :include_blank => true }, { :class => "form-control" } %>
 
     <%= f.label :phd, 'Is this a PhD granting institution?' %>
@@ -23,9 +23,6 @@
     <%= f.select :historic, options_for_select( ["Yes", "No"], current_applicant.record.historic), { :include_blank => true }, { :class => "form-control" } %>
     <%= f.label :tribal, 'Is this a tribal college?' %>
     <%= f.select :tribal, options_for_select( ["Yes", "No"], current_applicant.record.tribal), { :include_blank => true }, { :class => "form-control" } %>
-
-
-
 
     <%= f.label :gpa, 'GPA' %>
     <div class="inner control-group">
@@ -44,6 +41,7 @@
   <%= f.hidden_field :_destroy %>
   <%= link_to "remove this record", '#', class: "remove_fields btn btn-mini btn-danger" %>
   </div>
+
   <hr class="inner clear" />
 
 </fieldset>
