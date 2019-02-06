@@ -89,9 +89,11 @@ RailsAdmin.config do |config|
         label "Personal Info"
         formatted_value do
           applicant = bindings[:object]
-          bindings[:view].raw %{<b>Email:</b> #{applicant.email}<br />
+          bindings[:view].raw %{
+            <b>First Name:</b> #{applicant.first_name}<br />
+            <b>Last Name:</b> #{applicant.last_name}<br />
+            <b>Email:</b> #{applicant.email}<br />
             <b>Phone:</b> #{applicant.phone if applicant.phone}<br />
-            <b>Address:</b>  #{applicant.address}
 
           <h4>Statement</h4>
           #{Markdown.render applicant.statement if applicant.statement}
@@ -102,44 +104,21 @@ RailsAdmin.config do |config|
           <h4>Recent Acheivement</h4>
           #{Markdown.render applicant.recent_achievement if applicant.recent_achievement}
 
+          <h4>Computer Skills</h4>
+          #{Markdown.render applicant.cpu_skills if applicant.cpu_skills}
+
+          <h4>Laboratory Skills</h4>
+          #{Markdown.render applicant.lab_skills if applicant.lab_skills}
+
           <br /><b>Mentor Choices:</b><br />
           #{applicant.mentor1 if applicant.mentor1} <br />
           #{applicant.mentor2 if applicant.mentor2} <br />
           #{applicant.mentor3 if applicant.mentor3} <br /><br />
 
-          <b>Found Us:</b> #{applicant.found_us if applicant.found_us}<br />
+          <b>Are you a first generation college student?</b>  #{applicant.student}<br />
+          <b>How did you hear about us?</b> #{applicant.found_us if applicant.found_us}<br />
           <b>Permission to Share:</b> #{applicant.permission_to_share if applicant.permission_to_share}}
 
-        end
-      end
-
-      field :academic_info do
-        formatted_value do
-          applicant = bindings[:object]
-          records = applicant.records
-          awards = applicant.awards
-          if(applicant.records.present?)
-            link_item = bindings[:view].link_to(applicant.records.last.transcript_file_name, applicant.transcript.url)
-          else
-            link_item = false
-          end
-          bindings[:view].render(:partial => 'applicant_academic_records',
-                                 :locals => {:link => link_item,
-                                             :applicant => applicant,
-                                             :records => records,
-                                             :awards => awards,
-                                             :view_bindings => bindings[:view]
-                                            }
-                                )
-        end
-      end
-
-      field :recommendation_info do
-        formatted_value do
-          applicant = bindings[:object]
-          recommendations = applicant.recommendations
-
-          bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
         end
       end
 
@@ -147,6 +126,75 @@ RailsAdmin.config do |config|
         formatted_value do
           applicant = bindings[:object]
           bindings[:view].render(:partial => 'applicant_demographics', :locals => {:applicant => applicant, :view_bindings => bindings})
+        end
+      end
+
+      field :address do
+        label "Address"
+        formatted_value do
+          applicant = bindings[:object]
+          applicant.addresses.map do |address|
+          "<b>Label:</b> #{address.label}<br />
+          <b>Is this address permanent?</b> #{address.permanent}<br />
+          <b>Street Address:</b> #{address.address}<br />
+          <b>Apartment:</b> #{address.address2}<br />
+          <b>City:</b> #{address.city}<br />
+          <b>State:</b> #{address.state}<br />
+          <b>Zip:</b> #{address.zip}<br />"
+          end.join('</br>').html_safe
+        end
+      end
+
+
+      field :academic_info do
+        label "Acedemic Information"
+        formatted_value do
+          applicant = bindings[:object]
+
+          academic_information = applicant.records.map do |record|
+            "<b>Academic Level:</b> #{applicant.academic_level}<br />
+            <b>University:</b> #{record.university}<br />
+            <b>Finish:</b> #{record.finish}<br />
+            <b>Major:</b> #{record.major}<br />
+            <b>Minor:</b> #{record.minor}<br />
+            <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />"
+          end.join('<br />')
+          academic_information += "<br /><b>GPA Comments:</b> #{Markdown.render applicant.gpa_comment}"
+
+          academic_information += applicant.awards.map do |award|
+            "<b>Title:</b> #{award.title}<br />
+            <b>Date:</b> #{award.date}<br />
+            <b>Description:</b> #{award.description}<br />"
+          end.join('<br />')
+          academic_information.html_safe
+        end
+      end
+
+      field :recommender do
+       label "Recommenders"
+       formatted_value do
+         applicant = bindings[:object]
+         applicant.recommenders.map do |recommender|
+           "<b>First Name:</b> #{recommender.first_name}<br />
+           <b>Last Name:</b> #{recommender.last_name}<br />
+           <b>Title:</b> #{recommender.title}<br />
+           <b>Department:</b> #{recommender.department}<br />
+           <b>Organization:</b> #{recommender.organization}<br />
+           <b>URL:</b> #{recommender.url}<br />
+           <b>Email:</b> #{recommender.email}<br />
+           <b>Phone:</b> #{recommender.phone}<br />"
+         end.join('</br>').html_safe
+       end
+     end
+
+
+
+      field :recommendation_info do
+        formatted_value do
+          applicant = bindings[:object]
+          recommendations = applicant.recommendations
+
+          bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
         end
       end
     end
