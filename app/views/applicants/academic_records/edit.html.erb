@@ -34,7 +34,7 @@
         <%= f.label :resume %>
         <p>Attach a PDF or image of your resume.</p>
         <%= f.file_field :resume %>
-        <%= content_tag :p, raw("Current attachment: #{link_to current_applicant.resume_file_name, current_applicant.resume.url}") unless current_applicant.resume_file_name == nil %>
+        <%= "Current attachment: #{link_to current_applicant.resume_file_name, current_applicant.resume.url}" if current_applicant.resume_file_name.present? %>
       </div>
     </div>
 
