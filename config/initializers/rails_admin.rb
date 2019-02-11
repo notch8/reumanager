@@ -109,6 +109,8 @@ RailsAdmin.config do |config|
             <b>Green Card:</b>  #{applicant.green_card_holder if applicant.green_card_holder}<br />
             <b>Military:</b>  #{applicant.military if applicant.military}<br />
             <b>Veteran Info:</b>  #{applicant.veteran_information if applicant.veteran_information}<br />
+            <h4>Resume:</h4>
+            <a href='#{applicant.resume.url.gsub(/submitteds|applicantss|rejected|applied/, 'applicants')}'>Download Resume</a><br />
             <h4>Research Interest:</h4>
             <b>Research Interest 1:</b> #{applicant.interest.research_interest_1}<br />
             <b>Research Interest 2:</b> #{applicant.interest.research_interest_2}<br />
@@ -154,7 +156,8 @@ RailsAdmin.config do |config|
             <b>Finish:</b> #{record.finish}<br />
             <b>Major:</b> #{record.major}<br />
             <b>Minor:</b> #{record.minor}<br />
-            <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />"
+            <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />
+            <b>Transcript:</b> <a href='#{record.transcript.url}'>Download Transcript</a><br />"
           end.join('<br />')
           academic_information += "<br /><b>GPA Comments:</b> #{Markdown.render applicant.gpa_comment}"
 
