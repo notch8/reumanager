@@ -191,6 +191,15 @@ RailsAdmin.config do |config|
           end.join('</br>').html_safe
         end
       end
+
+      field :recommendation_info do
+        formatted_value do
+          applicant = bindings[:object]
+          recommendations = applicant.recommendations
+
+          bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
+        end
+      end
     end
 
     edit do
