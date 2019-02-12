@@ -28,6 +28,16 @@
       <div class="add-container"><%= link_to_add_fields "Add award", f, :awards %></div>
     </div>
 
+    <div class="panel-heading">Resume</div>
+    <div class="panel-body">
+      <div class="inner">
+        <%= f.label :resume %>
+        <p>Attach a PDF or image of your resume.</p>
+        <%= f.file_field :resume %>
+        <%= content_tag :p, raw("Current attachment: #{link_to current_applicant.resume_file_name, current_applicant.resume.url}") if current_applicant.resume_file_name.present? %>
+      </div>
+    </div>
+
     <%= render "applicants/shared/nav" %>
 
     <div class="panel-body">

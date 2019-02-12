@@ -29,6 +29,14 @@ class Applicant < ActiveRecord::Base
   has_many :recommendations, :dependent => :destroy
   has_many :recommenders, :through => :recommendations,  :dependent => :restrict_with_exception
 
+  attr_accessible :resume
+  has_attached_file :resume, :url => ":rails_relative_url_root/system/:class/:attachment/:id_partition/:style/:filename"
+  validates_attachment :resume,
+    content_type: { content_type: ['application/pdf','image/jpg', 'image/jpeg', 'image/gif', 'image/png'] },
+    :size => { :in => 0..10.megabytes }
+
+
+
   accepts_nested_attributes_for :addresses, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
   accepts_nested_attributes_for :awards, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
   accepts_nested_attributes_for :interest, :allow_destroy => true, :reject_if => proc { |obj| obj.blank? }
