@@ -3,7 +3,6 @@
 
 # Admins
 admins = [{ email: 'dr.stegman@gmail.com', first_name: 'Dave', last_name: 'Stegman', password: 'REUappUCSD'},
-          { email: 'wgroves@ucsd.edu', first_name: 'Wendy', last_name: "Groves", password: 'REUappUCSD' },
           { email: 'crystal@notch8.com', first_name: 'Crystal', last_name: 'Richardson', password: 'REUappUCSD' },
           { email: 'rob@notch8.com', first_name: 'Rob', last_name: 'Kaufman', password: 'REUappUCSD' }]
 
