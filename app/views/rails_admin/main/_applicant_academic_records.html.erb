@@ -19,7 +19,7 @@
 <%= "No awards listed" if awards.empty? %>
 
 <h4>Lab Skills</h4>
-<%= raw(Markdown.render applicant.lab_skills) if applicant.lab_skills %>
+<%= raw(Markdown.render applicant.laboratory) if applicant.laboratory %>
 
 <h4>Computer Skills</h4>
 <%= raw(Markdown.render applicant.cpu_skills) if applicant.cpu_skills %>
