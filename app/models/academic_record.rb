@@ -24,4 +24,20 @@ class AcademicRecord < ActiveRecord::Base
     record
   end
 
+  def for_admin
+    str = <<-HTML
+      <b>University:</b> #{self.university}<br>
+      <b>Start:</b> #{self.start}<br>
+      <b>Finish:</b> #{self.finish}<br>
+      <b>Major:</b> #{self.major}<br>
+      <b>Minor:</b> #{self.minor}<br>
+      <b>Is this a community collection?:</b> #{self.community}<br>
+      <b>Is this a PhD granting institution?</b> #{self.phd}<br>
+      <b>Is this a Historically Black College or University?</b> #{self.historic}<br>
+      <b>Is this a tribal college?</b> #{self.tribal}<br>
+      <b>GPA:</b> #{self.gpa} out of #{self.gpa_range}<br>
+      <strong>Transcript:</strong> <a href="#{self.transcript.url}">Download</a><br>
+    HTML
+    str.html_safe
+  end
 end

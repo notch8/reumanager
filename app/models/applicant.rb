@@ -246,8 +246,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def name
-    name = ""
-    name += "#{self.first_name} #{self.last_name}"
+    "#{self.first_name} #{self.last_name}"
   end
 
   # I needed to create a method in order to return a custom field in rails admim.
@@ -355,5 +354,61 @@ class Applicant < ActiveRecord::Base
     validates_academic_info
     validates_recommender_info
   end
+
+  def academic_info_html
+    str = <<-HTML
+      #{self.records.map(&:for_admin).join('<br />')}<br>
+      <b>GPA Comments:</b> #{Markdown.render(self.gpa_comment)}<br>
+      <strong>Awards</strong><br>
+      #{self.awards.map(&:for_admin).join('<br />')}
+    HTML
+    str.html_safe
+  end
+
+  def for_admin_html
+    str = <<-HTML
+    <b>Name:</b> #{self.try(:name)}<br>
+    <b>Email:</b> #{self.try(:email)}<br>
+    <b>Phone:</b> #{self.try(:phone)}<br>
+    <b>Cell Phone:</b> #{self.try(:cell_phone)}<br>
+    <b>DOB:</b>  #{self.try(:dob)}<br>
+    <b>Gender:</b>  #{self.try(:gender)}<br>
+    <b>LGBT Community:</b>  #{self.try(:member_of_lgbt_community)}<br>
+    <b>Hispanic:</b>  #{self.try(:hispanic)}<br>
+    <b>Native:</b>  #{self.try(:native)}<br>
+    <b>Pacific:</b>  #{self.try(:pacific)}<br>
+    <b>Asian:</b>  #{self.try(:asian)}<br>
+    <b>Caucasian:</b>  #{self.try(:caucasian)}<br>
+    <b>Other:</b>  #{self.try(:other)}<br>
+    <b>Non-Disclosed:</b>  #{self.try(:non_disclosed)}<br>
+    <b>Father's Highest Education:</b>  #{self.try(:fathers_highest_education)}<br>
+    <b>Mother's HIghest Education:</b>  #{self.try(:mothers_highest_education)}<br>
+    <b>Disability:</b>  #{self.try(:disability)}<br>
+    <b>Citizenship:</b>  #{self.try(:citizenship)}<br>
+    <b>Green Card:</b>  #{self.try(:green_card_holder)}<br>
+    <b>Military:</b>  #{self.try(:military)}<br>
+    <b>Veteran Info:</b>  #{self.try(:veteran_information)}<br>
+    <h4>Resume:</h4>
+    <a href='#{self.resume.url.gsub(/submitteds|applicantss|rejected|applied/, 'applicants')}'>Download Resume</a><br />
+    <h4>Research Interests:</h4>
+    <b>Research Interest 1:</b> #{self.interest.try(:research_interest_1)}<br>
+    <b>Research Interest 2:</b> #{self.interest.try(:research_interest_2)}<br>
+    <b>Research Interest 3:</b> #{self.interest.try(:research_interest_3)}<br>
+    <h4>Skills and Experience:</h4>
+    <b>CPU Skills:</b><br /> #{self.interest.try(:cpu_skills)}<br /><br />
+    <b>Research Experience:</b><br /> #{self.interest.try(:research_experience)}<br /><br />
+    <b>Leadership Experience:</b><br /> #{self.interest.try(:leadership_experience)}<br /><br />
+    <b>Programming Experience:</b><br /> #{self.interest.try(:programming_experience)}<br /><br />
+    <b>Lab Skills:</b><br /> #{self.interest.try(:laboratory)}<br /><br />
+    <b>Which scientific research areas, and aspects of scientific research, interest you? Which of the current research programs at BIOS would you like to participate in, given the opportunity, and why?</b><br /> #{self.interest.try(:bios_interest)}<br /><br />
+    <b>Summarize your education background including courses relevant to the scientific research areas of interest:</b><br /> #{self.interest.try(:education_background)}<br /><br />
+    <b>Discuss your future education and career goals, ensuring that you identify the potential role of this REU program in achieving these goals:</b><br /> #{self.interest.try(:career_goals)}<br /><br />
+    <b>Please add anything else that you would like us to be aware of prior to considering your application. For example, if your undergraduate record is inconsistent, there may be valid reasons for this and you could state these here:</b><br /> #{self.interest.try(:extra)}<br /><br />
+    <b>I give permission for my email address to be shared with other REU ocean science sites for consideration:</b><br /> #{self.interest.try(:email_permission)}<br /><br />
+    <b>REU Experience:</b><br /> #{self.interest.try(:reu_experience)}<br /><br />
+    HTML
+    str.html_safe
+  end
+
 
 end

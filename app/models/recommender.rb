@@ -20,8 +20,29 @@ class Recommender < ActiveRecord::Base
   end
 
   def to_s
-    recommender = "#{self.name} (#{self.email})<br /> #{self.title}, #{self.department}, #{self.organization}"
+    "#{self.name} (#{self.email})<br /> #{self.title}, #{self.department}, #{self.organization}"
   end
+
+  def for_admin
+    str = <<-HTML
+      <div>
+        <strong>Recommender: #{self.name}</strong><br>
+        <b>Title:</b> #{self.title}<br />
+        <b>Department:</b> #{self.department}<br />
+        <b>Organization:</b> #{self.organization}<br />
+        <b>URL:</b> #{self.url}<br />
+        <b>Email:</b> #{self.email}<br />
+        <b>Phone:</b> #{self.phone}<br />
+        <b>Address:</b> #{self.address}<br />
+        <b>City:</b> #{self.city}<br />
+        <b>State:</b> #{self.state}<br />
+        <b>Zip:</b> #{self.state}<br />
+        <b>Country:</b> #{self.country}<br />
+      </div>
+    HTML
+    str.html_safe
+  end
+
 
   private
 
