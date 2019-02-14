@@ -17,6 +17,8 @@ RailsAdmin.config do |config|
 
   config.default_items_per_page = 50
 
+  config.label_methods = [:for_admin, :name, :title, :to_s]
+
   config.actions do
     # root actions
     dashboard                     # mandatory
@@ -87,120 +89,30 @@ RailsAdmin.config do |config|
       field :personal_info do
         label "Personal Information and Research Interest"
         formatted_value do
-          applicant = bindings[:object]
-            "<b>Name:</b> #{applicant.name if applicant.name}<br />
-            <b>Email:</b> #{applicant.email if applicant.email}<br />
-            <b>Phone:</b> #{applicant.phone if applicant.phone}<br />
-            <b>Cell Phone:</b> #{applicant.cell_phone if applicant.cell_phone}<br />
-            <b>DOB:</b>  #{applicant.dob if applicant.dob}<br />
-            <b>Gender:</b>  #{applicant.gender if applicant.gender}<br />
-            <b>LGBT Community:</b>  #{applicant.member_of_lgbt_community if applicant.member_of_lgbt_community}<br />
-            <b>Hispanic/Latino:</b>  #{applicant.hispanic if applicant.hispanic}<br />
-            <b>Native:</b>  #{applicant.native if applicant.native}<br />
-            <b>Pacific:</b>  #{applicant.pacific if applicant.pacific}<br />
-            <b>Asian:</b>  #{applicant.asian if applicant.asian}<br />
-            <b>Caucasian:</b>  #{applicant.caucasian if applicant.caucasian}<br />
-            <b>Other:</b>  #{applicant.other if applicant.other}<br />
-            <b>Non-Disclosed:</b>  #{applicant.non_disclosed if applicant.non_disclosed}<br />
-            <b>Father's Highest Education:</b>  #{applicant.fathers_highest_education if applicant.fathers_highest_education}<br />
-            <b>Mother's Highest Education:</b>  #{applicant.mothers_highest_education if applicant.mothers_highest_education}<br />
-            <b>Disability:</b>  #{applicant.disability if applicant.disability}<br />
-            <b>Citizenship:</b>  #{applicant.citizenship if applicant.citizenship}<br />
-            <b>Green Card:</b>  #{applicant.green_card_holder if applicant.green_card_holder}<br />
-            <b>Military:</b>  #{applicant.military if applicant.military}<br />
-            <b>Veteran Info:</b>  #{applicant.veteran_information if applicant.veteran_information}<br />
-            <h4>Resume:</h4>
-            <a href='#{applicant.resume.url.gsub(/submitteds|applicantss|rejected|applied/, 'applicants')}'>Download Resume</a><br />
-            <h4>Research Interest:</h4>
-            <b>Research Interest 1:</b> #{applicant.interest.research_interest_1}<br />
-            <b>Research Interest 2:</b> #{applicant.interest.research_interest_2}<br />
-            <b>Research Interest 3:</b> #{applicant.interest.research_interest_3}<br />
-            <h4>Skills and Experience:</h4>
-            <b>CPU Skills:</b><br /> #{applicant.interest.cpu_skills}<br /><br />
-            <b>Research Experience:</b><br /> #{applicant.interest.research_experience}<br /><br />
-            <b>Leadership Experience:</b><br /> #{applicant.interest.leadership_experience}<br /><br />
-            <b>Programming Experience:</b><br /> #{applicant.interest.programming_experience}<br /><br />
-            <b>Lab Skills:</b><br /> #{applicant.interest.laboratory}<br /><br />
-            <b>Which scientific research areas, and aspects of scientific research, interest you? Which of the current research programs at BIOS would you like to participate in, given the opportunity, and why?</b><br /> #{applicant.interest.bios_interest}<br /><br />
-            <b>Summarize your education background including courses relevant to the scientific research areas of interest:</b><br /> #{applicant.interest.education_background}<br /><br />
-            <b>Discuss your future education and career goals, ensuring that you identify the potential role of this REU program in achieving these goals:</b><br /> #{applicant.interest.career_goals}<br /><br />
-            <b>Please add anything else that you would like us to be aware of prior to considering your application. For example, if your undergraduate record is inconsistent, there may be valid reasons for this and you could state these here:</b><br /> #{applicant.interest.extra}<br /><br />
-            <b>I give permission for my email address to be shared with other REU ocean science sites for consideration:</b><br /> #{applicant.interest.email_permission}<br /><br />
-            <b>REU Experience:</b><br /> #{applicant.interest.reu_experience}".html_safe
+          bindings[:object].for_admin_html
         end
       end
 
-      field :address do
+      field :addresses do
         label "Address"
-        formatted_value do
-          applicant = bindings[:object]
-          applicant.addresses.map do |address|
-            "<b>Label:</b> #{address.label}<br />
-            <b>Is this address permanent?</b> #{address.permanent}<br />
-            <b>Street Address:</b> #{address.address}<br />
-            <b>Apartment:</b> #{address.address2}<br />
-            <b>City:</b> #{address.city}<br />
-            <b>State:</b> #{address.state}<br />
-            <b>Zip:</b> #{address.zip}<br />"
-          end.join('</br>').html_safe
-        end
       end
 
       field :academic_info do
-        label "Acedemic Information"
+        label "Academic Information"
         formatted_value do
-          applicant = bindings[:object]
-          academic_information = applicant.records.map do |record|
-            "<b>University:</b> #{record.university}<br />
-            <b>Start:</b> #{record.start}<br />
-            <b>Finish:</b> #{record.finish}<br />
-            <b>Major:</b> #{record.major}<br />
-            <b>Minor:</b> #{record.minor}<br />
-            <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />
-            <b>Transcript:</b> <a href='#{record.transcript.url}'>Download Transcript</a><br />"
-          end.join('<br />')
-          academic_information += "<br /><b>GPA Comments:</b> #{applicant.gpa_comment}"
-
-          academic_information += applicant.awards.map do |award|
-            "<b>Title:</b> #{award.title}<br />
-            <b>Date:</b> #{award.date}<br />
-            <b>Description:</b> #{award.description}<br />"
-          end.join('<br />')
-          academic_information.html_safe
+          bindings[:object].academic_info_html
         end
       end
 
-      field :recommender do
+      field :recommenders do
         label "Recommenders"
-        formatted_value do
-          applicant = bindings[:object]
-          applicant.recommenders.map do |recommender|
-  	        "<b>First Name:</b> #{recommender.first_name}<br />
-            <b>Last Name:</b> #{recommender.last_name}<br />
-            <b>Title:</b> #{recommender.title}<br />
-            <b>Department:</b> #{recommender.department}<br />
-            <b>Organization:</b> #{recommender.organization}<br />
-            <b>URL:</b> #{recommender.url}<br />
-            <b>Email:</b> #{recommender.email}<br />
-            <b>Phone:</b> #{recommender.phone}<br />
-            <b>Address:</b> #{recommender.address}<br />
-            <b>City:</b> #{recommender.city}<br />
-            <b>State:</b> #{recommender.state}<br />
-            <b>Zip:</b> #{recommender.state}<br />
-            <b>Country:</b> #{recommender.country}<br />"
-          end.join('</br>').html_safe
-        end
       end
 
-      field :recommendation_info do
-        formatted_value do
-          applicant = bindings[:object]
-          recommendations = applicant.recommendations
-
-          bindings[:view].render(:partial => 'applicant_recommendations', :locals => {:applicant => applicant, :recommendations => recommendations, :view_bindings => bindings[:view]})
-        end
+      field :recommendations do
+        label "Recommendations"
       end
     end
+
 
     edit do
       field :state, :enum do
