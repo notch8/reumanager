@@ -159,7 +159,7 @@ RailsAdmin.config do |config|
             <b>GPA:</b> #{record.gpa} out of #{record.gpa_range}<br />
             <b>Transcript:</b> <a href='#{record.transcript.url}'>Download Transcript</a><br />"
           end.join('<br />')
-          academic_information += "<br /><b>GPA Comments:</b> #{Markdown.render applicant.gpa_comment}"
+          academic_information += "<br /><b>GPA Comments:</b> #{applicant.gpa_comment}"
 
           academic_information += applicant.awards.map do |award|
             "<b>Title:</b> #{award.title}<br />
