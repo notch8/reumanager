@@ -241,6 +241,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def set_state
+    return if self.submitted? || self.complete? || self.accepted? || self.rejected?
     case
     when !self.validates_personal_info
       self.incomplete_personal_info
