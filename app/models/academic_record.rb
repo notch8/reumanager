@@ -21,4 +21,18 @@ class AcademicRecord < ActiveRecord::Base
     record
   end
 
+  def for_admin
+  str = <<-HTML
+    <b>University:</b> #{self.university}<br>
+    <b>Start:</b> #{self.start}<br>
+    <b>Finish:</b> #{self.finish}<br>
+    <b>Degree:</b> #{self.degree}<br>
+    <b>Major:</b> #{self.major}<br>
+    <b>Minor:</b> #{self.minor}<br>
+    <b>GPA:</b> #{self.gpa} out of #{self.gpa_range}<br>
+    <strong>Transcript:</strong> <a href="#{self.transcript.url}">Download</a><br>
+  HTML
+  str.html_safe
+  end
+
 end
