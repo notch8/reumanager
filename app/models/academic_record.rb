@@ -23,14 +23,14 @@ class AcademicRecord < ActiveRecord::Base
 
   def for_admin
   str = <<-HTML
-    <b>University:</b> #{self.university}<br>
-    <b>Start:</b> #{self.start}<br>
-    <b>Finish:</b> #{self.finish}<br>
-    <b>Degree:</b> #{self.degree}<br>
-    <b>Major:</b> #{self.major}<br>
-    <b>Minor:</b> #{self.minor}<br>
-    <b>GPA:</b> #{self.gpa} out of #{self.gpa_range}<br>
-    <strong>Transcript:</strong> <a href="#{self.transcript.url}">Download</a><br>
+  <b>University:</b> #{self.try(:university)}<br>
+  <b>Start:</b> #{self.try(:start)}<br>
+  <b>Finish:</b> #{self.try(:finish)}<br>
+  <b>Degree:</b> #{self.try(:degree)}<br>
+  <b>Major:</b> #{self.try(:major)}<br>
+  <b>Minor:</b> #{self.try(:minor)}<br>
+  <b>GPA:</b> #{self.try(:gpa)} out of #{self.try(:gpa_range)}<br>
+  <strong>Transcript:</strong> <a href="#{self.transcript.url}">Download</a><br>
   HTML
   str.html_safe
   end
