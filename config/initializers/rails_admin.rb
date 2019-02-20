@@ -2,6 +2,7 @@
 # See github.com/sferik/rails_admin for more informations
 require Rails.root.join('lib', 'admin_accept')
 require Rails.root.join('lib', 'admin_reject')
+require Rails.root.join('lib', 'rails_admin', 'custom_actions')
 
 RailsAdmin.config do |config|
   config.authenticate_with do
@@ -28,6 +29,7 @@ RailsAdmin.config do |config|
     export
     history_index
     bulk_delete
+    generate_pdf
     # member actions
     show
     edit
