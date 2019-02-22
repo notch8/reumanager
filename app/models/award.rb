@@ -3,8 +3,6 @@ class Award < ActiveRecord::Base
 
   belongs_to :applicant, :class_name => "Applicant", :foreign_key => "applicant_id"
 
-  validates :title, :presence => true
-
   def to_s
     "#{self.title} - #{self.description}"
   end
