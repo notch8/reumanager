@@ -29,8 +29,4 @@ class Interest < ActiveRecord::Base
   validates :research_interest_2, presence: true
   validates :research_interest_3, presence: true
 
-  def to_s
-    "#{self.interest}"
-  end
-
 end
