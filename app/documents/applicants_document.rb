@@ -3,9 +3,6 @@ class ApplicantsDocument
   include Prawn::View
   attr_accessor :applicants, :applicant
 
-
-
-
   def initialize(applicants)
     @applicants = applicants
 
