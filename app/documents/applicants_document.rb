@@ -3,8 +3,18 @@ class ApplicantsDocument
   include Prawn::View
   attr_accessor :applicants, :applicant
 
+
+
+
   def initialize(applicants)
     @applicants = applicants
+
+    font_families.update(
+     "DejaVuSans" => {
+     :normal => "app/assets/fonts/DejaVuSans.ttf",
+     :bold => "app/assets/fonts/DejaVuSans-Bold.ttf"
+     }
+    )
   end
 
   def build
@@ -21,12 +31,15 @@ class ApplicantsDocument
 
   def header
     pad_bottom(10){
+      font('DejaVuSans') do
     text "<b>Application for: #{applicant.name}</b>", :size => 30, :inline_format => true
     stroke_horizontal_rule
+  end
     }
   end
 
   def personal_info
+    font('DejaVuSans') do
     pad(5) {
       text "<b><u>Personal Information</b></u>", :size => 17, :inline_format => true
       text "<b>Applicant:</b> #{applicant.name}", :inline_format => true
@@ -67,8 +80,10 @@ class ApplicantsDocument
       end
     }
   end
+  end
 
   def skills_and_experience
+    font('DejaVuSans') do
     text "<b><u>Skills and Experience</b></u>", :size => 17, :inline_format => true
     pad_bottom(10) {
       pad(5) {
@@ -93,8 +108,10 @@ class ApplicantsDocument
       }
     }
   end
+  end
 
   def academic_information
+    font('DejaVuSans') do
     pad_bottom(10) {
       text "<b><u>Academic Information</b></u>", :size => 17, :inline_format => true
       applicant.records.map do |record|
@@ -126,8 +143,10 @@ class ApplicantsDocument
       }
     }
   end
+  end
 
   def recommenders
+    font('DejaVuSans') do
     pad_bottom(10) {
       text "<b><u>Recommenders</b></u>", :size => 17, :inline_format => true
       applicant.recommenders.map do |recommender|
@@ -144,8 +163,10 @@ class ApplicantsDocument
       end
     }
   end
+  end
 
   def recommendations
+    font('DejaVuSans') do
     pad_bottom(10) {
       text "<b><u>Recommendations</b></u>", :size => 17, :inline_format => true
       applicant.recommendations.each do |recommendation|
@@ -162,4 +183,5 @@ class ApplicantsDocument
     }
     start_new_page
   end
+end
 end
