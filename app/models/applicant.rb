@@ -389,7 +389,7 @@ class Applicant < ActiveRecord::Base
     <b>Military:</b>  #{self.try(:military)}<br>
     <b>Veteran Info:</b>  #{self.try(:veteran_information)}<br>
     <h4>Resume:</h4>
-    <a href='#{self.resume.url.gsub(/submitteds|applicantss|rejected|applied/, 'applicants')}'>Download Resume</a><br />
+    <a href='#{self.resume.url.gsub(/submitteds|applicantss|rejected|completes|applied/, 'applicants')}'>Download Resume</a><br />
     <h4>Research Interests:</h4>
     <b>Research Interest 1:</b> #{self.interest.try(:research_interest_1)}<br>
     <b>Research Interest 2:</b> #{self.interest.try(:research_interest_2)}<br>
