@@ -7,25 +7,58 @@
     <%= application_status if current_applicant %>
   </div>
 
-  <div class="panel-heading">Contact Info</div>
+  <div class="panel-heading">Contact Information</div>
     <div class="panel-body">
 
     <ul class="form-group">
-      <li><b>Name</b>  <%= current_applicant.name if current_applicant.name %></li>
-      <li><b>Email</b> <%= current_applicant.email %></li>
-      <li><b>Phone</b> <%= current_applicant.phone if current_applicant.phone %></li>
-      <li><b>Address</b>  <%= current_applicant.address %></li>
+      <li><b>Name:</b>  <%= current_applicant.name if current_applicant.name %></li>
+      <li><b>Email:</b> <%= current_applicant.email %></li>
+      <li><b>Phone:</b> <%= current_applicant.phone if current_applicant.phone %></li>
+      <li><b>Citizenship:</b>  <%= current_applicant.citizenship %></li><br />
+
+      <%- current_applicant.addresses.each do |address| -%>
+        <%- if address.to_s.present? -%>
+          <li><b>Label:</b> <%= address.label %></li>
+          <li><b>Is this address permanent?</b> <%= address.permanent %></li>
+          <li><b>Street Address:</b> <%= address.address %></li>
+          <li><b>Apartment:</b> <%= address.address2 %></li>
+          <li><b>City:</b> <%= address.city %></li>
+          <li><b>State:</b> <%= address.state %></li>
+          <li><b>Zip:</b> <%= address.zip %></li><br />
+        <%- end -%>
+      <%- end -%>
+    </ul>
+
+  </div>
+
+  <div class="panel-heading">Personal Information</div>
+    <div class="panel-body">
+
+    <ul class="form-group">
+      <li><b>Date of Birth:</b>  <%= current_applicant.dob %></li>
+      <li><b>Gender:</b> <%= current_applicant.gender %></li>
+      <li><b>Ethnicity:</b> <%= current_applicant.ethnicity %></li>
+      <li><b>Race:</b>  <%= current_applicant.race %></li>
+      <li><b>Disability:</b>  <%= current_applicant.disability %></li>
+      <li><b>Are you a veteran of the USA military?</b>  <%= current_applicant.military %></li>
     </ul>
   </div>
 
-  <hr class='clear inner' />
-
   <div class="panel-heading">Personal Statement</div>
-  <div class="panel-body">
-    <%= raw Markdown.render(current_applicant.statement) if current_applicant.statement %>
+    <div class="panel-body">
+
+    <ul class="form-group">
+      <li><%= current_applicant.statement if current_applicant.statement %></li>
+    </ul>
   </div>
 
-  <hr class='clear inner' />
+  <div class="panel-heading">How did you hear about us?</div>
+    <div class="panel-body">
+
+    <ul class="form-group">
+      <li><%= current_applicant.found_us %></li>
+    </ul>
+  </div>
 
   <div class="panel-heading">Recommenders</div>
   <div class="panel-body">
@@ -38,32 +71,41 @@
       <%- end -%>
     </ul>
     <%=link_to "Add a Recommender", applicants_recommenders_url, :class => 'btn btn-default' %>
-
   </div>
 
-  <hr class='clear inner' />
-
-  <div class="panel-heading">Academic Info</div>
+  <div class="panel-heading">Academic Information</div>
   <div class="panel-body">
 
-    <ul>
+    <ul class="form-group">
       <%- current_applicant.records.each do |record| -%>
         <%- if record.to_s.present? -%>
           <li><%= raw record.to_s %></li>
+          <li><b>Major:</b> <%= record.major %></li>
+          <li><b>Minor:</b> <%= record.minor %></li>
+          <li><b>GPA:</b> <%= record.gpa %> out of <%= record.gpa_range %></li><br />
         <%- end -%>
       <%- end -%>
 
-      <%- current_applicant.awards.each do |award| -%>
-        <li><b>Award</b> <%= award %></li>
-      <%- end -%>
+      <li><b>GPA Comments:</b> <%= raw(Markdown.render(current_applicant.gpa_comment)) if current_applicant.gpa_comment %></li>
 
-      <li><b>Computer Skills</b> <%=raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %></li>
-      <li><b>Laboratory Skills</b> <%=raw(Markdown.render(current_applicant.lab_skills)) if current_applicant.lab_skills %></li>
+      <%- current_applicant.awards.each do |award| -%>
+        <li><b>Award:</b> <%= award %></li>
+      <%- end -%>
+    </ul>
+  </div>
+
+  <div class="panel-heading">Skills and Experience</div>
+  <div class="panel-body">
+
+    <ul class="form-group">
+      <li><b>Computer Skills:</b> <%= raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %>
+      <li><b>Laboratory Skills:</b> <%=raw(Markdown.render(current_applicant.lab_skills)) if current_applicant.lab_skills %></li>
     </ul>
   </div>
 </div>
 
 <% if current_applicant.state == 'completed_recommender_info' %>
+  <%= raw Snippet[:submit_application_heading] %>
   <%= content_tag :div, content_tag(:p, link_to("Submit Application", submit_application_path, :class => "btn btn-success")), :class => 'inner' %>
 <% elsif expired? %>
   <h3>The application deadline has past</h3>
@@ -73,9 +115,9 @@
 <% if !expired? %>
   <div class="inner">
     <%= content_tag :p, link_to("Edit Application Data", edit_applicant_registration_path(current_applicant), :class => "btn btn-mini btn-ar btn-primary") + raw("&nbsp;&nbsp;&nbsp;") unless current_applicant.submitted_at %>
-    <p>Changed your mind? <%= link_to "Delete your application", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-mini btn-danger" %></p>
+    <p>Please note deleting your application will delete your account too <%= link_to "Delete your application", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => "btn btn-mini btn-danger" %></p>
     <% unless current_applicant.state == 'complete' || current_applicant.state == 'submitted' %>
-      <small><strong>You can <%= link_to "logout", destroy_applicant_session_path, :method => :delete %> and continue you application at anytime<%= ", however, it will not be accepted until all the above data has been submitted" %>.</strong></small>
+      <small><strong>You can <%= link_to "logout", destroy_applicant_session_path, :method => :delete %> and continue your application at anytime<%= ", however, it will not be accepted until all the above data has been submitted" %>.</strong></small>
     <%- end -%>
   </div>
 <% end %>
