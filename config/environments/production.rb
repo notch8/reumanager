@@ -67,5 +67,5 @@ Reuman::Application.configure do
   config.action_mailer.smtp_settings = { :enable_starttls_auto => false, :host => 'localhost' }
   Rails.application.routes.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/bios' }
 
-  config.action_controller.relative_url_root = '/bios'
+  config.action_controller.relative_url_root = 'http://www.reumanager.com/bios'
 end

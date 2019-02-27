@@ -33,7 +33,7 @@ Reuman::Application.configure do
   #config.action_mailer.default_url_options = { :host => 'localhost:3000/test' }
   Rails.application.routes.default_url_options = { :host => 'localhost:3000' }
 
-  #For web-console gem to work 
+  #For web-console gem to work
   config.web_console.whitelisted_ips = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16']
 
   config.action_mailer.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/seti' }
@@ -46,5 +46,5 @@ Reuman::Application.configure do
   }
   config.time_zone = 'Pacific Time (US & Canada)'
 
-  # config.action_controller.relative_url_root = '/demo'
+  config.action_controller.relative_url_root = 'http://localhost:3000'
 end
