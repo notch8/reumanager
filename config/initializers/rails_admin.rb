@@ -27,9 +27,9 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     export
+    generate_pdf
     history_index
     bulk_delete
-    generate_pdf
     # member actions
     show
     edit
