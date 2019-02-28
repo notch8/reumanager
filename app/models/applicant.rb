@@ -386,6 +386,7 @@ class Applicant < ActiveRecord::Base
 
     <h4>Skills and Experience:</h4>
     <b>CPU Skills:</b><br /> #{self.try(:cpu_skills)}<br /><br />
+    <b>Lab Skills:</b><br /> #{self.try(:lab_skills)}<br /><br />
     <b>Research Experience:</b><br /> #{self.try(:research_experience)}<br /><br />
     <b>Recent Achievement:</b><br /> #{self.try(:recent_achievement)}<br /><br />
     HTML
