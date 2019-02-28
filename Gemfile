@@ -18,6 +18,7 @@ gem 'kaminari'
 gem 'mysql2', '0.3.15'
 gem 'paperclip'
 gem 'paper_trail'
+gem 'prawn'
 gem 'rails_admin'
 gem 'redcarpet'
 gem 'rich', :git => "https://github.com/joeswann/rich.git"
