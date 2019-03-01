@@ -8,8 +8,8 @@ class ApplicantsDocument
 
     font_families.update(
      "DejaVuSans" => {
-     :normal => "app/assets/fonts/DejaVuSans.ttf",
-     :bold => "app/assets/fonts/DejaVuSans-Bold.ttf"
+     normal: "app/assets/fonts/DejaVuSans.ttf",
+     bold: "app/assets/fonts/DejaVuSans-Bold.ttf"
      }
     )
 
