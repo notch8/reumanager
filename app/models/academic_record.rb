@@ -23,7 +23,6 @@ class AcademicRecord < ActiveRecord::Base
   def for_admin
   str = <<-HTML
     <b>University:</b> #{self.university}<br>
-    <b>Academic Level:</b> #{self.university}<br>
     <b>Finish:</b> #{self.finish}<br>
     <b>Major:</b> #{self.major}<br>
     <b>Minor:</b> #{self.minor}<br>
