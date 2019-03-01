@@ -108,7 +108,7 @@
       <%- end -%>
 
       <li><b>Computer Skills</b> <%=raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %></li>
-      <li><b>Laboratory Skills</b> <%=raw(Markdown.render(current_applicant.lab_skills)) if current_applicant.lab_skills %></li>
+      <li><b>Laboratory Skills/Past Research</b> <%=raw(Markdown.render(current_applicant.previous_research)) if current_applicant.lab_skills %></li>
     </ul>
   </div>
 </div>

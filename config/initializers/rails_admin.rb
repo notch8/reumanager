@@ -17,6 +17,8 @@ RailsAdmin.config do |config|
 
   config.default_items_per_page = 50
 
+  config.label_methods = [:for_admin, :name, :title, :to_s]
+
   config.actions do
     # root actions
     dashboard                     # mandatory
@@ -85,47 +87,25 @@ RailsAdmin.config do |config|
 
     show do
       field :personal_info do
-        label "Personal Info"
+        label "Personal Information and Research Interest"
         formatted_value do
-          applicant = bindings[:object]
-          bindings[:view].raw %{<b>Email</b> #{applicant.email}<br />
-            <b>Phone</b> #{applicant.phone if applicant.phone}<br />
-            <b>Address</b>  #{applicant.address}
-
-          <h4>Statement</h4>
-          #{Markdown.render applicant.statement if applicant.statement}
-
-          <h4>Additional Info</h4>
-          #{Markdown.render applicant.additional_info if applicant.additional_info}
-
-          <b>Found Us:</b>
-          #{applicant.found_us if applicant.found_us}<br />
-
-          <h4>Top Choices</h4>
-          #{Markdown.render applicant.top_choices if applicant.top_choices} <br />
-          }
+          bindings[:object].for_admin_html
         end
       end
 
+      field :addresses do
+        label "Address"
+      end
+
       field :academic_info do
+        label "Academic Information"
         formatted_value do
-          applicant = bindings[:object]
-          records = applicant.records
-          awards = applicant.awards
-          if(applicant.records.present?)
-            link_item = bindings[:view].link_to(applicant.records.last.transcript_file_name, applicant.transcript.url)
-          else
-            link_item = false
-          end
-          bindings[:view].render(:partial => 'applicant_academic_records',
-                                 :locals => {:link => link_item,
-                                             :applicant => applicant,
-                                             :records => records,
-                                             :awards => awards,
-                                             :view_bindings => bindings[:view]
-                                            }
-                                )
+          bindings[:object].academic_info_html
         end
+      end
+
+      field :recommenders do
+        label "Recommenders"
       end
 
       field :recommendation_info do
@@ -137,12 +117,6 @@ RailsAdmin.config do |config|
         end
       end
 
-      field :demographic_info do
-        formatted_value do
-          applicant = bindings[:object]
-          bindings[:view].render(:partial => 'applicant_demographics', :locals => {:applicant => applicant, :view_bindings => bindings})
-        end
-      end
     end
 
     edit do
