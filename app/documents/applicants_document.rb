@@ -7,10 +7,10 @@ class ApplicantsDocument
     @applicants = applicants
 
     font_families.update(
-     "DejaVuSans" => {
-     normal: 'app/assets/fonts/DejaVuSans.ttf',
-     bold: 'app/assets/fonts/DejaVuSans-Bold.ttf'
-     }
+      'DejaVuSans': {
+        normal: 'app/assets/fonts/DejaVuSans.ttf',
+        bold: 'app/assets/fonts/DejaVuSans-Bold.ttf'
+      }
     )
 
   end
