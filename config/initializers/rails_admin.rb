@@ -2,6 +2,7 @@
 # See github.com/sferik/rails_admin for more informations
 require Rails.root.join('lib', 'admin_accept')
 require Rails.root.join('lib', 'admin_reject')
+require Rails.root.join('lib', 'rails_admin', 'custom_actions')
 
 RailsAdmin.config do |config|
   config.authenticate_with do
@@ -17,6 +18,8 @@ RailsAdmin.config do |config|
 
   config.default_items_per_page = 50
 
+  config.label_methods = [:for_admin, :name, :title, :to_s]
+
   config.actions do
     # root actions
     dashboard                     # mandatory
@@ -24,6 +27,7 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     export
+    generate_pdf
     history_index
     bulk_delete
     # member actions
@@ -84,38 +88,27 @@ RailsAdmin.config do |config|
     end
 
     show do
-      field :personal_info do
-        label "Personal Info"
-        formatted_value do
-          applicant = bindings[:object]
-          bindings[:view].raw %{<b>Email</b> #{applicant.email}<br />
-            <b>Phone</b> #{applicant.phone if applicant.phone}<br />
-            <b>Address</b>  #{applicant.address}
 
-          <h4>Statement</h4>
-          #{Markdown.render applicant.statement if applicant.statement}}
+      field :personal_info do
+        label "Personal Information"
+        formatted_value do
+          bindings[:object].for_admin_html
         end
       end
 
+      field :addresses do
+        label "Address"
+      end
+
       field :academic_info do
+        label "Academic Information"
         formatted_value do
-          applicant = bindings[:object]
-          records = applicant.records
-          awards = applicant.awards
-          if(applicant.records.present?)
-            link_item = bindings[:view].link_to(applicant.records.last.transcript_file_name, applicant.transcript.url)
-          else
-            link_item = false
-          end
-          bindings[:view].render(:partial => 'applicant_academic_records',
-                                 :locals => {:link => link_item,
-                                             :applicant => applicant,
-                                             :records => records,
-                                             :awards => awards,
-                                             :view_bindings => bindings[:view]
-                                            }
-                                )
+          bindings[:object].acedemic_info_html
         end
+      end
+
+      field :recommenders do
+        label "Recommenders"
       end
 
       field :recommendation_info do
@@ -127,12 +120,6 @@ RailsAdmin.config do |config|
         end
       end
 
-      field :demographic_info do
-        formatted_value do
-          applicant = bindings[:object]
-          bindings[:view].render(:partial => 'applicant_demographics', :locals => {:applicant => applicant, :view_bindings => bindings})
-        end
-      end
     end
 
     edit do
