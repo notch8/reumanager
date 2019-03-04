@@ -65,7 +65,7 @@ class ApplicantsDocument
     pad_bottom(10){
       pad(5) {
       text "<b>Resume</b>", :size => 14, :inline_format => true
-      text "<b>Resume:</b> <a href='#{applicant.resume.url.gsub(/submitteds|applicantss|rejected|completes|applied/, 'applicants')}'>Download</a>", :inline_format => true
+      text "<b>Resume:</b> <a href='#{ApplicationController.helpers.asset_url(applicant.resume.url.gsub(/submitteds|applicantss|rejecteds|completes|accepteds|applieds/, 'applicants'))}'>Download</a>", :inline_format => true
       }
     }
     pad_bottom(10){
@@ -161,7 +161,7 @@ class ApplicantsDocument
         text "<b>Is this a Historically Black College or University?</b> #{record.historic}", :inline_format => true
         text "<b>Is this a tribal college?</b> #{record.tribal}", :inline_format => true
         text "<b>GPA:</b> #{record.gpa} out of #{record.gpa_range}", :inline_format => true
-        text "<b>Transcript:</b> <a href='#{record.transcript.url}'>Download</a>", :inline_format => true
+        text "<b>Transcript:</b> <a href='#{ApplicationController.helpers.asset_url(applicant.transcript.url)}'>Download</a>", :inline_format => true
         }
       end
       pad(5) {
