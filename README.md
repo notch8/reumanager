@@ -18,7 +18,7 @@ Below are instructions for those who wish to install and maintain the applicatio
 
 
 
-RAILS_ENV=production bundle exec rake assets:precompile RAILS_RELATIVE_URL_ROOT=/rqi
+RAILS_ENV=production bundle exec rake assets:precompile RAILS_RELATIVE_URL_ROOT=/bios
 
 
 1) On the status page, it is noted that both of the recommendations have been received after only submitting one. Yet the application is still correctly filed under “Awaiting Recommendations” in the admin interface.
