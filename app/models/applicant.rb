@@ -20,7 +20,7 @@ class Applicant < ActiveRecord::Base
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes, :interest_attributes,
                   :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :statement_of_purpose,
                   :cell_phone, :member_of_lgbt_community, :veteran_information, :fathers_highest_education, :mothers_highest_education,
-                  :i_will_be_18
+                  :i_will_be_18, :resume
 
   has_many :addresses, :class_name => "Address", :dependent => :destroy
   has_many :records, :class_name => "AcademicRecord", :dependent => :destroy
@@ -29,7 +29,6 @@ class Applicant < ActiveRecord::Base
   has_many :recommendations, :dependent => :destroy
   has_many :recommenders, :through => :recommendations,  :dependent => :restrict_with_exception
 
-  attr_accessible :resume
   has_attached_file :resume, :url => ":rails_relative_url_root/system/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment :resume,
     content_type: { content_type: ['application/pdf','image/jpg', 'image/jpeg', 'image/gif', 'image/png'] },

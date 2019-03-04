@@ -65,15 +65,15 @@
     <br />
 
     <%= f.label :reu_experience, 'Have you had a prior NSF-REU experience?' %>
-    <%- if show_reu_experience_input? -%>
+    <%- if f.object.reu_experience.present? -%>
       <div id='reu_container' class='input-append'>
-        <%= f.text_field :reu_experience_content, class: "form-control" %>
+        <%= f.text_field :reu_experience, class: "form-control" %>
         <span class='add-on'>If you answered yes, please specify when and where.</span>
         <button id='reu_cancel' class='btn btn-ar btn-primary btn-danger' type='button'>Cancel</button>
       </div>
-      <%- else -%>
+    <%- else -%>
       <%= f.select :reu_experience, options_for_select(["No", "Yes"], current_applicant.interest.reu_experience), { :include_blank => true }, { class: "form-control" } %>
-      <%- end -%>
+    <%- end -%>
 
 
   </div>
