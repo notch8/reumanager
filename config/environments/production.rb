@@ -68,7 +68,7 @@ Reuman::Application.configure do
   Rails.application.routes.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/bios' }
 
   config.action_controller.relative_url_root = '/bios'
-  config.action_controller.asset_host = "https://reumanager.com/bios"
-  config.action_mailer.asset_host = "https://reumanager.com/bios"
+  # config.action_controller.asset_host = "https://reumanager.com/bios"
+  # config.action_mailer.asset_host = "https://reumanager.com/bios"
 
 end
