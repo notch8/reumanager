@@ -159,7 +159,7 @@ class ApplicantsDocument
         }
       end
     }
-  end
+    end
   end
 
   def recommendations
@@ -173,12 +173,12 @@ class ApplicantsDocument
         text "<b>Known Capacity:</b> #{recommendation.known_capacity}", :inline_format => true
         text "<b>Overall Promise:</b> #{recommendation.overall_promise}", :inline_format => true
         text "<b>Undergraduate Institution:</b> #{recommendation.undergraduate_institution}", :inline_format => true
-        text "<b>Received At:</b> #{applicant.recommendation.received_at}", :inline_format => true
-        text "<b>Body:</b> #{applicant.recommendation.body}", :inline_format => true
+        text "<b>Received At:</b> #{recommendation.received_at}", :inline_format => true
+        text "<b>Body:</b> #{recommendation.body}", :inline_format => true
         }
       end
     }
     start_new_page
+    end
   end
-end
 end
