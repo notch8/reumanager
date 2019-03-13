@@ -67,5 +67,8 @@ Reuman::Application.configure do
   config.action_mailer.smtp_settings = { :enable_starttls_auto => false, :host => 'localhost' }
   Rails.application.routes.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/surf' }
 
-  config.action_controller.relative_url_root = 'https://reumanager.com/surf'
+  config.action_controller.relative_url_root = '/surf'
+  # config.action_controller.asset_host = "https://reumanager.com/surf"
+  # config.action_mailer.asset_host = "https://reumanager.com/surf"
+
 end

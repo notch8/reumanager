@@ -128,7 +128,7 @@ class ApplicantsDocument
         text "<b>Major:</b> #{record.major}", :inline_format => true
         text "<b>Minor:</b> #{record.minor}", :inline_format => true
         text "<b>GPA:</b> #{record.gpa} out of #{record.gpa_range}", :inline_format => true
-        text "<b>Transcript:</b> <a href='#{record.transcript.url}'>Download</a>", :inline_format => true
+        text "<b>Transcript:</b> <a href='#{Rails.application.routes.url_helpers.root_url + applicant.transcript.url}'>Download</a>", :inline_format => true
         }
       end
       pad(5) {

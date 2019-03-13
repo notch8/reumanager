@@ -32,6 +32,8 @@ Reuman::Application.configure do
 
   #config.action_mailer.default_url_options = { :host => 'localhost:3000/test' }
   Rails.application.routes.default_url_options = { :host => 'localhost:3000' }
+  # config.action_controller.asset_host = "http://localhost:3000"
+  # config.action_mailer.asset_host = "http://localhost:3000"
 
   config.action_mailer.default_url_options = { :protocol => 'https',  :host => 'localhost:3000' }
   config.action_mailer.smtp_settings = {
@@ -43,5 +45,4 @@ Reuman::Application.configure do
   }
   config.time_zone = 'Pacific Time (US & Canada)'
 
-  config.action_controller.relative_url_root = 'http://localhost:3000'
 end
