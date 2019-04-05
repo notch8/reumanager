@@ -168,7 +168,6 @@ class Applicant < ActiveRecord::Base
       transition all => :completed_personal_info, :if => lambda { |applicant| !applicant.validates_academic_info && !applicant.validates_personal_info }
     end
 
-
     event :complete_recommender_info do
       transition :submitted => same, :if => lambda { |applicant| applicant.send_recommendations }
       transition all => :completed_recommender_info, :if => lambda { |applicant| applicant.validates_academic_info && applicant.validates_personal_info && applicant.validates_recommender_info }
@@ -277,6 +276,7 @@ class Applicant < ActiveRecord::Base
   end
 
   def set_state
+    return if self.submitted? || self.completed? || self.rejected? || self.accepted?  
     case
     when !self.validates_personal_info
       self.incomplete_personal_info
