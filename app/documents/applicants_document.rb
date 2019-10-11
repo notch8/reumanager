@@ -6,12 +6,7 @@ class ApplicantsDocument
   def initialize(applicants)
     @applicants = applicants
 
-    font_families.update(
-      'DejaVuSans': {
-        normal: 'app/assets/fonts/DejaVuSans.ttf',
-        bold: 'app/assets/fonts/DejaVuSans-Bold.ttf'
-      }
-    )
+    font_families.update(DejaVuSans: { normal: 'app/assets/fonts/DejaVuSans.ttf', bold: 'app/assets/fonts/DejaVuSans-Bold.ttf' })
 
   end
 
