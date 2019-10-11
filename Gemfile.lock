@@ -15,13 +15,6 @@ GIT
       rails
 
 GIT
-  remote: git://github.com/tagliala/client_side_validations.git
-  revision: 0e3e8dcca005d409630ecd54ba8f1c590b72ecaa
-  branch: rails-4.2
-  specs:
-    client_side_validations (4.1.0)
-
-GIT
   remote: git://github.com/thoughtbot/cocaine.git
   revision: 7d917e1c063b2d903b7f3dd21cabfc7e573d8ac8
   specs:
@@ -378,7 +371,6 @@ DEPENDENCIES
   capistrano
   capybara
   carmen-rails!
-  client_side_validations!
   cocaine!
   coffee-rails
   crack
@@ -426,3 +418,6 @@ DEPENDENCIES
   what_methods
   whenever
   wirble
+
+BUNDLED WITH
+   1.17.3
