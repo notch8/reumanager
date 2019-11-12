@@ -16,11 +16,11 @@ admins.each do |user|
 end
 
 # Demo Applicants
-10.times do
-  FactoryGirl.create(:applicant)
-  FactoryGirl.create(:applicant_with_address)
-  FactoryGirl.create(:applicant_with_address_and_record)
-  FactoryGirl.create(:applicant_with_address_record_and_recommender)
-  FactoryGirl.create(:applicant_with_recommender_and_recommendation)
-  FactoryGirl.create(:applicant_with_address_record_recommender_and_recommendation)
-end
+# 10.times do
+#   FactoryGirl.create(:applicant)
+#   FactoryGirl.create(:applicant_with_address)
+#   FactoryGirl.create(:applicant_with_address_and_record)
+#   FactoryGirl.create(:applicant_with_address_record_and_recommender)
+#   FactoryGirl.create(:applicant_with_recommender_and_recommendation)
+#   FactoryGirl.create(:applicant_with_address_record_recommender_and_recommendation)
+# end

@@ -17,3 +17,5 @@ capybara-*.html
 /config/database.yml
 .env.*
 node_modules
+/storage/*
+/public/packs/*
