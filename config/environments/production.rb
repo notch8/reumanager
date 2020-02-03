@@ -65,7 +65,9 @@ Reuman::Application.configure do
 
   config.action_mailer.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/sdni' }
   config.action_mailer.smtp_settings = { :enable_starttls_auto => false, :host => 'localhost' }
-  Rails.application.routes.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/sdni' }
+  config.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/sdni' }
+  config.action_controller.default_url_options = { :protocol => 'https',  :host => 'reumanager.com/sdni' }
 
-  config.action_controller.relative_url_root = 'https://reumanager.com/sdni'
+
+  config.action_controller.relative_url_root = '/sdni'
 end
