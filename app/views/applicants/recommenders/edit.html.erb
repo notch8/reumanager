@@ -6,7 +6,7 @@
 
       <%= errors_for @applicant %>
 
-      <p><b>Please submit contact information for 1 letter of recommendation.</b></p>
+      <p><b>Please submit contact information for 2 letters of recommendation.</b></p>
 
       <%= f.fields_for :recommenders do |builder| %>
         <%= render 'recommender_fields', f: builder %>
