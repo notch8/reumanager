@@ -44,14 +44,6 @@
     </ul>
   </div>
 
-  <div class="panel-heading">Personal Statement</div>
-    <div class="panel-body">
-
-    <ul class="form-group">
-      <li><%= current_applicant.statement if current_applicant.statement %></li>
-    </ul>
-  </div>
-
   <div class="panel-heading">How did you hear about us?</div>
     <div class="panel-body">
 
@@ -98,8 +90,13 @@
   <div class="panel-body">
 
     <ul class="form-group">
-      <li><b>Computer Skills:</b> <%= raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %>
+      <li><b>Personal Statement</b> <%= raw(Markdown.render(current_applicant.statement)) if current_applicant.statement %></li>
+      <li><b>Diversity Statement</b> <%= raw(Markdown.render(current_applicant.diversity)) if current_applicant.diversity %></li>
+      <li><b>Research Experience</b> <%= raw(Markdown.render(current_applicant.research_experience)) if current_applicant.research_experience %></li>
+      <li><b>Research Interests</b> <%= raw(Markdown.render(current_applicant.research_interests)) if current_applicant.research_interests %></li>
+      <li><b>Computer Skills:</b> <%= raw(Markdown.render(current_applicant.cpu_skills)) if current_applicant.cpu_skills %></li>
       <li><b>Laboratory Skills:</b> <%=raw(Markdown.render(current_applicant.lab_skills)) if current_applicant.lab_skills %></li>
+      <li><b>Other</b> <%= raw(Markdown.render(current_applicant.other)) if current_applicant.other %>
     </ul>
   </div>
 </div>

@@ -8,7 +8,8 @@ class Applicant < ActiveRecord::Base
                   :remember_me, :first_name, :last_name, :phone, :dob, :citizenship, :disability,
                   :gender, :ethnicity, :race, :cpu_skills, :gpa_comment, :lab_skills, :addresses_attributes,
                   :awards_attributes, :records_attributes, :recommendations_attributes, :recommenders_attributes,
-                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :mentor1, :mentor2
+                  :statement, :recommenders, :current_status, :state, :found_us, :acknowledged_dates, :military, :mentor1, :mentor2,
+                  :diversity, :research_experience, :research_interests, :other
 
   has_many :addresses, :class_name => "Address", :dependent => :destroy
   has_many :records, :class_name => "AcademicRecord", :dependent => :destroy
@@ -166,7 +167,7 @@ class Applicant < ActiveRecord::Base
     after_transition :on => :unsubmit_application, :do => lambda { |applicant| applicant.update_attribute :submitted_at, nil }
 
     event :recommendation_recieved do
-      transition :submitted => :complete, :if => lambda { |applicant| applicant.submitted? && applicant.recommendations.select {|rec| rec.received?}.size >= 2 }
+      transition :submitted => :complete, :if => lambda { |applicant| applicant.submitted? && applicant.recommendations.select {|rec| rec.received?}.size >= 1 }
     end
 
     after_transition :on => :recommendation_recieved, :do => :complete_application!
@@ -304,7 +305,6 @@ class Applicant < ActiveRecord::Base
   def validates_personal_info
     validates_presence_of :addresses, :message => "can't be blank.  Please add at least one address to your profile."
     validates_presence_of :phone, :message => "can't be blank. Please add at least one phone number to your profile."
-    validates_presence_of :statement, :message => "can't be blank. Your personal statement needs to be at least one sentence long."
 
     return true if self.errors.empty?
   end
@@ -328,7 +328,7 @@ class Applicant < ActiveRecord::Base
     validates_recommender_info
   end
 
-  def acedemic_info_html
+  def academic_info_html
     str = <<-HTML
       <strong>Academic Records</strong><br>
       #{self.records.map(&:for_admin).join('<br />')}
@@ -351,11 +351,15 @@ class Applicant < ActiveRecord::Base
       <b>Disability:</b>  #{self.try(:disability)}<br>
       <b>Citizenship:</b>  #{self.try(:citizenship)}<br>
       <b>Military:</b>  #{self.try(:military)}<br>
-      <h4>Personal Statement</h4> #{self.try(:statement)}<br>
       <h4>How did you hear about us?</h4> #{self.try(:found_us)}<br>
       <h4>Skills and Experience:</h4>
-      <b>Computer Skills:</b> #{self.try(:cpu_skills)}<br>
+      <b>Personal Statement:</b> #{self.try(:statement)}<br>
+      <b>Diversity Statement:</b> #{self.try(:diversity)}<br>
+      <b>Research Experience:</b> #{self.try(:research_experience)}<br>
+      <b>Reseach Interests:</b> #{self.try(:research_interests)}<br>
+      <b>Computer Skills::</b> #{self.try(:cpu_skills)}<br>
       <b>Laborstory Skills:</b> #{self.try(:lab_skills)}<br>
+      <b>Other:</b> #{self.try(:other)}<br>
     HTML
     str.html_safe
   end

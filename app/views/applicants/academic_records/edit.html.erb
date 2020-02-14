@@ -28,14 +28,39 @@
       <div class="add-container"><%= link_to_add_fields "Add award", f, :awards %></div>
     </div>
 
+    <div class="panel-heading">Personal Statement</div>
+    <div class="panel-body">
+      <%= f.text_area :statement, :class => 'form-control', :rows => 2, :placeholder => "What qualities and characteristics will you bring to our program as a result of your work/activities/other life experiences? Max 200 words"  %>
+    </div>
+
+    <div class="panel-heading">Diversity Statement</div>
+    <div class="panel-body">
+      <%= f.text_area :diversity, :class => 'form-control', :rows => 4, :placeholder => "An important part of our mission is to broaden the participation of underrepresented groups in science communities. Please provide a statement regarding your most significant contributions towards improving the diversity, inclusivity, and equality for members of underrepresented groups in any context. This can be based on your personal background and life experiences such as social, cultural, familial, educational, or other opportunities or challenges; Max 400 words"  %>
+    </div>
+
+    <div class="panel-heading">Research Experience</div>
+    <div class="panel-body">
+      <%= f.text_area :research_experience, :class => 'form-control', :rows => 4, :placeholder => "Max 400 words"  %>
+    </div>
+
+    <div class="panel-heading">Research Interests</div>
+    <div class="panel-body">
+      <%= f.text_area :research_interests, :class => 'form-control', :rows => 2, :placeholder => "Max 200 words"  %>
+    </div>
+
     <div class="panel-heading">Computer Skills</div>
     <div class="panel-body">
-      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any computer related skills (e.g. Application experience, programming ability, etc.)"  %>
+      <%= f.text_area :cpu_skills, :class => 'form-control', :rows => 2, :placeholder => "Max 200 words"  %>
     </div>
 
     <div class="panel-heading">Laboratory Skills</div>
     <div class="panel-body">
-      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Please list any laboratory related skills"  %>
+      <%= f.text_area :lab_skills, :class => 'form-control', :rows => 2, :placeholder => "Max 200 Words"  %>
+    </div>
+
+    <div class="panel-heading">Other</div>
+    <div class="panel-body">
+      <%= f.text_area :other, :class => 'form-control', :rows => 4, :placeholder => "Any further information that would be relevant to the selection committee. Max 400 words"  %>
     </div>
 
     <%= render "applicants/shared/nav" %>

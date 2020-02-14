@@ -103,7 +103,7 @@ RailsAdmin.config do |config|
       field :academic_info do
         label "Academic Information"
         formatted_value do
-          bindings[:object].acedemic_info_html
+          bindings[:object].academic_info_html
         end
       end
 
